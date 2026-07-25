@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Acoustic Geometry and Sound-Ray Dynamics in Relativistic Spherical Accretion"
+type: article
+authors:
+  - family-names: "Semyannikov"
+    given-names: "Alexander V."
+version: 1.0.0
+date-released: 2026-07-25
+license: CC-BY-4.0
+keywords:
+  - relativistic hydrodynamics
+  - acoustic metric
+  - analogue gravity
+  - Michel accretion
+  - Shapiro delay
+  - sound rays
+  - acoustic horizon
+  - photon sphere
+  - Hawking temperature
