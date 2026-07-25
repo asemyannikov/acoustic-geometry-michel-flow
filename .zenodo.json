@@ -6,7 +6,8 @@
   "creators": [
     {
       "name": "Semyannikov, Alexander V.",
-      "affiliation": "Independent Researcher"
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0007-0926-8272"
     }
   ],
   "description": "In analogue gravity, sound waves in a moving fluid travel along the null geodesics of an effective curved spacetime, giving a controlled setting for studying horizon physics in astrophysical accretion. The relativistic acoustic metric for spherical accretion is well known and has been used in stability and quasi-normal-mode studies, but the geometric optics of sound rays in Michel flow has received little systematic attention. We build the acoustic metric for a perfect fluid accreting onto a Schwarzschild black hole (Michel flow) and treat high-frequency sound rays as its null geodesics. From the linearized continuity–Euler–energy system we identify the causal surfaces of the geometry — the acoustic horizon (which coincides with the sonic point), the stationary-limit surface, and the ergoregion — and derive a generalized Binet equation that separates ray deflection into Einstein, refractive, and acoustic-wind parts. A local slowdown factor lets us compare acoustic and vacuum Shapiro delays, locate the acoustic photon sphere, and relate the analogue Hawking scale to hydrodynamic gradients. Results for polytropic indices γ = 4/3 and 5/3 show how the thermodynamic and flow parameters of the accretion enter acoustic lensing, time delay, and the analogue Hawking temperature, providing a geometric basis for future studies of finite-frequency acoustic, vortical, and entropy modes.",
@@ -23,6 +24,6 @@
     "photon sphere",
     "Hawking temperature"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "language": "eng"
 }

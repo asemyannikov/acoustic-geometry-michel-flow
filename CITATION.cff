@@ -5,8 +5,10 @@ type: article
 authors:
   - family-names: "Semyannikov"
     given-names: "Alexander V."
-version: 1.0.0
+    orcid: "https://orcid.org/0009-0007-0926-8272"
+version: 1.0.1
 date-released: 2026-07-25
+doi: "10.5281/zenodo.21550680"
 license: CC-BY-4.0
 keywords:
   - relativistic hydrodynamics

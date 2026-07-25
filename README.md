@@ -1,10 +1,13 @@
 # Acoustic Geometry and Sound-Ray Dynamics in Relativistic Spherical Accretion
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21550680.svg)](https://doi.org/10.5281/zenodo.21550680)
+
 This repository contains the preprint, LaTeX source, bibliography, and figures
 for:
 
-> Alexander V. Semyannikov, “Acoustic Geometry and Sound-Ray Dynamics in
-> Relativistic Spherical Accretion” (2026).
+> [Alexander V. Semyannikov](https://orcid.org/0009-0007-0926-8272),
+> “Acoustic Geometry and Sound-Ray Dynamics in Relativistic Spherical
+> Accretion” (2026).
 
 ## Abstract
 
@@ -43,8 +46,8 @@ latexmk -c
 
 ## Citation
 
-Please use the metadata in `CITATION.cff` when citing this work. A DOI will be
-added after the first Zenodo release.
+Please use the metadata in `CITATION.cff` when citing this work. The DOI for all
+versions is [10.5281/zenodo.21550680](https://doi.org/10.5281/zenodo.21550680).
 
 ## License
 
