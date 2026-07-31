@@ -1,0 +1,843 @@
+\documentclass[12pt,a4paper,preprint,nopreprintline]{elsarticle}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb,amsfonts,bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\graphicspath{{figs/}}
+
+\usepackage[
+    a4paper,
+    left=2cm,
+    right=2cm,
+    top=2cm,
+    bottom=2.7cm
+]{geometry}
+
+% Float pages: pin content to the top instead of vertically centering
+% a single figure/table in the middle of an otherwise empty page.
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{8pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{2pt}
+\renewcommand{\floatpagefraction}{0.05}
+
+\begin{document}
+\makeatletter
+\setlength{\@fptop}{0pt}%
+\setlength{\@fpsep}{8pt}%
+\setlength{\@fpbot}{0pt plus 1fil}%
+\makeatother
+
+\begin{frontmatter}
+
+\title{Акустическая геометрия и динамика звуковых лучей\\
+в релятивистской сферической аккреции}
+
+\author{Alexander V. Semyannikov}
+\ead{avsemyannikov@gmail.com}
+\address{Independent Researcher}
+
+\begin{abstract}
+    В аналоговой гравитации звуковые волны в движущейся жидкости распространяются по нулевым геодезическим эффективной искривлённой метрики, что даёт контролируемую постановку для изучения физики горизонтов в астрофизической аккреции. Релятивистская акустическая метрика для сферической аккреции хорошо известна и использовалась в исследованиях устойчивости и квазинормальных мод, однако геометрической оптике звуковых лучей в течении Мишеля до сих пор уделялось мало систематического внимания. Мы строим акустическую метрику идеальной жидкости, аккрецирующей на чёрную дыру Шварцшильда (течение Мишеля), и рассматриваем высокочастотные звуковые лучи как её нулевые геодезические. Из линеаризованной системы уравнений непрерывности -- Эйлера -- энергии мы выделяем причинные поверхности геометрии -- акустический горизонт (совпадающий со звуковой точкой), поверхность стационарного предела и эргообласть -- и выводим обобщённое уравнение Бине, разделяющее отклонение луча на вклады Эйнштейна, рефракции и акустического ветра. Фактор локального замедления позволяет сравнить акустическую и вакуумную задержки Шапиро, локализовать акустическую фотонную сферу и связать аналоговый масштаб Хокинга с гидродинамическими градиентами. Результаты для политропных индексов $\gamma=4/3$ и $5/3$ показывают, как термодинамические параметры и параметры потока аккреции входят в акустическое линзирование, временную задержку и аналоговую температуру Хокинга, давая геометрическую основу для будущих исследований акустических, вихревых и энтропийных мод конечной частоты.
+\end{abstract}
+
+\begin{keyword}
+акустическая метрика \sep аналоговая гравитация \sep аккреция Мишеля \sep
+задержка Шапиро \sep звуковые лучи \sep акустический горизонт \sep фотонная сфера \sep
+температура Хокинга
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Введение}
+%% Структура следует воронке pins/How to write Introduction
+%% Section.jpg: Importance → Background → Problem → Gap → Aim.
+
+Аккреция на чёрные дыры -- центральный процесс в астрофизике высоких энергий: поток вещества на компактный объект формирует электромагнитное излучение, питает активные ядра галактик и даёт одну из немногих лабораторий, в которых сильная гравитация может исследоваться наблюдательно \cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. Наряду с геометрией самого пространства -- времени \emph{гидродинамика} аккрецирующей жидкости поддерживает независимую причинную структуру для звука. В движущейся среде акустические возмущения распространяются так, как если бы они жили на эффективной лоренцевой геометрии -- \emph{акустической метрике}, -- чьи нулевые конусы определяют звуковые горизонты, эргообласти и, в подходящих режимах, аналоги излучения Хокинга \cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}. Это соответствие аналоговой гравитации связывает, таким образом, два на первый взгляд далёких предмета: теорию волновых уравнений в искривлённом пространстве -- времени и астрофизику трансзвуковой аккреции.
+
+Классическое ньютоново описание стационарной сферической аккреции принадлежит Бонди~\cite{BondiH_OnSphericallySymmetricalAccretion_1953}. Его общерелятивистский аналог на фоне Шварцшильда -- течение Мишеля~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972} -- представляет собой стационарное, сферически симметричное, адиабатическое решение, проходящее через звуковую точку и становящееся сверхзвуковым вблизи горизонта событий. Линейные акустические возмущения таких течений описываются скалярным волновым уравнением на эффективной метрике, построенной из фонового пространства -- времени, 4-скорости жидкости и локальной скорости звука. Версия этой конструкции уже присутствует в анализе Монкрифа устойчивости сферической аккреции на чёрную дыру Шварцшильда~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}; релятивистская акустическая геометрия была затем систематизирована Биличем~\cite{BilicN_RelativisticAcousticGeometry_1999} и помещена в более широкий контекст аналоговой гравитации Виссером~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}, а также Барсело, Либерати и Виссером~\cite{BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}.
+
+В этой постановке большая часть работ по аккреции Мишеля сосредоточена на самом волновом уравнении: глобальной устойчивости вне звукового горизонта, энергетических оценках и спектре квазинормальных акустических колебаний~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015}, а аналоговое излучение Хокинга недавно было переосмыслено как процесс туннелирования~\cite{JangidN_RayAK_AcousticHawkingRadiationAsATunnellingEffectInMichelAccretion_2026}. Комплементарная линия работ выражает акустическую поверхностную гравитацию -- и, следовательно, аналоговую температуру Хокинга -- непосредственно через переменные аккреции для релятивистских течений на чёрную дыру Шварцшильда, как для дисков, так и для сферической и изотермической аккреции~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}. Лучевые свойства акустических метрик -- отклонение, задержка и фотонная (<<фононная>>) сфера -- также изучались, но преимущественно в других аналоговых постановках: низкоразмерных и медленно вращающихся акустических дырах~\cite{ToshmatovB_AhmedovB_StuchlikZ_PhononMotionAround21DimensionalAcousticBlackHole_2023, BalaliAE_MarraniA_LenseThirringAcousticBlackHolesShadowsAndLight_2025}, конденсатах Бозе -- Эйнштейна~\cite{VieiraHS_DestounisK_KokkotasKD_AnalogSchwarzschildBlackHolesOfBoseEinsteinCondensatesInACavityQuasinormalModesAndQuasiboundStates_2023} и модельных метриках на искривлённом фоне~\cite{PalK_PalK_SarkarT_AnalogueMetricInABlackBounceBackground_2022}. Вместе они устанавливают акустическую геометрию аккреции Мишеля как подлинную астрофизическую аналоговую чёрную дыру, но не доходят до единой геометрико-оптической феноменологии \emph{звуковых лучей} -- высокочастотных нулевых геодезических акустической метрики -- для релятивистского адиабатического течения Мишеля, столь же детальной, как соответствующее описание световых лучей в вакуумном пространстве -- времени Шварцшильда.
+
+В вакуумной теории нулевые геодезические лежат в основе гравитационного линзирования, фотонной сферы и временной задержки Шапиро~\cite{ShapiroII_FourthTestOfGeneralRelativity_1964}. Те же вопросы возникают и для звуковых лучей, но теперь ответы зависят от термодинамического состояния потока -- его уравнения состояния, асимптотической скорости звука и положения звуковой точки, -- а также от фоновой гравитации. Для релятивистской аккреции Мишеля эти вопросы на уровне лучей -- силы, отклоняющие звуковой луч, акустическая задержка Шапиро, смещение акустической фотонной сферы и поверхностная гравитация звукового горизонта -- ещё не сведены в единую количественную картину, связанную с термодинамикой потока.
+
+Настоящая статья восполняет этот пробел. Мы строим релятивистскую акустическую метрику идеальной жидкости в стационарной аккреции Мишеля на чёрную дыру Шварцшильда и изучаем её высокочастотные звуковые лучи как нулевые геодезические эффективного пространства -- времени. А именно, мы:
+\begin{itemize}
+    \item определяем акустический горизонт, поверхность стационарного предела и эргообласть и проверяем, что горизонт совпадает со звуковой точкой Мишеля;
+    \item выводим обобщённое уравнение Бине, разлагающее отклонение луча на силы Эйнштейна, рефракции и акустического ветра, и численно оцениваем эти вклады для политропных индексов $\gamma=4/3$ и $5/3$;
+    \item вводим фактор локального замедления $n_{\pm}=f/|v_{\pm}|$ и используем его для сравнения акустической и вакуумной задержек Шапиро вдоль радиальных лучей;
+    \item локализуем акустическую фотонную сферу, описываем связанный с ней барьер захвата и выражаем поверхностную гравитацию звукового горизонта через гидродинамические градиенты, отделяя кинематическое содержание аналогии с температурой Хокинга от чисто формального.
+\end{itemize}
+
+Статья организована следующим образом. В разд.~2 напоминаются термодинамика релятивистской идеальной жидкости и линеаризованная система уравнений непрерывности -- Эйлера -- энергии, приводящая к акустическому волновому уравнению. В разд.~3 строится акустическая метрика аккреции Мишеля и анализируются её причинные поверхности. В разд.~4 развивается геометрическая оптика звуковых лучей: сохраняющиеся величины, обобщённое уравнение Бине, акустическая задержка Шапиро и акустическое линзирование. В разд.~5 обсуждаются поверхностная гравитация и область применимости аналоговой температуры Хокинга. В разд.~6 суммируются результаты и кратко указываются возможные расширения на пространственную устойчивость акустических, вихревых и энтропийных мод -- возмущений конечной частоты, которые, в отличие от высокочастотных звуковых лучей, не распространяются на акустическом нулевом конусе.
+
+\section{Релятивистская жидкость и акустические возмущения}
+\label{sec:fluid}
+
+В этом разделе собраны термодинамические и гидродинамические элементы, необходимые для определения акустической метрики. Повсюду используется сигнатура метрики $\mathfrak{s}=(-,+,+,+)$, так что 4-скорость жидкости удовлетворяет условию
+\begin{equation}
+    u_{\mu} u^{\mu} = -1 .
+    \label{eq:four_velocity_norm}
+\end{equation}
+Все величины ниже безразмерны: пространственно -- временные координаты измеряются в единицах гравитационного радиуса $r_{\mathrm{g}}=2GM/c^{2}$, 4-скорость и скорость звука -- в единицах $c$, а термодинамические переменные нормированы на свои асимптотические покоящиеся масштабы в стандартном соглашении течения Мишеля~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. Ортогональные проекции на систему покоя жидкости выполняются с помощью
+\begin{equation}
+    \Delta^{\mu}_{\nu} = \delta^{\mu}_{\nu} + u^{\mu} u_{\nu} .
+    \label{eq:projection_tensor}
+\end{equation}
+
+\subsection{Термодинамика идеальной жидкости}
+
+Среда моделируется как идеальная жидкость в локальном термодинамическом равновесии. Безразмерная удельная энтальпия равна
+\begin{equation}
+    h = \frac{p + \epsilon}{n} ,
+    \label{eq:specific_enthalpy}
+\end{equation}
+где $p$, $\epsilon$ и $n$ -- безразмерные давление, плотность энергии и барионная плотность числа частиц. Первое начало термодинамики,
+\begin{equation}
+    \mathrm{d}h = T\,\mathrm{d}S + n^{-1}\,\mathrm{d}p ,
+    \label{eq:first_law_thermodynamics}
+\end{equation}
+для адиабатического течения ($S=\mathrm{const}$) сводится к
+\begin{equation}
+    \mathrm{d}p = n\,\mathrm{d}h .
+    \label{eq:adiabatic_relation}
+\end{equation}
+Вместе с~\eqref{eq:specific_enthalpy} это даёт тождество $\mathrm{d}\epsilon = h\,\mathrm{d}n$: в адиабатическом процессе изменение плотности энергии обусловлено исключительно изменением плотности частиц, причём каждая добавленная частица вносит свою полную удельную энтальпию.
+
+Локальная скорость звука определяется изэнтропической производной
+\begin{equation}
+    a^{2}
+    =
+    \Bigl(\frac{\partial p}{\partial\epsilon}\Bigr)_{S}
+    =
+    \frac{1}{h}\,\frac{\mathrm{d}p}{\mathrm{d}n} .
+    \label{eq:sound_speed_def}
+\end{equation}
+Термодинамику замыкаем политропным уравнением состояния $p = K n^{\gamma}$. Интегрирование~\eqref{eq:adiabatic_relation} тогда даёт
+\begin{equation}
+    h = 1 + \frac{\gamma K}{\gamma-1}\, n^{\gamma-1} ,
+    \label{eq:enthalpy_polytropic}
+\end{equation}
+а подстановка в~\eqref{eq:sound_speed_def} приводит к
+\begin{equation}
+    a^{2}
+    =
+    \frac{K\gamma\, n^{\gamma-1}}
+         {1 + \dfrac{\gamma K}{\gamma-1}\, n^{\gamma-1}} .
+    \label{eq:sound_speed_polytropic}
+\end{equation}
+В холодном нерелятивистском пределе $h\to 1$ восстанавливается ньютоново соотношение $a^{2}\approx K\gamma n^{\gamma-1}$. В ультрарелятивистском пределе $n\to\infty$ возникает универсальная граница $a^{2}\to\gamma-1$; причинность ($a^{2}\le 1$) поэтому требует $\gamma\le 2$, а стандартное значение для горячей плазмы $\gamma=4/3$ даёт $a^{2}\to 1/3$.
+
+Для дальнейшего использования запишем также конформный фактор акустической метрики, выраженный через одну лишь локальную скорость звука
+\begin{equation}
+    \Omega^{2} 
+    = \frac{n}{h} 
+    \quad\Longrightarrow\quad \Omega^{2}
+    = C\, a^{\frac{2}{\gamma-1}}
+    \Biggl(
+        \frac{\gamma-1}{\gamma-1-a^{2}}
+    \Biggr)^{\frac{2-\gamma}{\gamma-1}} ,
+    \label{eq:conformal_factor}
+\end{equation}
+где $C=(K\gamma)^{-1/(\gamma-1)}$ фиксируется энтропией потока. Глобальная константа $C$ сокращается в условии нулевого интервала и потому не влияет на кинематику звуковых лучей.
+
+\subsection{Уравнения гидродинамики}
+
+Сохранение числа частиц выражается уравнением непрерывности
+\begin{equation}
+    \nabla_{\mu}\bigl(n\, u^{\mu}\bigr) = 0 .
+    \label{eq:continuity_equation}
+\end{equation}
+Ковариантное сохранение тензора энергии -- импульса идеальной жидкости,
+\begin{equation}
+    T^{\mu}_{\nu} = nh\, u^{\mu} u_{\nu} + p\,\delta^{\mu}_{\nu} ,
+    \qquad
+    \nabla_{\mu} T^{\mu}_{\nu} = 0 ,
+    \label{eq:stress_energy_tensor}
+\end{equation}
+вместе с~\eqref{eq:continuity_equation} и~\eqref{eq:adiabatic_relation} приводит к релятивистскому уравнению Эйлера
+\begin{equation}
+    h\, u^{\mu}\nabla_{\mu} u_{\nu}
+    +
+    \Delta^{\mu}_{\nu}\nabla_{\mu} h
+    = 0 .
+    \label{eq:euler_enthalpy}
+\end{equation}
+Вводя релятивистскую 2-форму завихрённости
+\begin{equation}
+    \omega_{\mu\nu}
+    \equiv
+    \partial_{\mu}\bigl(h u_{\nu}\bigr)
+    -
+    \partial_{\nu}\bigl(h u_{\mu}\bigr)
+    \label{eq:vorticity_2form}
+\end{equation}
+и допуская ненулевой градиент энтропии, переписываем~\eqref{eq:euler_enthalpy} в форме Лихнеровича -- Крокко
+\begin{equation}
+    u^{\mu}\omega_{\mu\nu} = T\,\partial_{\nu} S .
+    \label{eq:euler_vorticity}
+\end{equation}
+Наконец, проекция $\nabla_{\mu}T^{\mu}_{\nu}=0$ вдоль потока эквивалентна адвекции энтропии,
+\begin{equation}
+    u^{\mu}\partial_{\mu} S = 0 .
+    \label{eq:entropy_advection}
+\end{equation}
+Триада~\eqref{eq:continuity_equation}--\eqref{eq:euler_vorticity}--\eqref{eq:entropy_advection} замыкает динамику идеальной жидкости. При линеаризации она разбивает спектр возмущений на три семейства взаимно независимой природы: акустические, вихревые и энтропийные моды~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. Лишь первое из них распространяется на акустическом нулевом конусе и развивается ниже; два остальных выходят за рамки настоящей геометрической оптики и потребовали бы отдельного волнового анализа пространственной устойчивости.
+
+\subsection{Линейные возмущения и акустическое волновое уравнение}
+
+Представим каждое поле как фоновое значение плюс поправку первого порядка,
+\begin{equation}
+    h\to h+\delta h,\quad
+    u^{\mu}\to u^{\mu}+\delta u^{\mu},\quad
+    n\to n+\delta n,\quad
+    S\to S+\delta S .
+    \label{eq:perturbation_expansion}
+\end{equation}
+Из~\eqref{eq:adiabatic_relation} и~\eqref{eq:sound_speed_def} возмущения плотности и энтальпии связаны соотношением
+\begin{equation}
+    \delta n = \frac{n}{a^{2} h}\,\delta h ,
+    \label{eq:density_enthalpy_perturbation}
+\end{equation}
+а линеаризация~\eqref{eq:four_velocity_norm} накладывает условие ортогональности $u_{\mu}\delta u^{\mu}=0$. Линеаризованное уравнение непрерывности тогда принимает вид
+\begin{equation}
+    \nabla_{\mu}
+    \Biggl(
+        n
+        \Biggl[
+            \delta u^{\mu}
+            +
+            \frac{u^{\mu}}{h a^{2}}\,\delta h
+        \Biggr]
+    \Biggr)
+    = 0 .
+    \label{eq:linearized_continuity}
+\end{equation}
+
+Фон полагаем гомоэнтропическим ($\nabla_{\mu}S=0$) и безвихревым ($\omega_{\mu\nu}=0$). Определяя возмущённый обобщённый импульс
+\begin{equation}
+    w_{\mu}
+    \equiv
+    \delta\bigl(h u_{\mu}\bigr)
+    =
+    h\,\delta u_{\mu} + u_{\mu}\,\delta h
+    \label{eq:perturbed_momentum}
+\end{equation}
+и его завихрённость $\delta\omega_{\mu\nu}=\partial_{\mu}w_{\nu}-\partial_{\nu}w_{\mu}$, записываем линеаризованное уравнение Эйлера~\eqref{eq:euler_vorticity} в виде
+\begin{equation}
+    u^{\mu}\,\delta\omega_{\mu\nu} = T\,\partial_{\nu}\delta S .
+    \label{eq:linearized_euler}
+\end{equation}
+Отсюда следуют три взаимоисключающих случая:
+\begin{itemize}
+    \item \emph{Акустические моды:} $\delta S=0$ и $\delta\omega_{\mu\nu}=0$. Тогда $w_{\mu}$ точна, $w_{\mu}=\partial_{\mu}\delta\psi$, и~\eqref{eq:linearized_euler} выполняется тождественно.
+    \item \emph{Вихревые моды:} $\delta S=0$, но $\delta\omega_{\mu\nu}\neq 0$; возмущение завихрённости <<вморожено>> в поток.
+    \item \emph{Энтропийные моды:} $\delta S\neq 0$, причём градиент энтропии выступает источником в~\eqref{eq:linearized_euler}.
+\end{itemize}
+Линеаризация~\eqref{eq:entropy_advection} на гомоэнтропическом фоне даёт чистую адвекцию возмущения энтропии, $u^{\mu}\partial_{\mu}\delta S=0$. Для адиабатического акустического сектора $\delta S=0$ это уравнение пусто, а термодинамическая связь~\eqref{eq:density_enthalpy_perturbation} замыкает систему.
+
+Для акустических мод сам фон потенциален, $h u_{\mu}=\partial_{\mu}\psi$, и линеаризованное соотношение
+\begin{equation}
+    h\,\delta u_{\mu} + u_{\mu}\,\delta h = \partial_{\mu}\delta\psi
+    \label{eq:velocity_potential_def}
+\end{equation}
+выражает все гидродинамические поля первого порядка через один скаляр. Свёртка с $u^{\mu}$ с учётом ортогональности даёт
+\begin{equation}
+    \delta h = -\,u^{\mu}\partial_{\mu}\delta\psi ,
+    \label{eq:enthalpy_potential_relation}
+\end{equation}
+а проектор~\eqref{eq:projection_tensor} приводит к
+\begin{equation}
+    h\,\delta u_{\mu}
+    =
+    \Delta^{\nu}_{\mu}\,\partial_{\nu}\delta\psi .
+    \label{eq:velocity_potential_gradient}
+\end{equation}
+Подстановка~\eqref{eq:enthalpy_potential_relation} и~\eqref{eq:velocity_potential_gradient} в~\eqref{eq:linearized_continuity} даёт компактное волновое уравнение
+\begin{equation}
+    \nabla_{\mu}\bigl(\mathcal{G}^{\mu\nu}\partial_{\nu}\delta\psi\bigr) = 0 ,
+    \label{eq:wave_equation}
+\end{equation}
+в котором контравариантная акустическая метрика имеет вид
+\begin{equation}
+    \mathcal{G}^{\mu\nu} = \Omega^{2}\,\eta^{\mu\nu} ,
+    \qquad
+    \eta^{\mu\nu} = g^{\mu\nu} + \alpha\, u^{\mu} u^{\nu} ,
+    \label{eq:acoustic_metric_tensor}
+\end{equation}
+с параметром увлечения $\alpha=1-a^{-2}$ и конформным фактором~\eqref{eq:conformal_factor}. Ковариантный аналог есть
+\begin{equation}
+    \mathcal{G}_{\mu\nu} = \Omega^{-2}\,\eta_{\mu\nu} ,
+    \qquad
+    \eta_{\mu\nu} = g_{\mu\nu} - \beta\, u_{\mu} u_{\nu} ,
+    \label{eq:covariant_acoustic_metric_tensor}
+\end{equation}
+где $\beta\equiv\alpha/(1-\alpha)=a^{2}-1$. Важно, что $\eta_{\mu\nu}$ \emph{не} получается простым опусканием индексов у $\eta^{\mu\nu}$ с помощью фоновой метрики $g_{\mu\nu}$: обращение суммы $g^{\mu\nu}+\alpha u^{\mu}u^{\nu}$ порождает нелинейную поправку к коэффициенту при $u_{\mu}u_{\nu}$. Конструкция~\eqref{eq:acoustic_metric_tensor}--\eqref{eq:covariant_acoustic_metric_tensor} представляет собой релятивистскую акустическую геометрию Билича~\cite{BilicN_RelativisticAcousticGeometry_1999}, уже неявно присутствовавшую в анализе устойчивости Монкрифа~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980} и помещённую в более широкий контекст аналоговой гравитации Виссером~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}. Высокочастотные звуковые лучи -- это нулевые геодезические $\mathcal{G}_{\mu\nu}$; их причинная структура на фоне Мишеля составляет предмет следующего раздела.
+
+\section{Акустическая геометрия аккреции Мишеля}
+\label{sec:acoustic_geometry}
+
+Специализируем теперь акустическую метрику разд.~\ref{sec:fluid} на стационарную, сферически симметричную, адиабатическую аккрецию на чёрную дыру Шварцшильда -- течение Мишеля~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972}. Цель -- выписать явные компоненты $\mathcal{G}_{\mu\nu}$ и идентифицировать её причинные поверхности: акустический горизонт событий, поверхность стационарного предела и разделяющую их эргообласть.
+
+\subsection{Фоновое пространство -- время Шварцшильда}
+
+Фоновый интервал имеет вид
+\begin{equation}
+    \mathrm{d}s^{2}
+    =
+    -f\,\mathrm{d}t^{2}
+    +
+    f^{-1}\,\mathrm{d}r^{2}
+    +
+    r^{2}\bigl(\mathrm{d}\theta^{2}+\sin^{2}\theta\,\mathrm{d}\phi^{2}\bigr) ,
+    \label{eq:schwarzschild_metric}
+\end{equation}
+с безразмерной lapse-функцией
+\begin{equation}
+    f = 1 - r^{-1} .
+    \label{eq:lapse_function}
+\end{equation}
+В матричной записи
+\begin{equation}
+    g^{\mu\nu}
+    =
+    \begin{pmatrix}
+        -f^{-1} & 0 & 0 & 0 \\
+        0 & f & 0 & 0 \\
+        0 & 0 & r^{-2} & 0 \\
+        0 & 0 & 0 & r^{-2}\sin^{-2}\theta
+    \end{pmatrix} ,
+    \qquad
+    g_{\mu\nu}
+    =
+    \begin{pmatrix}
+        -f & 0 & 0 & 0 \\
+        0 & f^{-1} & 0 & 0 \\
+        0 & 0 & r^{2} & 0 \\
+        0 & 0 & 0 & r^{2}\sin^{2}\theta
+    \end{pmatrix} .
+    \label{eq:schwarzschild_metric_matrix}
+\end{equation}
+Стационарность и сферическая симметрия означают, что каждый фоновый скаляр зависит только от $r$, а угловые компоненты 4-скорости обращаются в нуль. Записывая
+\begin{equation}
+    u^{\mu} = (\vartheta,\,\upsilon,\,0,\,0) ,
+    \label{eq:four_velocity_schwarzschild}
+\end{equation}
+получаем ковариантные компоненты $u_{\mu}=(-f\vartheta,\,f^{-1}\upsilon,\,0,\,0)$, а нормировка~\eqref{eq:four_velocity_norm} принимает вид
+\begin{equation}
+    -u_{t} = f\vartheta = \sqrt{f+\upsilon^{2}} ,
+    \label{eq:four_velocity_norm_schwarzschild}
+\end{equation}
+связывая временную компоненту с радиальной 3-скоростью потока. Физическая скорость, измеряемая статическим наблюдателем,
+\begin{equation}
+    V = \frac{|\upsilon|}{\sqrt{f+\upsilon^{2}}} ,
+    \label{eq:physical_velocity}
+\end{equation}
+входит в число Маха $\mathcal{M}=V/a$, используемое ниже.
+
+Сам фон Мишеля фиксируется двумя интегралами движения. Непрерывность даёт барионный поток $r^{2} n\,\upsilon=\mathrm{const}$ ($\upsilon<0$ при аккреции), а адиабатическая проекция $\nabla_{\mu}T^{\mu}_{\nu}=0$ интегрируется в релятивистский интеграл Бернулли
+\begin{equation}
+    h\sqrt{f+\upsilon^{2}} = h_{\infty} .
+    \label{eq:michel_bernoulli}
+\end{equation}
+Вместе с политропным замыканием разд.~\ref{sec:fluid} эти соотношения определяют профили $\upsilon(r)$, $a(r)$ и $n(r)$, как только заданы асимптотическая скорость звука $a_{\infty}$ и показатель адиабаты $\gamma$~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}.
+
+\subsection{Акустический метрический тензор}
+
+Подставляя~\eqref{eq:schwarzschild_metric_matrix} и~\eqref{eq:four_velocity_schwarzschild} в ковариантное ядро~\eqref{eq:covariant_acoustic_metric_tensor}, получаем
+\begin{equation}
+    \eta_{\mu\nu}
+    =
+    \begin{pmatrix}
+        -f\bigl(1+\beta f\vartheta^{2}\bigr) &
+        \beta\vartheta\upsilon & 0 & 0 \\
+        \beta\vartheta\upsilon &
+        f^{-1}\bigl(1-\beta f^{-1}\upsilon^{2}\bigr) & 0 & 0 \\
+        0 & 0 & r^{2} & 0 \\
+        0 & 0 & 0 & r^{2}\sin^{2}\theta
+    \end{pmatrix} .
+    \label{eq:eta_covariant_matrix}
+\end{equation}
+Полная ковариантная акустическая метрика есть $\mathcal{G}_{\mu\nu}=\Omega^{-2}\eta_{\mu\nu}$. Соответствующее контравариантное ядро имеет вид
+\begin{equation}
+    \eta^{\mu\nu}
+    =
+    \begin{pmatrix}
+        -f^{-1}+\alpha\vartheta^{2} &
+        \alpha\vartheta\upsilon & 0 & 0 \\
+        \alpha\vartheta\upsilon &
+        f+\alpha\upsilon^{2} & 0 & 0 \\
+        0 & 0 & r^{-2} & 0 \\
+        0 & 0 & 0 & r^{-2}\sin^{-2}\theta
+    \end{pmatrix} ,
+    \label{eq:eta_contravariant_matrix}
+\end{equation}
+Компоненты $\eta^{rr}$ и $\eta^{tr}$ из~\eqref{eq:eta_contravariant_matrix} управляют радиальными характеристиками и акустическим увлечением системы отсчёта. Поскольку звуковые лучи -- нулевые геодезические $\mathcal{G}_{\mu\nu}$, они инвариантны относительно конформных перемасштабирований
+\begin{equation}
+    \mathcal{G}_{\mu\nu}k^{\mu}k^{\nu}=0 \quad\Longrightarrow\quad \eta_{\mu\nu}k^{\mu}k^{\nu} = 0 ,
+    \label{eq:acoustic_null_condition}
+\end{equation}
+так что геометрия акустического светового конуса -- а значит, и все траектории лучей -- полностью фиксируется ядром $\eta_{\mu\nu}$. Конформный фактор $\Omega^{2}$ вновь появляется лишь в амплитуде волны и в формальной площади горизонта, но не в траекториях лучей и не в поверхностной гравитации; последняя строится из конформно инвариантной $v_{+}$.
+
+\subsection{Акустический горизонт, стационарный предел и эргообласть}
+
+Акустический горизонт событий $r=r_{\mathrm{a}}$ -- односторонняя мембрана для звука. Он формируется там, где поток становится звуковым или сверхзвуковым, что эквивалентно обращению в нуль радиальной компоненты ядра:
+\begin{equation}
+    \eta^{rr}(r_{\mathrm{a}}) = 0
+    \quad\Longrightarrow\quad
+    r_{\mathrm{a}}
+    =
+    \bigl[1 + \alpha(r_{\mathrm{a}})\,\upsilon^{2}(r_{\mathrm{a}})\bigr]^{-1} .
+    \label{eq:acoustic_horizon_def}
+\end{equation}
+При $r<r_{\mathrm{a}}$ все характеристики волнового уравнения направлены внутрь: сигнал против потока либо сносится к чёрной дыре ($|\upsilon|>a$), либо <<вмораживается>> в жидкость ($|\upsilon|=a$).
+
+Поверхность акустического стационарного предела $r=r_{\mathrm{asl}}$ определяется обращением в нуль временной компоненты ядра,
+\begin{equation}
+    \eta^{tt}(r_{\mathrm{asl}}) = 0
+    \quad\Longrightarrow\quad
+    r_{\mathrm{asl}}
+    =
+    \frac{\alpha(r_{\mathrm{asl}})\,\vartheta^{2}(r_{\mathrm{asl}})}
+         {\alpha(r_{\mathrm{asl}})\,\vartheta^{2}(r_{\mathrm{asl}})-1} .
+    \label{eq:stationary_limit_def}
+\end{equation}
+Внутри $r<r_{\mathrm{asl}}$ стационарная акустическая мода существовать не может: статическому наблюдателю пришлось бы двигаться против потока со сверхзвуковой скоростью. Приравнивание~\eqref{eq:acoustic_horizon_def} и~\eqref{eq:stationary_limit_def} потребовало бы $a^{2}<0$, что невозможно для устойчивой среды. Следовательно, две поверхности никогда не совпадают,
+\begin{equation}
+    r_{\mathrm{a}} \neq r_{\mathrm{asl}} ,
+\end{equation}
+а конечная оболочка между ними составляет акустическую эргообласть (эргосферу)~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BilicN_RelativisticAcousticGeometry_1999}.
+
+Центральный структурный факт аккреции Мишеля состоит в том, что акустический горизонт в точности совпадает со звуковой критической точкой фонового течения. Из интегралов непрерывности и Бернулли следует уравнение для радиального градиента $\mathrm{d}\upsilon/\mathrm{d}r$ вида $N/D$; гладкий трансзвуковой переход через $r=r_{\mathrm{c}}$ требует одновременного обращения в нуль числителя и знаменателя~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}, что даёт стандартные условия критической точки
+\begin{equation}
+    \upsilon^{2}_{\mathrm{c}} = \frac{1}{4r_{\mathrm{c}}} ,
+    \qquad
+    a^{2}_{\mathrm{c}}
+    =
+    \frac{1}{4r_{\mathrm{c}}-3}
+    =
+    \frac{\upsilon^{2}_{\mathrm{c}}}{1-3\upsilon^{2}_{\mathrm{c}}} .
+    \label{eq:michel_sonic}
+\end{equation}
+Подстановка этих значений в $\eta^{rr}$ из~\eqref{eq:eta_contravariant_matrix} даёт
+\begin{equation}
+    1 - a^{-2}_{\mathrm{c}}
+    =
+    4(1-r_{\mathrm{c}}) ,
+    \qquad
+    \bigl(1-a^{-2}_{\mathrm{c}}\bigr)\upsilon^{2}_{\mathrm{c}}
+    =
+    -f_{\mathrm{c}} ,
+\end{equation}
+и поэтому
+\begin{equation}
+    \eta^{rr}(r_{\mathrm{c}}) = f_{\mathrm{c}} - f_{\mathrm{c}} = 0 .
+    \label{eq:sonic_is_horizon}
+\end{equation}
+Следовательно, $r_{\mathrm{a}}=r_{\mathrm{c}}$: поверхность, на которой аккреционный поток становится звуковым, \emph{и есть} акустический горизонт событий. Оболочка $1<r<r_{\mathrm{a}}$ сверхзвуковая ($\eta^{rr}<0$) и заканчивается на гравитационном горизонте $r=1$.
+
+Интеграл Бернулли~\eqref{eq:michel_bernoulli}, вычисленный в звуковой точке, связывает $a_{\infty}$ с радиусом горизонта $r_{\mathrm{a}}$; типичные значения собраны в табл.~\ref{tab:sonic_point}. Для холодного асимптотического газа ($a_{\infty}\ll 1$) акустический горизонт лежит далеко от чёрной дыры, в ньютоновой области ($r_{\mathrm{a}}\sim a^{-2}_{\infty}\gg 1$), тогда как релятивистские эффекты сосредоточены в глубоко сверхзвуковой зоне $1<r\ll r_{\mathrm{a}}$. Эти радиусы удовлетворяют стандартному условию критической точки Мишеля и воспроизводят звуковые радиусы Michel/Shapiro--Teukolsky для тех же $(\gamma,a_{\infty})$~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}, а само отождествление $r_{\mathrm{a}}=r_{\mathrm{c}}$ следует из акустической метрики Moncrief и Bili{\'c}~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, BilicN_RelativisticAcousticGeometry_1999}. Эти работы и последующий QNM-анализ Chaverra, Morales и Sarbach~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015} сосредоточены на волновом уравнении; мы дополняем их феноменологией геометрической оптики того же фона -- разложением сил, акустическими диагностиками Шапиро, сдвигом фотонной сферы и поверхностными гравитациями (разд.~\ref{sec:rays}--\ref{sec:surface_gravity}). Количественный лучевой анализ следующего раздела проводится для представительного случая $a_{\infty}=0.1$ при $\gamma=4/3$ и $5/3$.
+
+Все приведённые ниже численные результаты опираются на фоновые профили $\upsilon(r)$, $a(r)$, $n(r)$, которые находят из двух интегралов Мишеля -- барионного потока $r^{2}n\upsilon=\mathrm{const}$ и соотношения Бернулли~\eqref{eq:michel_bernoulli} -- интегрируя внутрь от большого радиуса, где дозвуковая ветвь однозначна ($\upsilon\to 0$, $a\to a_{\infty}$). Это снимает неоднозначность выбора ветви в звуковой точке, где оба корня сливаются. Акустическую фотонную сферу $r_{\mathrm{aph}}$ находим как максимум барьера захвата $U(r)=a^{2}\eta^{rr}/r^{2}$, а поверхностную гравитацию -- по~\eqref{eq:surface_gravity_explicit} и проверяем её прямым наклоном $\tfrac{1}{2}\,\mathrm{d}v_{+}/\mathrm{d}r|_{r_{\mathrm{a}}}$: оба способа согласуются лучше чем на один процент. Дополнительно схема воспроизводит вакуумные пределы $v_{\pm}=\pm f$, $\kappa=\tfrac{1}{2}$ и $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\tfrac{3}{2}\varrho^{2}$, а её значения при $a_{\infty}=0.1$ из табл.~\ref{tab:ainf_scan} совпадают с отдельными таблицами при том же значении.
+
+\section{Динамика звуковых лучей}
+\label{sec:rays}
+
+В высокочастотном пределе акустические возмущения распространяются вдоль нулевых геодезических $\mathcal{G}_{\mu\nu}$ -- акустического аналога световых лучей в вакууме~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}. Отклонение лучей, временную задержку и акустические фотонные сферы уже изучали в ряде аналоговых систем -- низкоразмерных и медленно вращающихся акустических дырах~\cite{ToshmatovB_AhmedovB_StuchlikZ_PhononMotionAround21DimensionalAcousticBlackHole_2023, BalaliAE_MarraniA_LenseThirringAcousticBlackHolesShadowsAndLight_2025}, конденсатных аналогах~\cite{VieiraHS_DestounisK_KokkotasKD_AnalogSchwarzschildBlackHolesOfBoseEinsteinCondensatesInACavityQuasinormalModesAndQuasiboundStates_2023} и модельных метриках на искривлённом фоне~\cite{PalK_PalK_SarkarT_AnalogueMetricInABlackBounceBackground_2022}, -- но не для релятивистской аккреции Мишеля с явным разложением отклоняющей силы. Ниже мы развиваем эту геометрическую акустику: сохраняющиеся энергия и угловой момент, обобщённое уравнение Бине с разложением на силы Эйнштейна, рефракции и ветра, акустическая задержка Шапиро и смещение акустической фотонной сферы.
+
+\subsection{Нулевые геодезические и сохраняющиеся величины}
+
+Поскольку фон Мишеля стационарен и сферически симметричен, два вектора Киллинга $\partial_{t}$ и $\partial_{\phi}$ наделяют каждый звуковой луч сохраняющимися энергией и угловым моментом, сводя его распространение к эффективной радиальной задаче. Сами лучи -- нулевые геодезические акустической метрики,
+\begin{equation}
+    \frac{\mathrm{d}^{2}x^{\mu}}{\mathrm{d}\lambda^{2}}
+    +
+    \Gamma^{\mu}_{\alpha\beta}
+    \frac{\mathrm{d}x^{\alpha}}{\mathrm{d}\lambda}
+    \frac{\mathrm{d}x^{\beta}}{\mathrm{d}\lambda}
+    = 0 ,
+    \label{eq:geodesic_equation}
+\end{equation}
+с волновым вектором $k^{\mu}=\mathrm{d}x^{\mu}/\mathrm{d}\lambda$. Стационарность $\mathcal{G}_{\mu\nu}$ даёт сохраняющуюся по Киллингу энергию
+\begin{equation}
+    k_{t} = \mathcal{G}_{t\mu}k^{\mu} = -E = \mathrm{const} ,
+    \label{eq:energy_conservation}
+\end{equation}
+где минус следует из сигнатуры~\eqref{eq:four_velocity_norm} и требования положительности физической энергии. Поскольку $\mathcal{G}_{rt}\neq 0$,
+\begin{equation}
+    \frac{\mathrm{d}t}{\mathrm{d}\lambda}
+    =
+    -\frac{1}{\mathcal{G}_{tt}}
+    \Biggl(
+        E + \mathcal{G}_{rt}\,\frac{\mathrm{d}r}{\mathrm{d}\lambda}
+    \Biggr) ,
+    \label{eq:time_coordinate_derivative}
+\end{equation}
+так что координатное время вдоль луча жёстко связано с его радиальным движением: движущаяся жидкость делает $\mathcal{G}_{rt}\neq 0$, и втекающий поток увлекает луч вперёд по $t$ -- акустический аналог увлечения систем отсчёта.
+
+Второй вектор Киллинга, $\partial_{\phi}$, аналогично сохраняет угловой момент. Ограничиваясь без потери общности экваториальной плоскостью $\theta=\pi/2$ (сохраняемой $\theta$-компонентой~\eqref{eq:geodesic_equation}), получаем
+\begin{equation}
+    k_{\phi} = \mathcal{G}_{\phi\phi}\,\frac{\mathrm{d}\phi}{\mathrm{d}\lambda} = L = \mathrm{const} .
+    \label{eq:angular_momentum_conservation}
+\end{equation}
+Их отношение $b=L/E$ -- прицельный параметр, маркирующий каждый луч в точности как в вакуумном линзировании.
+
+При фиксированных $E$ и $L$ условие нулевого интервала~\eqref{eq:acoustic_null_condition} сводится к единственному уравнению для радиального движения,
+\begin{equation}
+    \mathcal{G}_{tt}\Biggl(\frac{\mathrm{d}t}{\mathrm{d}\lambda}\Biggr)^{2}
+    +
+    2\mathcal{G}_{tr}\,\frac{\mathrm{d}t}{\mathrm{d}\lambda}\,\frac{\mathrm{d}r}{\mathrm{d}\lambda}
+    +
+    \mathcal{G}_{rr}\Biggl(\frac{\mathrm{d}r}{\mathrm{d}\lambda}\Biggr)^{2}
+    +
+    \frac{L^{2}}{\mathcal{G}_{\phi\phi}}
+    = 0 .
+    \label{eq:null_interval_expanded}
+\end{equation}
+Это -- основное уравнение для анализируемых ниже траекторий. Для радиальных лучей ($L=0$) оно сводится к квадратному уравнению для координатной скорости $v=\mathrm{d}r/\mathrm{d}t$,
+\begin{equation}
+    \mathcal{G}_{rr}v^{2} + 2\mathcal{G}_{rt}v + \mathcal{G}_{tt} = 0 .
+    \label{eq:coordinate_velocity_quadratic}
+\end{equation}
+Используя~\eqref{eq:eta_covariant_matrix} и нормировку 4-скорости, конформный фактор сокращается, а корни сводятся к
+\begin{equation}
+    v_{\pm}
+    =
+    \frac{-\beta\vartheta\upsilon \pm a}{f - \beta\upsilon^{2}}\, f^{2} .
+    \label{eq:coordinate_velocity}
+\end{equation}
+Ветвь $v_{+}$ -- исходящий луч (против аккреционного ветра); $v_{-}$ -- входящий. В вакуумном пределе $a\to 1$, $\beta\to 0$ восстанавливается $v_{\pm}=\pm f$. Акустический горизонт -- в точности поверхность <<вмораживания>> $v_{+}=0$, эквивалентная~\eqref{eq:acoustic_horizon_def}. Нерадиальные лучи, формирующие картину линзирования и акустическую фотонную сферу, описываются выводимым далее уравнением Бине.
+
+\subsection{Обобщённое уравнение Бине}
+
+Общие, нерадиальные лучи естественнее всего описывать как орбиты по углу $\phi$. Переходя к $\varrho=1/r$ и исключая аффинный параметр между условием нулевого интервала и сохраняющимся $b=L/E$, получаем первый интеграл Бине
+\begin{equation}
+    \Biggl(\frac{\mathrm{d}\varrho}{\mathrm{d}\phi}\Biggr)^{2}
+    =
+    \frac{1}{b^{2}a^{2}} - \varrho^{2}\eta^{rr} .
+    \label{eq:binet_first_acoustic}
+\end{equation}
+Конформный фактор снова выпадает; дифференцирование по $\phi$ даёт уравнение Бине второго порядка
+\begin{equation}
+    \frac{\mathrm{d}^{2}\varrho}{\mathrm{d}\phi^{2}} + \varrho
+    =
+    \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{3}{2}\varrho^{2}}_{F_{\mathrm{E}}}
+    +
+    \underbrace{\frac{1}{2b^{2}}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\Bigl(\frac{1}{a^{2}}\Bigr)}_{F_{\mathrm{R}}}
+    -
+    \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{1}{2}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\bigl(\alpha\upsilon^{2}\varrho^{2}\bigr)}_{F_{\mathrm{W}}} .
+    \label{eq:binet_second_acoustic}
+\end{equation}
+В вакууме ($a\to 1$) оно сводится к стандартному шварцшильдовскому соотношению $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\frac{3}{2}\varrho^{2}$. В общем случае правая часть распадается на три конкурирующие силы:
+\begin{itemize}
+    \item $F_{\mathrm{E}}$ -- отклонение Эйнштейна (вакуумная кривизна);
+    \item $F_{\mathrm{R}}$ -- акустическая рефракция от градиентов $a(r)$; для потока, нагревающегося к центру, этот вклад фокусирует лучи внутрь;
+    \item $F_{\mathrm{W}}$ -- сила акустического ветра от радиальной аккреции; для дозвукового течения $\alpha<0$, поэтому этот член часто противодействует гравитационной фокусировке и смещает радиус захвата относительно вакуума.
+\end{itemize}
+
+Это разложение -- аналитическое ядро лучевого анализа: оно явно показывает, какой эффект отклоняет данный луч. Численное интегрирование~\eqref{eq:binet_second_acoustic} для течения Мишеля при $a_{\infty}=0.1$ (рис.~\ref{fig:phonon_orbits}--\ref{fig:phonon_forces}) показывает, что лучи с $b<b_{\mathrm{c}}$ наматываются на акустический горизонт, тогда как лучи с $b>b_{\mathrm{c}}$ рассеиваются, огибая акустическую фотонную сферу $r_{\mathrm{aph}}$. Критический прицельный параметр $b_{\mathrm{c}}$ фиксируется максимумом барьера захвата
+\begin{equation}
+    U(r) = a^{2}\eta^{rr}/r^{2} ,
+    \label{eq:capture_barrier}
+\end{equation}
+через условие поворота $1/b^{2}=U(r)$. Вдоль критического луча три силы конкурируют: вблизи горизонта доминирует ветровой вклад $-F_{\mathrm{W}}$, рефракция $F_{\mathrm{R}}$ на всём протяжении отталкивающая, а $F_{\mathrm{E}}$ спадает как $r^{-2}$. Их сумма $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$ положительна при $r_{\mathrm{a}}$ и меняет знак в точке $r_{0}>r_{\mathrm{aph}}$ (табл.~\ref{tab:phonon_forces}). Для $\gamma=5/3$ находим $r_{\mathrm{a}}\approx 4.38$, $r_{\mathrm{aph}}\approx 6.10$ и $b_{\mathrm{c}}\approx 50$; для более холодного течения $\gamma=4/3$ масштабы укрупняются до $r_{\mathrm{a}}\approx 14.1$, $r_{\mathrm{aph}}\approx 20.0$ и $b_{\mathrm{c}}\approx 240$.
+
+\subsection{Акустическая задержка Шапиро}
+
+Помимо отклонения, звуковой луч несёт и временную характеристику -- акустический аналог задержки Шапиро. Координатное время прохождения радиального луча между $r_{1}$ и $r_{2}$ равно
+\begin{equation}
+    t_{\pm}
+    =
+    \int^{r_{2}}_{r_{1}}\frac{\mathrm{d}r}{v_{\pm}(r)}
+    =
+    \int^{r_{2}}_{r_{1}}
+    \frac{f-\beta\upsilon^{2}}{f^{2}\bigl(-\beta\vartheta\upsilon\pm a\bigr)}\,\mathrm{d}r .
+    \label{eq:shapiro_time}
+\end{equation}
+В вакууме это сводится к классическому интегралу Шапиро $t_{\pm}=\pm\int f^{-1}\,\mathrm{d}r$~\cite{ShapiroII_FourthTestOfGeneralRelativity_1964}. В акустической геометрии появляются ещё два вклада: гидродинамическая (ветровая) задержка от $\mathcal{G}_{rt}\neq 0$, нарушающая $t_{+}=t_{-}$, и рефракционная задержка от радиальных профилей $a(r)$ и $\beta(r)$.
+
+В интеграле~\eqref{eq:shapiro_time} самом по себе доминирует протяжённая однородная дальняя зона; более острый, локальный зонд -- коэффициент замедления
+\begin{equation}
+    n_{\pm}(r) = \frac{f(r)}{|v_{\pm}(r)|} ,
+    \label{eq:local_slowdown}
+\end{equation}
+показывающий, во сколько раз звуковой луч в данной точке медленнее вакуумного фотона (для которого $|v|=f$). Рис.~\ref{fig:shapiro} и табл.~\ref{tab:shapiro} показывают $n_{\pm}$ для течения Мишеля при $a_{\infty}=0.1$. Вблизи горизонта ветви расходятся: исходящий луч замерзает ($v_{+}\to 0$, $n_{+}\sim 10^{3}$), а входящий сносится внутрь при конечном $n_{-}$. На больших радиусах обе ветви сходятся к плато геометрической оптики $1/a_{\infty}=10$.
+
+Для исходящего сигнала, испущенного в $r_{1}$ и принятого при $r_{\mathrm{out}}=200$, избыточная задержка относительно плоского светового времени,
+\begin{equation}
+    \Delta t_{+}(r_{1})
+    =
+    \int^{r_{\mathrm{out}}}_{r_{1}}\frac{\mathrm{d}r}{v_{+}(r)} - \bigl(r_{\mathrm{out}}-r_{1}\bigr) ,
+    \label{eq:shapiro_excess}
+\end{equation}
+превышает вакуумный аналог на факторы $R=\Delta t^{\mathrm{ac}}_{+}/\Delta t^{\mathrm{vac}}_{+}\sim 10^{2}$--$10^{3}$, тогда как отношение полных времён пролёта $\mathcal{T}=t^{\mathrm{ac}}_{+}/t^{\mathrm{vac}}_{+}$ остаётся близким к $1/a_{\infty}$. Геометро-оптическая часть $\mathcal{T}\approx 10$ практически не зависит от $\gamma$; гидродинамическое <<вмораживание>>, видимое в $n_{+}/n_{-}$ и в $R$, сильнее для $\gamma=4/3$, чья звуковая точка лежит дальше. И отклонение из предыдущей подсекции, и найденная здесь временная задержка формируют картину линзирования и акустическую фотонную сферу, к которым мы теперь переходим.
+
+\subsection{Акустическое линзирование и фотонная сфера}
+
+Рассеиваемые лучи группируются вокруг единственной неустойчивой круговой орбиты -- акустической фотонной сферы, задающей край акустической тени. В вакуумном пространстве -- времени Шварцшильда эта орбита находится при $r_{\mathrm{ph}}=3/2$; в акустической геометрии условия круговой орбиты $\mathrm{d}\varrho/\mathrm{d}\phi=\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}=0$, применённые к~\eqref{eq:binet_first_acoustic}--\eqref{eq:binet_second_acoustic}, смещают её к $r_{\mathrm{aph}}$. Линеаризация около вакуумной точки $\varrho_{\mathrm{ph}}=2/3$ разделяет сдвиг на рефракционный и ветровой вклады,
+\begin{equation}
+    \delta\varrho
+    =
+    \underbrace{\vphantom{\Biggl(
+        \beta_{\mathrm{ph}}\upsilon^{2}_{\mathrm{ph}}
+        +
+        \frac{1}{3}\,\frac{\mathrm{d}(\beta\upsilon^{2})}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}}
+    \Biggr)}\frac{2}{27}\,\frac{\mathrm{d}\beta}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}}}_{\delta F_{\mathrm{R}}}
+    +
+    \underbrace{\frac{2}{3}\Biggl(
+        \beta_{\mathrm{ph}}\upsilon^{2}_{\mathrm{ph}}
+        +
+        \frac{1}{3}\,\frac{\mathrm{d}(\beta\upsilon^{2})}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}}
+    \Biggr)}_{-\delta F_{\mathrm{W}}} ,
+    \label{eq:acoustic_photon_sphere_delta}
+\end{equation}
+и поэтому
+\begin{equation}
+    r_{\mathrm{aph}}
+    \approx
+    \frac{3}{2}\Biggl(1 - \frac{3}{2}\,\delta\varrho\Biggr) .
+    \label{eq:raph_from_delta}
+\end{equation}
+Эти два вклада действуют в противоположные стороны: рефракция ($\mathrm{d}\beta/\mathrm{d}\varrho|_{\mathrm{ph}}>0$ для потока, нагревающегося внутрь) стремится сжать акустическую тень, тогда как дозвуковой ветер ($\beta_{\mathrm{ph}}<0$) выталкивает $r_{\mathrm{aph}}$ наружу. Для течения Мишеля при $a_{\infty}=0.1$ побеждает ветер, давая существенный сдвиг наружу: $r_{\mathrm{aph}}\approx 6.10$ для $\gamma=5/3$ и $r_{\mathrm{aph}}\approx 20.0$ для $\gamma=4/3$ против вакуумного значения $1.5$. Тень, таким образом, задаётся $r_{\mathrm{aph}}$ -- эквивалентно максимумом барьера~\eqref{eq:capture_barrier} -- а не самим горизонтом, и несёт прямой отпечаток термодинамического состояния аккреционного потока. Примечательно, что хотя и $r_{\mathrm{a}}$, и $r_{\mathrm{aph}}$ сильно меняются с $a_{\infty}$, их отношение остаётся почти постоянным во всём диапазоне табл.~\ref{tab:ainf_scan} и рис.~\ref{fig:ainf_scan} (справа): $r_{\mathrm{aph}}/r_{\mathrm{a}}\approx 1.39$ для $\gamma=5/3$ и $\approx 1.42$ для $\gamma=4/3$ -- акустическая фотонная сфера следует за горизонтом с фиксированным множителем, задаваемым в основном уравнением состояния. Тот же горизонт ещё и излучает -- его поверхностная гравитация и связанная с ней аналоговая температура Хокинга рассматриваются в следующем разделе.
+
+\section{Поверхностная гравитация и аналоговая температура Хокинга}
+\label{sec:surface_gravity}
+
+Акустический горизонт $r=r_{\mathrm{a}}$, определяемый условием $\eta^{rr}(r_{\mathrm{a}})=0$, является необходимым кинематическим элементом для аналога излучения Хокинга при условии стационарности и адиабатичности фона. В квантовой теории поля на эффективном пространстве -- времени горизонт приводит к спонтанному рождению пар фононов: одна мода уходит на пространственную бесконечность как тепловой поток, а её партнёр (с отрицательной нормой Киллинга) пересекает горизонт и поглощается.
+
+Темп экспоненциального <<растягивания>> исходящих нулевых лучей вблизи горизонта измеряется поверхностной гравитацией $\kappa$. Исходя из координатной скорости исходящего луча~\eqref{eq:coordinate_velocity},
+\begin{equation}
+    v_{+}(r)
+    =
+    \frac{a - \beta\vartheta\upsilon}{f - \beta\upsilon^{2}}\, f^{2} ,
+    \label{eq:v_plus}
+\end{equation}
+конформно инвариантной и обращающейся в нуль при $r_{\mathrm{a}}$, вводим акустическую черепашью координату $\mathrm{d}r_{*}=\mathrm{d}r/v_{+}(r)$. Вблизи горизонта $v_{+}(r)\approx (\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}(r-r_{\mathrm{a}})$, поэтому
+\begin{equation}
+    r_{*}
+    \approx
+    \frac{1}{(\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}}\,\ln(r-r_{\mathrm{a}}) .
+    \label{eq:tortoise_near_horizon}
+\end{equation}
+Сопоставление с канонической формой $r_{*}\sim(2\kappa)^{-1}\ln(r-r_{\mathrm{a}})$, лежащей в основе теплового спектра Крускала, даёт инвариантное определение
+\begin{equation}
+    \kappa
+    \equiv
+    \frac{1}{2}\,\frac{\mathrm{d}v_{+}}{\mathrm{d}r}\Big|_{r=r_{\mathrm{a}}} .
+    \label{eq:surface_gravity_def}
+\end{equation}
+Поскольку числитель~\eqref{eq:v_plus} на горизонте обращается в нуль, при дифференцировании выживает лишь производная этого числителя, и получается замкнутое выражение (используемое для табличных значений и перекрёстно проверенное прямым наклоном $v_{+}$)
+\begin{equation}
+    \kappa
+    =
+    \frac{f^{2}(r_{\mathrm{a}})}
+         {2\bigl[f(r_{\mathrm{a}})-\beta(r_{\mathrm{a}})\upsilon^{2}(r_{\mathrm{a}})\bigr]}
+    \,\frac{\mathrm{d}}{\mathrm{d}r}\bigl(a-\beta\vartheta\upsilon\bigr)\Big|_{r=r_{\mathrm{a}}} .
+    \label{eq:surface_gravity_explicit}
+\end{equation}
+Таким образом, поверхностная гравитация определяется не самими значениями параметров потока, а \emph{скоростью} пересечения течением звуковой точки: чем круче числитель условия <<вмораживания>>, тем горячее горизонт. В вакуумном пределе $a\to 1$, $\beta\to 0$, $r_{\mathrm{a}}\to 1$ восстанавливается $\kappa=\frac{1}{2}(\mathrm{d}f/\mathrm{d}r)|_{r=1}=\frac{1}{2}$, что в размерных единицах в точности совпадает со шварцшильдовским значением $\kappa_{\mathrm{Sch}}=c^{2}/(2r_{\mathrm{g}})$.
+
+Экспоненциальное красное смещение исходящих мод превращает асимптотический вакуум в тепловую ванну фононов с температурой
+\begin{equation}
+    T_{\mathrm{H}} = \frac{\kappa}{2\pi} ,
+    \label{eq:hawking_temperature}
+\end{equation}
+или, восстанавливая размерность ($r$ и $t$ измеряются в единицах $r_{\mathrm{g}}$ и $r_{\mathrm{g}}/c$),
+\begin{equation}
+    k_{\mathrm{B}}T_{\mathrm{H}}
+    =
+    \frac{\hbar c}{2\pi r_{\mathrm{g}}}\,\kappa .
+    \label{eq:hawking_temperature_dim}
+\end{equation}
+При $\kappa=1/2$ это воспроизводит классическую температуру Хокинга $k_{\mathrm{B}}T_{\mathrm{H}}=\hbar c^{3}/(8\pi GM)$. В акустическом случае $T_{\mathrm{H}}$ несёт информацию о термодинамике аккреции: она задаётся градиентами $a(r)$ и профилем течения $(\vartheta,\upsilon)$ в звуковой точке. Спектр остаётся тепловым в адиабатическом приближении, когда фоновые величины меняются медленно на масштабе тепловой длины волны фонона $\lambda_{\mathrm{T}}\sim\kappa^{-1}$; резкие градиенты порождают отклонения от планковской формы.
+
+Относительно вакуумной поверхностной гравитации Шварцшильда $\kappa_{\mathrm{Sch}}=1/2$
+\begin{equation}
+    \frac{T^{\mathrm{ac}}_{\mathrm{H}}}{T^{\mathrm{vac}}_{\mathrm{H}}}
+    =
+    2\kappa(a,\vartheta,\upsilon) .
+    \label{eq:temperature_ratio}
+\end{equation}
+Большой положительный градиент в~\eqref{eq:surface_gravity_explicit} (быстрое падение скорости звука или сильное ускорение потока) усиливает излучение по сравнению с вакуумом; гладкие профили могут его подавлять. В отличие от гравитационного горизонта, чья температура фиксирована одной лишь массой чёрной дыры, акустический горизонт обладает <<мягкой>> термодинамикой, управляемой уравнением состояния и асимптотическими граничными данными. В табл.~\ref{tab:surface_gravity} приведены значения $\kappa$, вычисленные из~\eqref{eq:surface_gravity_explicit} для течения Мишеля при $a_{\infty}=0.1$: аналоговый горизонт заметно холоднее вакуумного, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ для $\gamma=5/3$ и $\approx 7.0\cdot 10^{-3}$ для $\gamma=4/3$. Кинематическое определение~\eqref{eq:surface_gravity_def} стандартно в аналоговой гравитации~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998} и совпадает с конформно инвариантной поверхностной гравитацией Билича~\cite{BilicN_RelativisticAcousticGeometry_1999}, специализированной к радиальному течению. Выражение $\kappa$ -- и, следовательно, $T_{\mathrm{H}}$ -- непосредственно через переменные аккреции в звуковой точке следует подходу, развитому для релятивистских аккреционных дисков и для сферических и изотермических течений на чёрные дыры Шварцшильда~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}; здесь оно проведено для адиабатического политропного течения Мишеля на сетке $(\gamma,a_{\infty})$. Эти табулированные значения (табл.~\ref{tab:surface_gravity}--\ref{tab:ainf_scan}) количественно задают тот самый масштаб, что управляет акустическим <<звоном>> (ringdown) этого фона: Chaverra \emph{et al.}~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015} обнаружили, что для далеко вынесенного звукового горизонта ($r_{\mathrm{a}}\gg 1$) квазинормальные частоты течения Мишеля масштабируются приближённо как $\kappa$, так что записи табл.~\ref{tab:ainf_scan} задают естественную единицу частоты в этом режиме. Эту связь можно сделать количественной. Сопоставление их табулированных фундаментальных частот $s=\sigma+i\omega$ с вычисленной здесь поверхностной гравитацией (их нормировка вдвое больше нашей, $\kappa_{\mathrm{Ch}}=2\kappa$, а наша $\kappa$ воспроизводит их значения лучше чем на $0.5\%$ в диапазоне $r_{\mathrm{a}}=3$--$30$) даёт не зависящие от соглашения отношения $\mathrm{Re}\,s\approx-0.77\,\kappa$ и $\mathrm{Im}\,s\approx(0.42+1.21\,\ell)\,\kappa$ при $\ell\ge 1$, почти постоянные для $r_{\mathrm{a}}\gtrsim 10$. Тем самым табулированная $\kappa$ фиксирует и скорость затухания, и частоту колебаний <<звона>> течения Мишеля; например, при $a_{\infty}=0.1$ ($\kappa=3.5\cdot10^{-3}$, $r_{\mathrm{a}}\approx14$) дипольная ($\ell=1$) акустическая мода лежит на $s\,r_{\mathrm{g}}\approx(-2.7+5.7\,i)\cdot10^{-3}$. Подавление отражает плавный трансзвуковой переход в далеко вынесенной звуковой точке ($r_{\mathrm{a}}\approx 4.4$ и $14.1$ соответственно): более мягкое радиационно-доминированное течение ($\gamma=4/3$) ускоряется медленнее через звуковую точку, лежащую дальше, что даёт самый холодный горизонт. Это не особенность единственного случая $a_{\infty}=0.1$: изменение $a_{\infty}$ от $0.05$ до $0.20$ (табл.~\ref{tab:ainf_scan} и рис.~\ref{fig:ainf_scan}, слева) показывает монотонный рост $\kappa$ более чем на порядок по мере того, как асимптотический газ становится горячее, а звуковая точка смещается внутрь к области сильного поля, так что аналоговая температура Хокинга -- непрерывная функция асимптотических граничных данных, а не изолированное значение.
+
+Горизонту можно также сопоставить формальную площадь в эффективной геометрии. Угловая часть $\mathcal{G}_{\mu\nu}$, индуцированная на сфере $r=r_{\mathrm{a}}$, даёт
+\begin{equation}
+    \mathcal{A}_{\mathrm{a}}
+    =
+    \oint\sqrt{\mathcal{G}_{\theta\theta}\mathcal{G}_{\phi\phi}}\,\mathrm{d}\theta\,\mathrm{d}\phi
+    =
+    \frac{4\pi r^{2}_{\mathrm{a}}}{\Omega^{2}(r_{\mathrm{a}})} ,
+    \label{eq:acoustic_horizon_area}
+\end{equation}
+что является естественным конформным обобщением классической формулы площади горизонта~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. По аналогии можно записать <<энтропию>> Бекенштейна -- Хокинга $S_{\mathrm{a}}\propto\mathcal{A}_{\mathrm{a}}$, однако аналогию необходимо жёстко ограничить. Температура~\eqref{eq:hawking_temperature} физически робастна: она следует из кинематики волнового уравнения~\eqref{eq:wave_equation} на эффективной метрике и не требует динамических уравнений для самой $\mathcal{G}_{\mu\nu}$. Напротив, $\mathcal{A}_{\mathrm{a}}$ и любое соотношение Клаузиуса $\delta Q=T_{\mathrm{H}}\delta S_{\mathrm{a}}$ фундаментального статуса здесь не имеют, потому что $\mathcal{G}_{\mu\nu}$ не подчиняется уравнениям Эйнштейна, а $\mathcal{A}_{\mathrm{a}}$ не обязана быть монотонной. Таким образом, акустический горизонт воспроизводит \emph{излучение} Хокинга как кинематический эффект, но не полную термодинамику чёрных дыр.
+
+\section{Заключение}
+
+Мы построили релятивистскую акустическую геометрию аккреции Мишеля идеальной жидкости на чёрную дыру Шварцшильда и проанализировали высокочастотный звук как нулевые геодезические эффективной метрики $\mathcal{G}_{\mu\nu}$. Исходя из линеаризованной системы уравнений непрерывности -- Эйлера -- энергии, волновое уравнение для потенциала скорости определяет $\mathcal{G}^{\mu\nu}=\Omega^{2}(g^{\mu\nu}+\alpha u^{\mu}u^{\nu})$ с $\alpha=1-a^{-2}$. На фоне Мишеля акустический горизонт событий в точности совпадает со звуковой критической точкой, $r_{\mathrm{a}}=r_{\mathrm{c}}$, тогда как поверхность стационарного предела остаётся отличной от него и ограничивает подлинную акустическую эргообласть. Сами звуковые радиусы воспроизводят стандартные значения Michel/Shapiro--Teukolsky; развитая здесь феноменология геометрической оптики -- разложение сил, диагностики Шапиро, сдвиг фотонной сферы и табулированные поверхностные гравитации -- дополняет существующие анализы волнового уравнения и QNM того же фона.
+
+Геометрическая оптика звуковых лучей управляется обобщённым уравнением Бине, разлагающим отклонение на силы Эйнштейна, рефракции и акустического ветра. Численное интегрирование при $a_{\infty}=0.1$ показывает, что вблизи горизонта доминирует ветер, рефракция на всём протяжении отталкивающая, а максимум барьера захвата фиксирует акустическую фотонную сферу, сильно смещённую наружу относительно вакуумного значения $r_{\mathrm{ph}}=3/2$: $r_{\mathrm{aph}}\approx 6.10$ для $\gamma=5/3$ и $r_{\mathrm{aph}}\approx 20.0$ для $\gamma=4/3$. В диапазоне $a_{\infty}=0.05$--$0.20$ оба радиуса сильно меняются, однако их отношение почти неизменно, $r_{\mathrm{aph}}/r_{\mathrm{a}}\approx 1.39$ ($\gamma=5/3$) и $\approx 1.42$ ($\gamma=4/3$), так что акустическая тень следует за горизонтом с множителем, задаваемым в основном уравнением состояния. Акустическая задержка Шапиро, диагностируемая локальным замедлением $n_{\pm}=f/|v_{\pm}|$, демонстрирует <<вмораживание>> исходящих лучей на горизонте и сходимость обеих ветвей к плато $1/a_{\infty}$ на больших радиусах; избыточные задержки превышают вакуумную задержку Шапиро на факторы порядка $10^{2}$--$10^{3}$.
+
+Поверхностная гравитация на звуковом горизонте выражена через гидродинамические градиенты $a$, $\vartheta$ и $\upsilon$, так что аналоговая температура Хокинга зондирует скорость пересечения потоком звуковой точки. При $a_{\infty}=0.1$ горизонт заметно холоднее вакуумного, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ ($\gamma=5/3$) и $\approx 7.0\cdot 10^{-3}$ ($\gamma=4/3$); при увеличении $a_{\infty}$ поверхностная гравитация $\kappa$ монотонно растёт более чем на порядок, а звуковая точка смещается внутрь. Сама температура -- робастное кинематическое следствие волнового уравнения; формальную площадь горизонта можно записать, однако она не наделяет акустическую геометрию полной термодинамикой Бекенштейна -- Хокинга.
+
+В совокупности эти результаты показывают, что термодинамические параметры и параметры потока аккреционного течения входят в акустическое линзирование, временную задержку и аналоговый масштаб Хокинга количественно контролируемым образом. Естественное расширение, оставляемое для будущей работы, -- анализ пространственной устойчивости акустических, вихревых и энтропийных мод: возмущений конечной частоты, которые, в отличие от изученных здесь высокочастотных лучей, не распространяются на акустическом нулевом конусе и требуют полного волнового уравнения с нетривиальным конформным фактором.
+
+\section*{Благодарности}
+В работе использована NASA's Astrophysics Data System. Автор является независимым исследователем и выполнил эту работу без институционального финансирования.
+
+\clearpage
+%% ----- Рисунки -----
+\begin{figure}[p]
+\centering
+\includegraphics[width=\linewidth]{phonon_orbits_both.pdf}
+\caption{Траектории звуковых лучей в течении Мишеля при $a_{\infty}=0.1$ для одноатомного газа ($\gamma=5/3$, слева) и радиационно-доминированной плазмы ($\gamma=4/3$, справа); обратите внимание на разные пространственные масштабы. Захватываемые лучи ($b<b_{\mathrm{c}}$, тёплые цвета от красного к жёлтому) по спирали наматываются на акустический горизонт $r_{\mathrm{a}}$ (малиновый пунктирный круг), тогда как рассеиваемые лучи ($b>b_{\mathrm{c}}$, холодные цвета от синего к голубому) отклоняются, огибая акустическую фотонную сферу $r_{\mathrm{aph}}$ (оранжевый штрихпунктирный круг); чёрный диск отмечает гравитационный горизонт $r=1$. Поскольку более холодное течение $\gamma=4/3$ становится звуковым дальше, оно раздувает все акустические масштабы в несколько раз ($r_{\mathrm{a}}\approx 14.1$, $r_{\mathrm{aph}}\approx 20.0$, $b_{\mathrm{c}}\approx 240$ против $r_{\mathrm{a}}\approx 4.38$, $r_{\mathrm{aph}}\approx 6.10$, $b_{\mathrm{c}}\approx 50$ для $\gamma=5/3$), так что обе панели геометрически подобны, но масштаб задаётся уравнением состояния. Характерные радиусы и критический прицельный параметр приведены в табл.~\ref{tab:phonon_forces}.}
+\label{fig:phonon_orbits}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\linewidth]{phonon_forces.pdf}
+\caption{Разложение силы~\eqref{eq:binet_second_acoustic} вдоль критического луча $b=b_{\mathrm{c}}$ ($a_{\infty}=0.1$) для $\gamma=4/3$ (сверху) и $\gamma=5/3$ (снизу): $F_{\mathrm{E}}$ (голубые кружки), $F_{\mathrm{R}}$ (красные квадраты), $-F_{\mathrm{W}}$ (бирюзовые ромбы) и их сумма $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$ (сплошная чёрная); горизонтальный пунктир отмечает $\Sigma=0$. Вертикальные пунктирные линии отмечают акустический горизонт $r_{\mathrm{a}}$ (красная) и акустическую фотонную сферу $r_{\mathrm{aph}}$ (синяя). Поточечные значения трёх сил и $\Sigma$ приведены в табл.~\ref{tab:phonon_forces}.}
+\label{fig:phonon_forces}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.75\linewidth]{shapiro_compare.pdf}
+\caption{Локальное замедление $n_{\pm}=f/|v_{\pm}|$ для исходящих и входящих лучей ($a_{\infty}=0.1$) при $\gamma=4/3$ (сверху) и $\gamma=5/3$ (снизу): $n_{+}$ -- малиновая кривая с заполненными кружками, $n_{-}$ -- чёрная кривая с крестиками; горизонтальный пунктир отмечает плато геометрической оптики $1/a_{\infty}=10$. Вблизи горизонта ($r-r_{\mathrm{a}}=10^{-3}r_{\mathrm{a}}$) исходящая ветвь замерзает ($n_{+}\to\infty$), тогда как входящая остаётся конечной, а на больших радиусах обе сходятся к $10$. Вставки укрупняют внешнюю зону в линейном масштабе, а численные значения в отмеченных радиусах приведены в табл.~\ref{tab:shapiro}.}
+\label{fig:shapiro}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.88\linewidth]{ainf_scan.pdf}
+\caption{Зависимость термодинамики акустического горизонта и геометрии линзирования от асимптотической скорости звука $a_{\infty}$ для $\gamma=5/3$ (одноатомный газ: красный, заполненные кружки) и $\gamma=4/3$ (радиационно-доминированная плазма: чёрный, крестики). (слева)~Поверхностная гравитация $\kappa$ монотонно растёт более чем на порядок по мере увеличения $a_{\infty}$ и смещения звуковой точки внутрь, к области сильного поля; правая ось даёт аналоговую температуру Хокинга относительно вакуумной, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$. (справа)~Отношение $r_{\mathrm{aph}}/r_{\mathrm{a}}$ остаётся почти постоянным в том же диапазоне (пунктирные горизонтальные линии -- средние значения, $\approx 1.39$ для $\gamma=5/3$ и $\approx 1.42$ для $\gamma=4/3$), так что акустическая фотонная сфера отслеживает горизонт с фиксированным множителем, задаваемым в основном уравнением состояния. Табулированные значения при $a_{\infty}=0.05,0.10,0.15,0.20$ приведены в табл.~\ref{tab:ainf_scan}.}
+\label{fig:ainf_scan}
+\end{figure}
+
+\clearpage
+%% ----- Таблицы -----
+\begin{table}[p]
+\centering
+\caption{Звуковая точка Мишеля (совпадающая с акустическим горизонтом), $r_{\mathrm{a}}=r_{\mathrm{c}}$, и скорость звука $a_{\mathrm{c}}$ в ней для выбранных политропных индексов $\gamma$ и асимптотических скоростей звука $a_{\infty}$.}
+\label{tab:sonic_point}
+{\small
+\begin{tabular}{cccc}
+\toprule
+$\gamma$ & $a_{\infty}$ & $r_{\mathrm{a}}=r_{\mathrm{c}}$ & $a_{\mathrm{c}}$ \\
+\midrule
+$4/3$ & $0.01$ & $1252$ & $0.014$ \\
+$4/3$ & $0.03$ & $141$  & $0.042$ \\
+$4/3$ & $0.10$ & $14.1$ & $0.137$ \\
+$5/3$ & $0.01$ & $38.1$ & $0.082$ \\
+$5/3$ & $0.03$ & $13.1$ & $0.142$ \\
+$5/3$ & $0.10$ & $4.38$ & $0.262$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Силы $F_{\mathrm{E}}$, $F_{\mathrm{R}}$, $F_{\mathrm{W}}$ из~\eqref{eq:binet_second_acoustic} и их сумма $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$, вычисленные вдоль критического луча $b=b_{\mathrm{c}}$ на акустическом горизонте, акустической фотонной сфере и в точке $r_{0}$ (где $\Sigma=0$); в последнем столбце -- $1/b_{\mathrm{c}}^{2}$. $a_{\infty}=0.1$.}
+\label{tab:phonon_forces}
+{\small
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{llcccccc}
+\toprule
+$\gamma$ & точка & $r$ & $F_{\mathrm{E}}$ & $F_{\mathrm{R}}$ & $F_{\mathrm{W}}$ & $\Sigma$ & $1/b^{2}_{\mathrm{c}}$ \\
+\midrule
+\multirow{3}{*}{$5/3$}
+  & $r_{\mathrm{a}}$   & $4.38$  & $+7.81\cdot 10^{-2}$ & $-8.95\cdot 10^{-3}$ & $-2.55\cdot 10^{-1}$ & $+3.24\cdot 10^{-1}$ & \multirow{3}{*}{$4.01\cdot 10^{-4}$} \\
+  & $r_{\mathrm{aph}}$ & $6.10$  & $+4.04\cdot 10^{-2}$ & $-1.54\cdot 10^{-2}$ & $-1.39\cdot 10^{-1}$ & $+1.64\cdot 10^{-1}$ & \\
+  & $r_{0}$          & $12.16$ & $+1.01\cdot 10^{-2}$ & $-4.49\cdot 10^{-2}$ & $-3.47\cdot 10^{-2}$ & $0$ & \\
+\midrule
+\multirow{3}{*}{$4/3$}
+  & $r_{\mathrm{a}}$   & $14.11$ & $+7.53\cdot 10^{-3}$ & $-2.23\cdot 10^{-3}$ & $-1.15\cdot 10^{-1}$ & $+1.20\cdot 10^{-1}$ & \multirow{3}{*}{$1.73\cdot 10^{-5}$} \\
+  & $r_{\mathrm{aph}}$ & $19.98$ & $+3.76\cdot 10^{-3}$ & $-3.26\cdot 10^{-3}$ & $-4.96\cdot 10^{-2}$ & $+5.01\cdot 10^{-2}$ & \\
+  & $r_{0}$          & $43.41$ & $+7.96\cdot 10^{-4}$ & $-6.45\cdot 10^{-3}$ & $-5.65\cdot 10^{-3}$ & $0$ & \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Интегральные характеристики акустического эффекта Шапиро для сигнала, испущенного из $r_{1}$ и принятого при $r_{\mathrm{out}}=200$: локальные коэффициенты замедления $n_{\pm}$ в $r_{1}$, избыточная задержка $\Delta t^{\mathrm{ac}}_{+}$, отношение к вакуумной $R=\Delta t^{\mathrm{ac}}_{+}/\Delta t^{\mathrm{vac}}_{+}$ и отношение полных времён $\mathcal{T}$. $a_{\infty}=0.1$.}
+\label{tab:shapiro}
+{\small
+\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{lccccccc}
+\toprule
+$\gamma$ & $r_{1}/r_{\mathrm{a}}$ & $r_{1}$ & $n_{+}$ & $n_{-}$ & $\Delta t^{\mathrm{ac}}_{+}$ & $R$ & $\mathcal{T}$ \\
+\midrule
+\multirow{3}{*}{$4/3$}
+  & $1{+}10^{-3}$ & $14.1$ & $9.39\cdot 10^{3}$ & $3.73$ & $2813$ & $1035$ & $15.9$ \\
+  & $1.5$         & $21.2$ & $27.2$             & $4.60$ & $1875$ & $819$  & $11.3$ \\
+  & $4.0$         & $56.4$ & $11.7$             & $7.12$ & $1357$ & $1062$ & $10.4$ \\
+\midrule
+\multirow{3}{*}{$5/3$}
+  & $1{+}10^{-3}$ & $4.39$ & $6.39\cdot 10^{3}$ & $2.04$ & $1902$ & $467$ & $10.5$ \\
+  & $1.5$         & $6.57$ & $20.3$             & $2.55$ & $1663$ & $465$ & $9.42$ \\
+  & $4.0$         & $17.5$ & $9.97$             & $4.34$ & $1526$ & $613$ & $9.24$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Поверхностная гравитация акустического горизонта из~\eqref{eq:surface_gravity_explicit} и аналоговая температура Хокинга по отношению к вакуумному шварцшильдовскому значению $\kappa_{\mathrm{Sch}}=1/2$. $a_{\infty}=0.1$; $T_{\mathrm{H}}=\kappa/2\pi$. Последняя строка -- вакуумный эталон $a\to 1$, $r_{\mathrm{a}}\to 1$.}
+\label{tab:surface_gravity}
+{\small
+\begin{tabular}{ccccc}
+\toprule
+$\gamma$ & $r_{\mathrm{a}}=r_{\mathrm{c}}$ & $\kappa$ & $T_{\mathrm{H}}=\kappa/2\pi$ & $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$ \\
+\midrule
+$5/3$   & $4.38$  & $1.38\cdot 10^{-2}$ & $2.20\cdot 10^{-3}$ & $2.76\cdot 10^{-2}$ \\
+$4/3$   & $14.11$ & $3.51\cdot 10^{-3}$ & $5.58\cdot 10^{-4}$ & $7.02\cdot 10^{-3}$ \\
+\midrule
+вакуум    & $1$     & $1/2$               & $1/4\pi$            & $1$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[p]
+\centering
+\caption{Зависимость от асимптотической скорости звука $a_{\infty}$: акустический горизонт $r_{\mathrm{a}}$, акустическая фотонная сфера $r_{\mathrm{aph}}$, их отношение, поверхностная гравитация $\kappa$ из~\eqref{eq:surface_gravity_explicit} и отношение температур $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$. С ростом $a_{\infty}$ звуковая точка смещается внутрь, а горизонт нагревается более чем на порядок, тогда как $r_{\mathrm{aph}}/r_{\mathrm{a}}$ остаётся почти постоянным (задаётся в основном $\gamma$).}
+\label{tab:ainf_scan}
+{\small
+\begin{tabular}{ccccccc}
+\toprule
+$\gamma$ & $a_{\infty}$ & $r_{\mathrm{a}}$ & $r_{\mathrm{aph}}$ & $r_{\mathrm{aph}}/r_{\mathrm{a}}$ & $\kappa$ & $2\kappa$ \\
+\midrule
+\multirow{4}{*}{$5/3$}
+  & $0.05$ & $8.13$ & $11.29$ & $1.39$ & $4.10\cdot 10^{-3}$ & $8.20\cdot 10^{-3}$ \\
+  & $0.10$ & $4.38$ & $6.10$  & $1.39$ & $1.38\cdot 10^{-2}$ & $2.76\cdot 10^{-2}$ \\
+  & $0.15$ & $3.14$ & $4.37$  & $1.39$ & $2.69\cdot 10^{-2}$ & $5.39\cdot 10^{-2}$ \\
+  & $0.20$ & $2.51$ & $3.52$  & $1.40$ & $4.19\cdot 10^{-2}$ & $8.39\cdot 10^{-2}$ \\
+\midrule
+\multirow{4}{*}{$4/3$}
+  & $0.05$ & $51.67$ & $73.13$ & $1.42$ & $4.82\cdot 10^{-4}$ & $9.64\cdot 10^{-4}$ \\
+  & $0.10$ & $14.11$ & $19.97$ & $1.42$ & $3.51\cdot 10^{-3}$ & $7.02\cdot 10^{-3}$ \\
+  & $0.15$ & $7.10$  & $10.06$ & $1.42$ & $1.03\cdot 10^{-2}$ & $2.06\cdot 10^{-2}$ \\
+  & $0.20$ & $4.60$  & $6.51$  & $1.42$ & $2.06\cdot 10^{-2}$ & $4.13\cdot 10^{-2}$ \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\clearpage
+%% Библиография (заполнять article.bib по мере написания текста).
+\bibliographystyle{elsarticle-num}
+\bibliography{article}
+
+\end{document}
