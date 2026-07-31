@@ -2,8 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21550680.svg)](https://doi.org/10.5281/zenodo.21550680)
 
-This repository contains the preprint, LaTeX source, bibliography, and figures
-for:
+This repository contains the preprint, LaTeX source, bibliography, and figures for:
 
 > [Alexander V. Semyannikov](https://orcid.org/0009-0007-0926-8272),
 > “Acoustic Geometry and Sound-Ray Dynamics in Relativistic Spherical
@@ -11,31 +10,25 @@ for:
 
 ## Abstract
 
-This work studies the relativistic acoustic metric of spherical Michel
-accretion onto a Schwarzschild black hole and treats high-frequency sound rays
-as null geodesics of the effective spacetime. It identifies the acoustic
-horizon, stationary-limit surface, and ergoregion; derives a generalized Binet
-equation for sound-ray deflection; compares acoustic and vacuum Shapiro delays;
-locates the acoustic photon sphere; and relates the analogue Hawking scale to
-hydrodynamic gradients. Results are presented for polytropic indices
-`γ = 4/3` and `γ = 5/3`.
+This work studies the relativistic acoustic metric of spherical Michel accretion onto a Schwarzschild black hole and treats high-frequency sound rays as null geodesics of the effective spacetime. It identifies the acoustic horizon, stationary-limit surface, and ergoregion; derives a generalized Binet equation for sound-ray deflection; compares acoustic and vacuum Shapiro delays; locates the acoustic photon sphere; and relates the analogue Hawking scale to hydrodynamic gradients. Results are presented for polytropic indices `γ = 4/3` and `γ = 5/3`.
 
 ## Repository contents
 
-- `article.pdf` — compiled preprint
-- `article.tex` — LaTeX source
+- `EN_Acoustic_Geometry_and_Sound_Ray_Dynamics_in_Relativistic_Spherical_Accretion.tex` — English LaTeX source (primary)
+- `RU_Acoustic_Geometry_and_Sound_Ray_Dynamics_in_Relativistic_Spherical_Accretion.tex` — Russian LaTeX source
+- `EN_Acoustic_Geometry_and_Sound_Ray_Dynamics_in_Relativistic_Spherical_Accretion.pdf` / `RU_Acoustic_Geometry_and_Sound_Ray_Dynamics_in_Relativistic_Spherical_Accretion.pdf` — compiled preprints (after build)
 - `article.bib` — bibliography database
-- `figs/` — figures used in the article
+- `figs/` — figures (`phonon_orbits_both.pdf`, `phonon_forces.pdf`, `shapiro_compare.pdf`, `ainf_scan.pdf`, …)
 - `CITATION.cff` — machine-readable citation metadata
 - `.zenodo.json` — Zenodo deposit metadata
 
 ## Building the article
 
-A TeX distribution with `latexmk`, BibTeX, and the `elsarticle` document class
-is required. Build the PDF from the repository root with:
+A TeX distribution with `latexmk`, BibTeX, and the `elsarticle` document class is required. Build from the repository root:
 
 ```sh
-latexmk -pdf article.tex
+latexmk -pdf EN_Acoustic_Geometry_and_Sound_Ray_Dynamics_in_Relativistic_Spherical_Accretion.tex
+latexmk -pdf RU_Acoustic_Geometry_and_Sound_Ray_Dynamics_in_Relativistic_Spherical_Accretion.tex
 ```
 
 To remove generated auxiliary files:
@@ -46,11 +39,8 @@ latexmk -c
 
 ## Citation
 
-Please use the metadata in `CITATION.cff` when citing this work. The DOI for all
-versions is [10.5281/zenodo.21550680](https://doi.org/10.5281/zenodo.21550680).
+Please use the metadata in `CITATION.cff` when citing this work. The DOI for all versions is [10.5281/zenodo.21550680](https://doi.org/10.5281/zenodo.21550680).
 
 ## License
 
-The article, its source, and the accompanying figures are licensed under the
-Creative Commons Attribution 4.0 International License (CC BY 4.0). See
-`LICENSE` for details.
+The article, its source, and the accompanying figures are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). See `LICENSE` for details.
