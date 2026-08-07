@@ -18,635 +18,492 @@
 \makeatother
 \graphicspath{{figs/}}
 \begin{document}
-\begin{frontmatter}
-    \title{Acoustic Geometry and Sound-Ray Dynamics in Relativistic Spherical Accretion}
-    \author{Alexander V. Semyannikov}
-    \address{Independent Researcher \\ \textit{Email: avsemyannikov@gmail.com}}
-    \begin{abstract}
-        In analogue gravity, sound waves in a moving fluid travel along the null geodesics of an effective curved spacetime, giving a controlled setting for studying horizon physics in astrophysical accretion. The relativistic acoustic metric for spherical accretion is well known and has been used in stability and quasi-normal-mode studies, but the geometric optics of sound rays in Michel flow has received little systematic attention. The acoustic metric for a perfect fluid accreting onto a Schwarzschild black hole (Michel flow) is constructed, and high-frequency sound rays are treated as its null geodesics. From the linearized continuity--Euler--energy system, the causal surfaces of the geometry are identified --- the acoustic horizon (which coincides with the sonic point), the stationary-limit surface, and the ergoregion --- and a generalized Binet equation is derived that separates ray deflection into Einstein, refractive, and acoustic-wind parts. A local slowdown factor allows the comparison of acoustic and vacuum Shapiro delays, the location of the acoustic photon sphere, and the relation of the analogue Hawking scale to hydrodynamic gradients. Results for polytropic indices $\gamma=4/3$ and $5/3$ show how the thermodynamic and flow parameters of the accretion enter acoustic lensing, time delay, and the analogue Hawking temperature, providing a geometric basis for future studies of finite-frequency acoustic, vortical, and entropy modes.
-    \end{abstract}
-    \begin{keyword}
-        acoustic metric \sep analogue gravity \sep Michel accretion \sep
-        Shapiro delay \sep sound rays \sep acoustic horizon \sep photon sphere \sep
-        Hawking temperature
-    \end{keyword}
-\end{frontmatter}
+    \begin{frontmatter}
+        \title{Acoustic Geometry and Sound-Ray Dynamics in Relativistic Spherical Accretion}
+        \author{Alexander V. Semyannikov}
+        \address{Independent Researcher \\ \textit{Email: avsemyannikov@gmail.com}}
+        \begin{abstract}
+            In analogue gravity, sound waves in a moving fluid travel along the null geodesics of an effective curved spacetime, giving a controlled setting for studying horizon physics in astrophysical accretion. The relativistic acoustic metric for spherical accretion is well known and has been used in stability and quasi-normal-mode studies, but the geometric optics of sound rays in Michel flow has received little systematic attention. The acoustic metric for a perfect fluid accreting onto a Schwarzschild black hole (Michel flow) is constructed, and high-frequency sound rays are treated as its null geodesics. From the linearized continuity--Euler--energy system, the causal surfaces of the geometry are identified --- the acoustic horizon (which coincides with the sonic point), the stationary-limit surface, and the ergoregion --- and a generalized Binet equation is derived that separates ray deflection into Einstein, refractive, and acoustic-wind parts. A local slowdown factor allows the comparison of acoustic and vacuum Shapiro delays, the location of the acoustic photon sphere, and the relation of the analogue Hawking scale to hydrodynamic gradients. Results for polytropic indices $\gamma=4/3$ and $5/3$ show how the thermodynamic and flow parameters of the accretion enter acoustic lensing, time delay, and the analogue Hawking temperature, providing a geometric basis for future studies of finite-frequency acoustic, vortical, and entropy modes.
+        \end{abstract}
+        \begin{keyword}
+            acoustic metric \sep analogue gravity \sep Michel accretion \sep Shapiro delay \sep sound rays \sep acoustic horizon \sep photon sphere \sep Hawking temperature
+        \end{keyword}
+    \end{frontmatter}
 
-    \section{Introduction}
-    %% Структура следует воронке pins/How to write Introduction
-    %% Section.jpg: Importance → Background → Problem → Gap → Aim.
-    Black-hole accretion is a central process in high-energy astrophysics: the flow of matter into a compact object shapes electromagnetic emission, feeds active galactic nuclei, and provides one of the few laboratories in which strong-field gravity can be probed observationally~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. Alongside the spacetime geometry itself, the \emph{hydrodynamics} of the accreting fluid supports an independent causal structure for sound. In a moving medium, acoustic disturbances propagate as if on an effective Lorentzian geometry -- the \emph{acoustic metric} -- whose null cones define sound horizons, ergoregions, and, in suitable regimes, analogues of Hawking radiation~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}. This analogue-gravity correspondence therefore links two seemingly distant subjects: the theory of curved-spacetime wave equations and the astrophysics of transonic accretion.
+    \section{Introduction} \label{sec:introduction}
 
-    The classical Newtonian description of steady spherical accretion is due to Bondi~\cite{BondiH_OnSphericallySymmetricalAccretion_1953}. Its general-relativistic counterpart on a Schwarzschild background -- the Michel flow~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972} -- is a stationary, spherically symmetric, adiabatic solution that passes through a sonic point and becomes supersonic near the event horizon. Linear acoustic perturbations of such flows are governed by a scalar wave equation on an effective metric built from the background spacetime, the fluid 4-velocity, and the local sound speed. A version of this construction appears already in Moncrief's analysis of the stability of spherical accretion onto a Schwarzschild black hole~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}; the relativistic acoustic geometry was subsequently systematized by Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} and placed in the broader analogue-gravity framework by Visser~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998} and by Barcel{\'o}, Liberati and Visser~\cite{BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}.
+        Acoustic perturbations in a moving fluid propagate on an effective Lorentzian geometry constructed from the background spacetime metric, the flow 4-velocity, and the local speed of sound~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}. For stationary spherical accretion onto a Schwarzschild black hole (the Michel flow~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972}), this construction generates an acoustic horizon coinciding with the critical point of the flow~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, BilicN_RelativisticAcousticGeometry_1999}. The relativistic acoustic geometry was systematized by Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} and placed in the broader analogue-gravity framework by Visser~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998} and by Barcel{\'o}, Liberati and Visser~\cite{BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}.
+    
+        Within this setting, most work on Michel accretion has concentrated on the wave equation itself: global stability outside the sonic horizon, energy estimates, and the spectrum of quasinormal acoustic oscillations~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015}, with the analogue Hawking emission revisited as a tunnelling process~\cite{JangidN_RayAK_AcousticHawkingRadiationAsATunnellingEffectInMichelAccretion_2026}. A complementary line of work expresses the acoustic surface gravity directly in terms of the accretion variables for relativistic flows onto a Schwarzschild black hole~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}. Ray-level properties of acoustic metrics---deflection, time delay, and the phonon sphere---have been studied in lower-dimensional and slowly rotating acoustic holes~\cite{ToshmatovB_AhmedovB_StuchlikZ_PhononMotionAround21DimensionalAcousticBlackHole_2023, BalaliAE_MarraniA_LenseThirringAcousticBlackHolesShadowsAndLight_2025}, Bose--Einstein condensates~\cite{VieiraHS_DestounisK_KokkotasKD_AnalogSchwarzschildBlackHolesOfBoseEinsteinCondensatesInACavityQuasinormalModesAndQuasiboundStates_2023}, and curved-background toy metrics~\cite{PalK_PalK_SarkarT_AnalogueMetricInABlackBounceBackground_2022}, but not for the relativistic adiabatic Michel flow with an explicit decomposition of the deflecting force.
+    
+        In the vacuum theory, null geodesics underlie gravitational lensing, the photon sphere, and the Shapiro time delay~\cite{ShapiroII_FourthTestOfGeneralRelativity_1964}. The same questions arise for sound rays, but the answers depend on the thermodynamic state of the flow---its equation of state, asymptotic sound speed, and sonic-point location---as well as on the background gravity. For relativistic Michel accretion, these ray-level questions---the forces that deflect a sound ray, the acoustic Shapiro delay, the shift of the acoustic photon sphere, and the surface gravity of the sonic horizon---have not been assembled into a single quantitative picture tied to the flow thermodynamics.
+    
+        In the present work, the relativistic acoustic metric for a perfect fluid in steady Michel accretion onto a Schwarzschild black hole is constructed, and high-frequency sound rays are studied as null geodesics of the effective spacetime. The causal surfaces of the geometry---the acoustic horizon, the stationary-limit surface, and the ergoregion---are identified, and the coincidence of the horizon with the Michel sonic point is verified. A generalized Binet equation is derived that decomposes the deflection of a ray into Einstein, refractive, and acoustic-wind forces. The local slowdown factor $n_{\pm}=f/|v_{\pm}|$ is introduced and used to compare acoustic and vacuum Shapiro delays along radial rays. The acoustic photon sphere is located, the associated capture barrier is mapped, and the surface gravity of the sonic horizon is expressed through hydrodynamic gradients, separating the kinematic content of the Hawking-temperature analogy from what is merely formal. The analysis is carried out for polytropic indices $\gamma=4/3$ and $5/3$ with the representative asymptotic sound speed $a_{\infty}=0.1$, supplemented by a scan over $a_{\infty}\in[0.05,\,0.20]$.
+    
+    \section{Relativistic fluid and acoustic perturbations} \label{sec:fluid}
 
-    Within this setting, most work on Michel accretion has concentrated on the wave equation itself: global stability outside the sonic horizon, energy estimates, and the spectrum of quasi-normal acoustic oscillations~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015}, with the analogue Hawking emission recently revisited as a tunnelling process~\cite{JangidN_RayAK_AcousticHawkingRadiationAsATunnellingEffectInMichelAccretion_2026}. A complementary line of work expresses the acoustic surface gravity -- and hence the analogue Hawking temperature -- directly in terms of the accretion variables for relativistic flows onto a Schwarzschild black hole, both for discs and for spherical and isothermal accretion~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}. Ray-level properties of acoustic metrics -- deflection, time delay, and the photon (``phonon'') sphere -- have likewise been studied, but mostly in other analogue settings: lower-dimensional and slowly rotating acoustic holes~\cite{ToshmatovB_AhmedovB_StuchlikZ_PhononMotionAround21DimensionalAcousticBlackHole_2023, BalaliAE_MarraniA_LenseThirringAcousticBlackHolesShadowsAndLight_2025}, Bose--Einstein condensates~\cite{VieiraHS_DestounisK_KokkotasKD_AnalogSchwarzschildBlackHolesOfBoseEinsteinCondensatesInACavityQuasinormalModesAndQuasiboundStates_2023}, and curved-background toy metrics~\cite{PalK_PalK_SarkarT_AnalogueMetricInABlackBounceBackground_2022}. Together these establish the acoustic geometry of Michel accretion as a genuine astrophysical analogue black hole, yet they stop short of a unified geometric-optics phenomenology of \emph{sound rays} -- the high-frequency null geodesics of the acoustic metric -- for the relativistic adiabatic Michel flow, as detailed as the corresponding picture for light rays in the vacuum Schwarzschild spacetime.
-
-    In the vacuum theory, null geodesics underlie gravitational lensing, the photon sphere, and the Shapiro time delay~\cite{ShapiroII_FourthTestOfGeneralRelativity_1964}. The same questions arise for sound rays, but now the answers depend on the thermodynamic state of the flow -- its equation of state, asymptotic sound speed, and sonic-point location -- as well as on the background gravity. For relativistic Michel accretion these ray-level questions -- the forces that deflect a sound ray, the acoustic Shapiro delay, the shift of the acoustic photon sphere, and the surface gravity of the sonic horizon -- have not yet been assembled into a single quantitative picture tied to the flow thermodynamics.
-
-    The present work addresses that gap. The relativistic acoustic metric for a perfect fluid in steady Michel accretion onto a Schwarzschild black hole is constructed, and its high-frequency sound rays are studied as null geodesics of the effective spacetime. Specifically:
-    \begin{itemize}
-        \item the acoustic horizon, the stationary-limit surface, and the ergoregion are identified, and it is verified that the horizon coincides with the Michel sonic point;
-        \item a generalized Binet equation is derived that splits the deflection of a ray into Einstein, refractive, and acoustic-wind forces, evaluated numerically for polytropic indices $\gamma=4/3$ and $5/3$;
-        \item the local slowdown factor $n_{\pm}=f/|v_{\pm}|$ is introduced and used to compare acoustic and vacuum Shapiro delays along radial rays;
-        \item the acoustic photon sphere is located, the associated capture barrier is mapped, and the surface gravity of the sonic horizon is expressed through hydrodynamic gradients, separating the kinematic content of the Hawking-temperature analogy from what is merely formal.
-    \end{itemize}
-
-    The paper is organized as follows. Section~2 recalls the thermodynamics of a relativistic perfect fluid and the linearized continuity--Euler--energy system that yields the acoustic wave equation. Section~3 constructs the acoustic metric for Michel accretion and analyses its causal surfaces. Section~4 develops the geometric optics of sound rays: conserved quantities, the generalized Binet equation, the acoustic Shapiro delay, and acoustic lensing. Section~5 discusses surface gravity and the scope of the analogue Hawking temperature. Section~6 summarizes the results and briefly indicates possible extensions to the spatial stability of acoustic, vortical, and entropy modes -- finite-frequency perturbations that, unlike high-frequency sound rays, do not propagate on the acoustic null cone.
-
-    \section{Relativistic fluid and acoustic perturbations}
-    \label{sec:fluid}
-    This section assembles the thermodynamic and hydrodynamic ingredients needed to define the acoustic metric. Throughout the work, the metric signature $\mathfrak{s}=(-,+,+,+)$ is used, so that the fluid 4-velocity satisfies
+        This section assembles the thermodynamic and hydrodynamic ingredients needed to define the acoustic metric. Throughout the work, the metric signature $\mathfrak{s}=(-,+,+,+)$ is used, so that the fluid 4-velocity satisfies
         \begin{equation}
             u_{\mu} u^{\mu} = -1 .
             \label{eq:four-velocity-norm}
         \end{equation}
-    All quantities below are dimensionless: spacetime coordinates are measured in units of the gravitational radius $r_{\mathrm{g}}=2GM/c^{2}$, the 4-velocity and the sound speed are measured in units of $c$, and the thermodynamic variables are normalized on their asymptotic rest-frame scales as in the standard Michel-flow convention~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. Orthogonal projections onto the fluid rest frame are performed with
+
+        All quantities below are dimensionless: spacetime coordinates are measured in units of the gravitational radius $r_{\mathrm{g}}=2GM/c^{2}$, the 4-velocity and the sound speed are measured in units of $c$, and the thermodynamic variables are normalized on their asymptotic rest-frame scales as in the standard Michel-flow convention~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. Orthogonal projections onto the fluid rest frame are performed with
         \begin{equation}
             \Delta^{\mu}_{\nu} = \delta^{\mu}_{\nu} + u^{\mu} u_{\nu} .
             \label{eq:projection-tensor}
         \end{equation}
 
         \subsection{Perfect-fluid thermodynamics}
-        The medium is modelled as a perfect fluid in local thermodynamic equilibrium. The dimensionless specific enthalpy is
+
+            The medium is modelled as a perfect fluid in local thermodynamic equilibrium. The dimensionless specific enthalpy is
             \begin{equation}
                 h = \frac{p + \epsilon}{n} ,
                 \label{eq:specific-enthalpy}
             \end{equation}
-        where $p$, $\epsilon$ and $n$ are the dimensionless pressure, energy density and baryon number density. The first law,
+            where $p$, $\epsilon$ and $n$ are the dimensionless pressure, energy density and baryon number density. The first law,
             \begin{equation}
                 \mathrm{d}h = T\,\mathrm{d}S + n^{-1}\,\mathrm{d}p ,
                 \label{eq:first-law-thermodynamics}
             \end{equation}
-        reduces for an adiabatic flow ($S=\mathrm{const}$) to
+            reduces for an adiabatic flow ($S=\mathrm{const}$) to
             \begin{equation}
                 \mathrm{d}p = n\,\mathrm{d}h .
                 \label{eq:adiabatic-relation}
             \end{equation}
-        Combined with~\eqref{eq:specific-enthalpy}, this yields the identity $\mathrm{d}\epsilon = h\,\mathrm{d}n$: in an adiabatic process the change of energy density is due solely to the change of particle density, each added particle contributing its full specific enthalpy.
+            Combined with~\eqref{eq:specific-enthalpy}, this yields the identity $\mathrm{d}\epsilon = h\,\mathrm{d}n$: in an adiabatic process the change of energy density is due solely to the change of particle density, each added particle contributing its full specific enthalpy.
 
-        The local sound speed is defined by the isentropic derivative
+            The local sound speed is defined by the isentropic derivative
             \begin{equation}
-                a^{2}
-                =
-                \Bigl(\frac{\partial p}{\partial\epsilon}\Bigr)_{S}
-                =
-                \frac{1}{h}\,\frac{\mathrm{d}p}{\mathrm{d}n} .
+                a^{2} = \Bigl(\frac{\partial p}{\partial\epsilon}\Bigr)_{S} = \frac{1}{h}\,\frac{\mathrm{d}p}{\mathrm{d}n} .
                 \label{eq:sound-speed-def}
             \end{equation}
-        The thermodynamics is closed by the polytropic equation of state $p = K n^{\gamma}$. Integration of~\eqref{eq:adiabatic-relation} then gives
+            The thermodynamics is closed by the polytropic equation of state $p = K n^{\gamma}$. Integration of~\eqref{eq:adiabatic-relation} then gives
             \begin{equation}
                 h = 1 + \frac{\gamma K}{\gamma-1}\, n^{\gamma-1} ,
                 \label{eq:enthalpy-polytropic}
             \end{equation}
-        and substitution into~\eqref{eq:sound-speed-def} produces
+            and substitution into~\eqref{eq:sound-speed-def} produces
             \begin{equation}
-                a^{2}
-                =
-                \frac{K\gamma\, n^{\gamma-1}}
-                {1 + \dfrac{\gamma K}{\gamma-1}\, n^{\gamma-1}} .
+                a^{2} = \frac{K\gamma\, n^{\gamma-1}}{1 + \dfrac{\gamma K}{\gamma-1}\, n^{\gamma-1}} .
                 \label{eq:sound-speed-polytropic}
             \end{equation}
-        In the cold, non-relativistic limit $h\to 1$ one recovers the Newtonian relation $a^{2}\approx K\gamma n^{\gamma-1}$. In the ultra-relativistic limit $n\to\infty$ one finds the universal bound $a^{2}\to\gamma-1$; causality ($a^{2}\le 1$) therefore requires $\gamma\le 2$, with the standard hot-plasma value $\gamma=4/3$ giving $a^{2}\to 1/3$.
+            In the cold, non-relativistic limit $h\to 1$ one recovers the Newtonian relation $a^{2}\approx K\gamma n^{\gamma-1}$. In the ultra-relativistic limit $n\to\infty$ one finds the universal bound $a^{2}\to\gamma-1$; causality ($a^{2}\le 1$) therefore requires $\gamma\le 2$, with the standard hot-plasma value $\gamma=4/3$ giving $a^{2}\to 1/3$.
 
-        For later use, the conformal factor of the acoustic metric is also recorded, expressed through the local sound speed alone
+            For later use, the conformal factor of the acoustic metric is also recorded, expressed through the local sound speed alone
             \begin{equation}
-                \Omega^{2}
-                = \frac{n}{h}
-                \quad\Longrightarrow\quad \Omega^{2}
-                = C\, a^{\frac{2}{\gamma-1}}
-                \Biggl(
-                \frac{\gamma-1}{\gamma-1-a^{2}}
-                \Biggr)^{\frac{2-\gamma}{\gamma-1}} ,
+                \Omega^{2} = \frac{n}{h} \quad\Longrightarrow\quad \Omega^{2} = C\, a^{\frac{2}{\gamma-1}} \Biggl( \frac{\gamma-1}{\gamma-1-a^{2}} \Biggr)^{\frac{2-\gamma}{\gamma-1}} ,
                 \label{eq:conformal-factor}
             \end{equation}
-        where $C=(K\gamma)^{-1/(\gamma-1)}$ is fixed by the entropy of the flow. The global constant $C$ cancels from the null condition and therefore does not affect the kinematics of sound rays.
+            where $C=(K\gamma)^{-1/(\gamma-1)}$ is fixed by the entropy of the flow. The global constant $C$ cancels from the null condition and therefore does not affect the kinematics of sound rays.
 
         \subsection{Hydrodynamic equations}
-        Particle-number conservation is expressed by the continuity equation
+
+            Particle-number conservation is expressed by the continuity equation
             \begin{equation}
                 \nabla_{\mu}\bigl(n\, u^{\mu}\bigr) = 0 .
                 \label{eq:continuity-equation}
             \end{equation}
-        Covariant conservation of the perfect-fluid stress--energy tensor,
+            Covariant conservation of the perfect-fluid stress--energy tensor,
             \begin{equation}
-                T^{\mu}_{\nu} = nh\, u^{\mu} u_{\nu} + p\,\delta^{\mu}_{\nu} ,
-                \qquad
-                \nabla_{\mu} T^{\mu}_{\nu} = 0 ,
+                T^{\mu}_{\nu} = nh\, u^{\mu} u_{\nu} + p\,\delta^{\mu}_{\nu} , \qquad \nabla_{\mu} T^{\mu}_{\nu} = 0 ,
                 \label{eq:stress-energy-tensor}
             \end{equation}
-        together with~\eqref{eq:continuity-equation} and~\eqref{eq:adiabatic-relation}, yields the relativistic Euler equation
+            together with~\eqref{eq:continuity-equation} and~\eqref{eq:adiabatic-relation}, yields the relativistic Euler equation
             \begin{equation}
-                h\, u^{\mu}\nabla_{\mu} u_{\nu}
-                +
-                \Delta^{\mu}_{\nu}\nabla_{\mu} h
-                = 0 .
+                h\, u^{\mu}\nabla_{\mu} u_{\nu} + \Delta^{\mu}_{\nu}\nabla_{\mu} h = 0 .
                 \label{eq:euler-enthalpy}
             \end{equation}
-        Introducing the relativistic vorticity two-form
+            Introducing the relativistic vorticity two-form
             \begin{equation}
-                \omega_{\mu\nu}
-                \equiv
-                \partial_{\mu}\bigl(h u_{\nu}\bigr)
-                -
-                \partial_{\nu}\bigl(h u_{\mu}\bigr)
+                \omega_{\mu\nu} \equiv \partial_{\mu}\bigl(h u_{\nu}\bigr) - \partial_{\nu}\bigl(h u_{\mu}\bigr)
                 \label{eq:vorticity-2form}
             \end{equation}
-        and allowing for a non-vanishing entropy gradient, one rewrites~\eqref{eq:euler-enthalpy} in the Lichnerowicz--Crocco form
+            and allowing for a non-vanishing entropy gradient, one rewrites~\eqref{eq:euler-enthalpy} in the Lichnerowicz--Crocco form
             \begin{equation}
                 u^{\mu}\omega_{\mu\nu} = T\,\partial_{\nu} S .
                 \label{eq:euler-vorticity}
             \end{equation}
-        Finally, the projection of $\nabla_{\mu}T^{\mu}_{\nu}=0$ along the flow is equivalent to entropy advection,
+            Finally, the projection of $\nabla_{\mu}T^{\mu}_{\nu}=0$ along the flow is equivalent to entropy advection,
             \begin{equation}
                 u^{\mu}\partial_{\mu} S = 0 .
                 \label{eq:entropy-advection}
             \end{equation}
-        The triad~\eqref{eq:continuity-equation}--\eqref{eq:euler-vorticity}--\eqref{eq:entropy-advection} closes the perfect-fluid dynamics. Upon linearization it splits the perturbation spectrum into three families of mutually independent character: acoustic, vortical and entropy modes~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. Only the first of these propagates on the acoustic null cone and is developed below; the remaining two lie outside the present geometric-optics scope and would require a separate wave analysis of spatial stability.
+            The triad~\eqref{eq:continuity-equation}--\eqref{eq:euler-vorticity}--\eqref{eq:entropy-advection} closes the perfect-fluid dynamics. Upon linearization it splits the perturbation spectrum into three families of mutually independent character: acoustic, vortical and entropy modes~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. Only the first of these propagates on the acoustic null cone and is developed below; the remaining two lie outside the present geometric-optics scope and would require a separate wave analysis of spatial stability.
 
         \subsection{Linear perturbations and the acoustic wave equation}
-        Every field is written as a background value plus a first-order correction,
+        
+            Every field is written as a background value plus a first-order correction,
             \begin{equation}
-                h\to h+\delta h,\quad
-                u^{\mu}\to u^{\mu}+\delta u^{\mu},\quad
-                n\to n+\delta n,\quad
-                S\to S+\delta S .
+                h\to h+\delta h,\quad u^{\mu}\to u^{\mu}+\delta u^{\mu},\quad n\to n+\delta n,\quad S\to S+\delta S .
                 \label{eq:perturbation-expansion}
             \end{equation}
-        From~\eqref{eq:adiabatic-relation} and~\eqref{eq:sound-speed-def} the density and enthalpy perturbations are related by
+            From~\eqref{eq:adiabatic-relation} and~\eqref{eq:sound-speed-def} the density and enthalpy perturbations are related by
             \begin{equation}
                 \delta n = \frac{n}{a^{2} h}\,\delta h ,
                 \label{eq:density-enthalpy-perturbation}
             \end{equation}
-        while linearization of~\eqref{eq:four-velocity-norm} imposes the orthogonality condition $u_{\mu}\delta u^{\mu}=0$. The linearized continuity equation then becomes
+            while linearization of~\eqref{eq:four-velocity-norm} imposes the orthogonality condition $u_{\mu}\delta u^{\mu}=0$. The linearized continuity equation then becomes
             \begin{equation}
-                \nabla_{\mu}
-                \Biggl(
-                n
-                \Biggl[
-                \delta u^{\mu}
-                +
-                \frac{u^{\mu}}{h a^{2}}\,\delta h
-                \Biggr]
-                \Biggr)
-                = 0 .
+                \nabla_{\mu} \Biggl( n \Biggl[ \delta u^{\mu} + \frac{u^{\mu}}{h a^{2}}\,\delta h \Biggr] \Biggr) = 0 .
                 \label{eq:linearized-continuity}
             \end{equation}
-        The background is taken to be homentropic ($\nabla_{\mu}S=0$) and irrotational ($\omega_{\mu\nu}=0$). Defining the perturbed generalized momentum
+            The background is taken to be homentropic ($\nabla_{\mu}S=0$) and irrotational ($\omega_{\mu\nu}=0$). Defining the perturbed generalized momentum
             \begin{equation}
-                w_{\mu}
-                \equiv
-                \delta\bigl(h u_{\mu}\bigr)
-                =
-                h\,\delta u_{\mu} + u_{\mu}\,\delta h
+                w_{\mu} \equiv \delta\bigl(h u_{\mu}\bigr) = h\,\delta u_{\mu} + u_{\mu}\,\delta h
                 \label{eq:perturbed-momentum}
             \end{equation}
-        and its vorticity $\delta\omega_{\mu\nu}=\partial_{\mu}w_{\nu}-\partial_{\nu}w_{\mu}$, the linearized Euler equation~\eqref{eq:euler-vorticity} reads
+            and its vorticity $\delta\omega_{\mu\nu}=\partial_{\mu}w_{\nu}-\partial_{\nu}w_{\mu}$, the linearized Euler equation~\eqref{eq:euler-vorticity} reads
             \begin{equation}
                 u^{\mu}\,\delta\omega_{\mu\nu} = T\,\partial_{\nu}\delta S .
                 \label{eq:linearized-euler}
             \end{equation}
-        Three mutually exclusive cases follow:
-        \begin{itemize}
-            \item \emph{Acoustic modes:} $\delta S=0$ and $\delta\omega_{\mu\nu}=0$. Then $w_{\mu}$ is exact, $w_{\mu}=\partial_{\mu}\delta\psi$, and~\eqref{eq:linearized-euler} is satisfied identically.
-            \item \emph{Vortical modes:} $\delta S=0$ but $\delta\omega_{\mu\nu}\neq 0$; the perturbation of vorticity is frozen into the flow.
-            \item \emph{Entropy modes:} $\delta S\neq 0$, with the entropy gradient acting as a source in~\eqref{eq:linearized-euler}.
-        \end{itemize}
-        Linearization of~\eqref{eq:entropy-advection} on a homentropic background yields pure advection of the entropy perturbation, $u^{\mu}\partial_{\mu}\delta S=0$. For the adiabatic acoustic sector $\delta S=0$ this equation is vacuous, and the thermodynamic link~\eqref{eq:density-enthalpy-perturbation} closes the system.
+            Three mutually exclusive cases follow:
+            \begin{itemize}
+                \item \emph{Acoustic modes:} $\delta S=0$ and $\delta\omega_{\mu\nu}=0$. Then $w_{\mu}$ is exact, $w_{\mu}=\partial_{\mu}\delta\psi$, and~\eqref{eq:linearized-euler} is satisfied identically.
+                \item \emph{Vortical modes:} $\delta S=0$ but $\delta\omega_{\mu\nu}\neq 0$; the perturbation of vorticity is frozen into the flow.
+                \item \emph{Entropy modes:} $\delta S\neq 0$, with the entropy gradient acting as a source in~\eqref{eq:linearized-euler}.
+            \end{itemize}
+            Linearization of~\eqref{eq:entropy-advection} on a homentropic background yields pure advection of the entropy perturbation, $u^{\mu}\partial_{\mu}\delta S=0$. For the adiabatic acoustic sector $\delta S=0$ this equation is vacuous, and the thermodynamic link~\eqref{eq:density-enthalpy-perturbation} closes the system.
 
-        For acoustic modes the background itself is potential, $h u_{\mu}=\partial_{\mu}\psi$, and the linearized relation
+            For acoustic modes the background itself is potential, $h u_{\mu}=\partial_{\mu}\psi$, and the linearized relation
             \begin{equation}
                 h\,\delta u_{\mu} + u_{\mu}\,\delta h = \partial_{\mu}\delta\psi
                 \label{eq:velocity-potential-def}
             \end{equation}
-        expresses all first-order hydrodynamic fields through a single scalar. Contracting with $u^{\mu}$ and using orthogonality gives
+            expresses all first-order hydrodynamic fields through a single scalar. Contracting with $u^{\mu}$ and using orthogonality gives
             \begin{equation}
                 \delta h = -\,u^{\mu}\partial_{\mu}\delta\psi ,
                 \label{eq:enthalpy-potential-relation}
             \end{equation}
-        while the projector~\eqref{eq:projection-tensor} yields
+            while the projector~\eqref{eq:projection-tensor} yields
             \begin{equation}
-                h\,\delta u_{\mu}
-                =
-                \Delta^{\nu}_{\mu}\,\partial_{\nu}\delta\psi .
+                h\,\delta u_{\mu} = \Delta^{\nu}_{\mu}\,\partial_{\nu}\delta\psi .
                 \label{eq:velocity-potential-gradient}
             \end{equation}
-        Substitution of~\eqref{eq:enthalpy-potential-relation} and~\eqref{eq:velocity-potential-gradient} into~\eqref{eq:linearized-continuity} produces the compact wave equation
+            Substitution of~\eqref{eq:enthalpy-potential-relation} and~\eqref{eq:velocity-potential-gradient} into~\eqref{eq:linearized-continuity} produces the compact wave equation
             \begin{equation}
                 \nabla_{\mu}\bigl(\mathcal{G}^{\mu\nu}\partial_{\nu}\delta\psi\bigr) = 0 ,
                 \label{eq:wave-equation}
             \end{equation}
-        in which the contravariant acoustic metric is
+            in which the contravariant acoustic metric is
             \begin{equation}
-                \mathcal{G}^{\mu\nu} = \Omega^{2}\,\eta^{\mu\nu} ,
-                \qquad
-                \eta^{\mu\nu} = g^{\mu\nu} + \alpha\, u^{\mu} u^{\nu} ,
+                \mathcal{G}^{\mu\nu} = \Omega^{2}\,\eta^{\mu\nu} , \qquad \eta^{\mu\nu} = g^{\mu\nu} + \alpha\, u^{\mu} u^{\nu} ,
                 \label{eq:acoustic-metric-tensor}
             \end{equation}
-        with dragging parameter $\alpha=1-a^{-2}$ and conformal factor~\eqref{eq:conformal-factor}. The covariant counterpart is
+            with dragging parameter $\alpha=1-a^{-2}$ and conformal factor~\eqref{eq:conformal-factor}. The covariant counterpart is
             \begin{equation}
-                \mathcal{G}_{\mu\nu} = \Omega^{-2}\,\eta_{\mu\nu} ,
-                \qquad
-                \eta_{\mu\nu} = g_{\mu\nu} - \beta\, u_{\mu} u_{\nu} ,
+                \mathcal{G}_{\mu\nu} = \Omega^{-2}\,\eta_{\mu\nu} , \qquad \eta_{\mu\nu} = g_{\mu\nu} - \beta\, u_{\mu} u_{\nu} ,
                 \label{eq:covariant-acoustic-metric-tensor}
             \end{equation}
-        where $\beta\equiv\alpha/(1-\alpha)=a^{2}-1$. Importantly, $\eta_{\mu\nu}$ is \emph{not} obtained by merely lowering the indices of $\eta^{\mu\nu}$ with the background metric $g_{\mu\nu}$: inversion of the sum $g^{\mu\nu}+\alpha u^{\mu}u^{\nu}$ produces a nonlinear correction to the coefficient of $u_{\mu}u_{\nu}$. The construction~\eqref{eq:acoustic-metric-tensor}--\eqref{eq:covariant-acoustic-metric-tensor} is the relativistic acoustic geometry of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999}, already implicit in Moncrief's stability analysis~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980} and placed in the broader analogue-gravity setting by Visser~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}. High-frequency sound rays are the null geodesics of $\mathcal{G}_{\mu\nu}$; their causal structure on the Michel background is the subject of the next section.
+            where $\beta\equiv\alpha/(1-\alpha)=a^{2}-1$. Importantly, $\eta_{\mu\nu}$ is \emph{not} obtained by merely lowering the indices of $\eta^{\mu\nu}$ with the background metric $g_{\mu\nu}$: inversion of the sum $g^{\mu\nu}+\alpha u^{\mu}u^{\nu}$ produces a nonlinear correction to the coefficient of $u_{\mu}u_{\nu}$. The construction~\eqref{eq:acoustic-metric-tensor}--\eqref{eq:covariant-acoustic-metric-tensor} is the relativistic acoustic geometry of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999}, already implicit in Moncrief's stability analysis~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980} and placed in the broader analogue-gravity setting by Visser~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}. High-frequency sound rays are the null geodesics of $\mathcal{G}_{\mu\nu}$; their causal structure on the Michel background is the subject of the next section.
 
-    \section{Acoustic geometry of Michel accretion}
-    \label{sec:acoustic-geometry}
-    The acoustic metric of Sec.~\ref{sec:fluid} is now specialized to steady, spherically symmetric, adiabatic accretion onto a Schwarzschild black hole -- the Michel flow~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972}. The goal is to exhibit the explicit components of $\mathcal{G}_{\mu\nu}$ and to identify its causal surfaces: the acoustic event horizon, the stationary-limit surface, and the ergoregion that separates them.
+    \section{Acoustic geometry of Michel accretion} \label{sec:acoustic-geometry}
+        
+        The acoustic metric of Sec.~\ref{sec:fluid} is now specialized to steady, spherically symmetric, adiabatic accretion onto a Schwarzschild black hole -- the Michel flow~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972}. The goal is to exhibit the explicit components of $\mathcal{G}_{\mu\nu}$ and to identify its causal surfaces: the acoustic event horizon, the stationary-limit surface, and the ergoregion that separates them.
 
         \subsection{Background Schwarzschild spacetime}
-        The background line element is
+            
+            The background line element is
             \begin{equation}
-                \mathrm{d}s^{2}
-                =
-                -f\,\mathrm{d}t^{2}
-                +
-                f^{-1}\,\mathrm{d}r^{2}
-                +
-                r^{2}\bigl(\mathrm{d}\theta^{2}+\sin^{2}\theta\,\mathrm{d}\phi^{2}\bigr) ,
+                \mathrm{d}s^{2} = -f\,\mathrm{d}t^{2} + f^{-1}\,\mathrm{d}r^{2} + r^{2}\bigl(\mathrm{d}\theta^{2}+\sin^{2}\theta\,\mathrm{d}\phi^{2}\bigr) ,
                 \label{eq:schwarzschild-metric}
             \end{equation}
-        with the dimensionless lapse
+            with the dimensionless lapse
             \begin{equation}
                 f = 1 - r^{-1} .
                 \label{eq:lapse-function}
             \end{equation}
-        In matrix form,
+            In matrix form,
             \begin{equation}
-                g^{\mu\nu}
-                =
+                g^{\mu\nu} =
                 \begin{pmatrix}
-                -f^{-1} & 0 & 0 & 0 \\
-                0 & f & 0 & 0 \\
-                0 & 0 & r^{-2} & 0 \\
-                0 & 0 & 0 & r^{-2}\sin^{-2}\theta
+                    -f^{-1} & 0 & 0 & 0 \\
+                    0 & f & 0 & 0 \\
+                    0 & 0 & r^{-2} & 0 \\
+                    0 & 0 & 0 & r^{-2}\sin^{-2}\theta
                 \end{pmatrix} ,
                 \qquad
-                g_{\mu\nu}
-                =
+                g_{\mu\nu} =
                 \begin{pmatrix}
-                -f & 0 & 0 & 0 \\
-                0 & f^{-1} & 0 & 0 \\
-                0 & 0 & r^{2} & 0 \\
-                0 & 0 & 0 & r^{2}\sin^{2}\theta
+                    -f & 0 & 0 & 0 \\
+                    0 & f^{-1} & 0 & 0 \\
+                    0 & 0 & r^{2} & 0 \\
+                    0 & 0 & 0 & r^{2}\sin^{2}\theta
                 \end{pmatrix} .
                 \label{eq:schwarzschild-metric-matrix}
             \end{equation}
-        Stationarity and spherical symmetry imply that every background scalar depends only on $r$, while the angular components of the 4-velocity vanish. Writing
+            Stationarity and spherical symmetry imply that every background scalar depends only on $r$, while the angular components of the 4-velocity vanish. Writing
             \begin{equation}
                 u^{\mu} = (\vartheta,\,\upsilon,\,0,\,0) ,
                 \label{eq:four-velocity-schwarzschild}
             \end{equation}
-        the covariant components are $u_{\mu}=(-f\vartheta,\,f^{-1}\upsilon,\,0,\,0)$, and the normalization~\eqref{eq:four-velocity-norm} becomes
+            the covariant components are $u_{\mu}=(-f\vartheta,\,f^{-1}\upsilon,\,0,\,0)$, and the normalization~\eqref{eq:four-velocity-norm} becomes
             \begin{equation}
                 -u_{t} = f\vartheta = \sqrt{f+\upsilon^{2}} ,
                 \label{eq:four-velocity-norm-schwarzschild}
             \end{equation}
-        which relates the time component to the radial 3-velocity of the flow. The physical speed measured by a static observer,
+            which relates the time component to the radial 3-velocity of the flow. The physical speed measured by a static observer,
             \begin{equation}
                 V = \frac{|\upsilon|}{\sqrt{f+\upsilon^{2}}} ,
                 \label{eq:physical-velocity}
             \end{equation}
-        enters the Mach number $\mathcal{M}=V/a$ used below.
+            enters the Mach number $\mathcal{M}=V/a$ used below.
 
-        The Michel background itself is fixed by two integrals of motion. Continuity yields the baryon flux $r^{2} n\,\upsilon=\mathrm{const}$ ($\upsilon<0$ for accretion), while the adiabatic projection of $\nabla_{\mu}T^{\mu}_{\nu}=0$ integrates to the relativistic Bernoulli integral
+            The Michel background itself is fixed by two integrals of motion. Continuity yields the baryon flux $r^{2} n\,\upsilon=\mathrm{const}$ ($\upsilon<0$ for accretion), while the adiabatic projection of $\nabla_{\mu}T^{\mu}_{\nu}=0$ integrates to the relativistic Bernoulli integral
             \begin{equation}
                 h\sqrt{f+\upsilon^{2}} = h_{\infty} .
                 \label{eq:michel-bernoulli}
             \end{equation}
-        Together with the polytropic closure of Sec.~\ref{sec:fluid}, these relations determine the profiles $\upsilon(r)$, $a(r)$ and $n(r)$ once the asymptotic sound speed $a_{\infty}$ and the adiabatic index $\gamma$ are specified~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}.
+            Together with the polytropic closure of Sec.~\ref{sec:fluid}, these relations determine the profiles $\upsilon(r)$, $a(r)$ and $n(r)$ once the asymptotic sound speed $a_{\infty}$ and the adiabatic index $\gamma$ are specified~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}.
 
         \subsection{Acoustic metric tensor}
-        Substituting~\eqref{eq:schwarzschild-metric-matrix} and~\eqref{eq:four-velocity-schwarzschild} into the covariant core~\eqref{eq:covariant-acoustic-metric-tensor} produces
+
+            Substituting~\eqref{eq:schwarzschild-metric-matrix} and~\eqref{eq:four-velocity-schwarzschild} into the covariant core~\eqref{eq:covariant-acoustic-metric-tensor} produces
             \begin{equation}
-                \eta_{\mu\nu}
-                =
+                \eta_{\mu\nu} =
                 \begin{pmatrix}
-                -f\bigl(1+\beta f\vartheta^{2}\bigr) &
-                \beta\vartheta\upsilon & 0 & 0 \\
-                \beta\vartheta\upsilon &
-                f^{-1}\bigl(1-\beta f^{-1}\upsilon^{2}\bigr) & 0 & 0 \\
-                0 & 0 & r^{2} & 0 \\
-                0 & 0 & 0 & r^{2}\sin^{2}\theta
+                    -f\bigl(1+\beta f\vartheta^{2}\bigr) &
+                    \beta\vartheta\upsilon & 0 & 0 \\
+                    \beta\vartheta\upsilon &
+                    f^{-1}\bigl(1-\beta f^{-1}\upsilon^{2}\bigr) & 0 & 0 \\
+                    0 & 0 & r^{2} & 0 \\
+                    0 & 0 & 0 & r^{2}\sin^{2}\theta
                 \end{pmatrix} .
                 \label{eq:eta-covariant-matrix}
             \end{equation}
-        The full covariant acoustic metric is $\mathcal{G}_{\mu\nu}=\Omega^{-2}\eta_{\mu\nu}$. The corresponding contravariant core is
+            The full covariant acoustic metric is $\mathcal{G}_{\mu\nu}=\Omega^{-2}\eta_{\mu\nu}$. The corresponding contravariant core is
             \begin{equation}
-                \eta^{\mu\nu}
-                =
+                \eta^{\mu\nu} =
                 \begin{pmatrix}
-                -f^{-1}+\alpha\vartheta^{2} &
-                \alpha\vartheta\upsilon & 0 & 0 \\
-                \alpha\vartheta\upsilon &
-                f+\alpha\upsilon^{2} & 0 & 0 \\
-                0 & 0 & r^{-2} & 0 \\
-                0 & 0 & 0 & r^{-2}\sin^{-2}\theta
+                    -f^{-1}+\alpha\vartheta^{2} &
+                    \alpha\vartheta\upsilon & 0 & 0 \\
+                    \alpha\vartheta\upsilon &
+                    f+\alpha\upsilon^{2} & 0 & 0 \\
+                    0 & 0 & r^{-2} & 0 \\
+                    0 & 0 & 0 & r^{-2}\sin^{-2}\theta
                 \end{pmatrix} ,
                 \label{eq:eta-contravariant-matrix}
             \end{equation}
-        The components $\eta^{rr}$ and $\eta^{tr}$ from~\eqref{eq:eta-contravariant-matrix} control the radial characteristics and the acoustic frame dragging. Because sound rays are null geodesics of $\mathcal{G}_{\mu\nu}$, they are invariant under conformal rescalings
+            The components $\eta^{rr}$ and $\eta^{tr}$ from~\eqref{eq:eta-contravariant-matrix} control the radial characteristics and the acoustic frame dragging. Because sound rays are null geodesics of $\mathcal{G}_{\mu\nu}$, they are invariant under conformal rescalings
             \begin{equation}
                 \mathcal{G}_{\mu\nu}k^{\mu}k^{\nu}=0 \quad\Longrightarrow\quad \eta_{\mu\nu}k^{\mu}k^{\nu} = 0 ,
                 \label{eq:acoustic-null-condition}
             \end{equation}
-        so the acoustic light-cone geometry -- and therefore all ray paths -- is fixed entirely by the core $\eta_{\mu\nu}$. The conformal factor $\Omega^{2}$ re-enters only in the wave amplitude and in the formal horizon area, not in the ray paths or the surface gravity; the latter is built from the conformally invariant $v_{+}$.
+            so the acoustic light-cone geometry -- and therefore all ray paths -- is fixed entirely by the core $\eta_{\mu\nu}$. The conformal factor $\Omega^{2}$ re-enters only in the wave amplitude and in the formal horizon area, not in the ray paths or the surface gravity; the latter is built from the conformally invariant $v_{+}$.
 
         \subsection{Acoustic horizon, stationary limit, and ergoregion}
-        The acoustic event horizon $r=r_{\mathrm{a}}$ is the one-way membrane for sound. It forms where the flow becomes sonic or supersonic, which is equivalent to the vanishing of the radial core component:
+
+            The acoustic event horizon $r=r_{\mathrm{a}}$ is the one-way membrane for sound. It forms where the flow becomes sonic or supersonic, which is equivalent to the vanishing of the radial core component:
             \begin{equation}
-                \eta^{rr}(r_{\mathrm{a}}) = 0
-                \quad\Longrightarrow\quad
-                r_{\mathrm{a}}
-                =
-                \bigl[1 + \alpha(r_{\mathrm{a}})\,\upsilon^{2}(r_{\mathrm{a}})\bigr]^{-1} .
+                \eta^{rr}(r_{\mathrm{a}}) = 0 \quad \Longrightarrow \quad r_{\mathrm{a}} = \bigl[1 + \alpha(r_{\mathrm{a}})\,\upsilon^{2}(r_{\mathrm{a}})\bigr]^{-1} .
                 \label{eq:acoustic-horizon-def}
             \end{equation}
-        For $r<r_{\mathrm{a}}$ every characteristic of the wave equation points inward: an upstream acoustic signal is either swept toward the black hole ($|\upsilon|>a$) or frozen into the fluid ($|\upsilon|=a$).
+            For $r<r_{\mathrm{a}}$ every characteristic of the wave equation points inward: an upstream acoustic signal is either swept toward the black hole ($|\upsilon|>a$) or frozen into the fluid ($|\upsilon|=a$).
 
-        The acoustic stationary-limit surface $r=r_{\mathrm{asl}}$ is defined by the vanishing of the time--time core component,
+            The acoustic stationary-limit surface $r=r_{\mathrm{asl}}$ is defined by the vanishing of the time--time core component,
             \begin{equation}
-                \eta^{tt}(r_{\mathrm{asl}}) = 0
-                \quad\Longrightarrow\quad
-                r_{\mathrm{asl}}
-                =
-                \frac{\alpha(r_{\mathrm{asl}})\,\vartheta^{2}(r_{\mathrm{asl}})}
-                {\alpha(r_{\mathrm{asl}})\,\vartheta^{2}(r_{\mathrm{asl}})-1} .
+                \eta^{tt}(r_{\mathrm{asl}}) = 0 \quad \Longrightarrow \quad r_{\mathrm{asl}} = \frac{\alpha(r_{\mathrm{asl}})\,\vartheta^{2}(r_{\mathrm{asl}})} {\alpha(r_{\mathrm{asl}})\,\vartheta^{2}(r_{\mathrm{asl}})-1} .
                 \label{eq:stationary-limit-def}
             \end{equation}
-        Inside $r<r_{\mathrm{asl}}$ no stationary acoustic mode can exist: a static observer would have to move against the flow at a supersonic speed. Equating~\eqref{eq:acoustic-horizon-def} with~\eqref{eq:stationary-limit-def} would require $a^{2}<0$, which is impossible for a stable medium. Consequently the two surfaces never coincide,
+            Inside $r<r_{\mathrm{asl}}$ no stationary acoustic mode can exist: a static observer would have to move against the flow at a supersonic speed. Equating~\eqref{eq:acoustic-horizon-def} with~\eqref{eq:stationary-limit-def} would require $a^{2}<0$, which is impossible for a stable medium. Consequently the two surfaces never coincide,
             \begin{equation}
                 r_{\mathrm{a}}\neq r_{\mathrm{asl}} ,
             \end{equation}
-        and the finite shell between them constitutes the acoustic ergoregion (ergosphere)~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BilicN_RelativisticAcousticGeometry_1999}.
+            and the finite shell between them constitutes the acoustic ergoregion (ergosphere)~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BilicN_RelativisticAcousticGeometry_1999}.
 
-        A central structural fact of Michel accretion is that the acoustic horizon coincides exactly with the sonic critical point of the background flow. Combining the continuity and Bernoulli integrals yields an equation for the radial gradient $\mathrm{d}\upsilon/\mathrm{d}r$ of the form $N/D$; smooth transonic passage through $r=r_{\mathrm{c}}$ requires the numerator and denominator to vanish simultaneously~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}, giving the standard critical-point conditions
+            A central structural fact of Michel accretion is that the acoustic horizon coincides exactly with the sonic critical point of the background flow. Combining the continuity and Bernoulli integrals yields an equation for the radial gradient $\mathrm{d}\upsilon/\mathrm{d}r$ of the form $N/D$; smooth transonic passage through $r=r_{\mathrm{c}}$ requires the numerator and denominator to vanish simultaneously~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}, giving the standard critical-point conditions
             \begin{equation}
-                \upsilon^{2}_{\mathrm{c}} = \frac{1}{4r_{\mathrm{c}}} ,
-                \qquad
-                a^{2}_{\mathrm{c}}
-                =
-                \frac{1}{4r_{\mathrm{c}}-3}
-                =
-                \frac{\upsilon^{2}_{\mathrm{c}}}{1-3\upsilon^{2}_{\mathrm{c}}} .
+                \upsilon^{2}_{\mathrm{c}} = \frac{1}{4r_{\mathrm{c}}} , \qquad a^{2}_{\mathrm{c}} = \frac{1}{4r_{\mathrm{c}}-3} = \frac{\upsilon^{2}_{\mathrm{c}}}{1-3\upsilon^{2}_{\mathrm{c}}} .
                 \label{eq:michel-sonic}
             \end{equation}
-        Substituting these values into $\eta^{rr}$ from~\eqref{eq:eta-contravariant-matrix} gives
+            Substituting these values into $\eta^{rr}$ from~\eqref{eq:eta-contravariant-matrix} gives
             \begin{equation}
-                1 - a^{-2}_{\mathrm{c}}
-                =
-                4(1-r_{\mathrm{c}}) ,
-                \qquad
-                \bigl(1-a^{-2}_{\mathrm{c}}\bigr)\upsilon^{2}_{\mathrm{c}}
-                =
-                -f_{\mathrm{c}} ,
+                1 - a^{-2}_{\mathrm{c}} = 4(1-r_{\mathrm{c}}) , \qquad \bigl(1-a^{-2}_{\mathrm{c}}\bigr)\upsilon^{2}_{\mathrm{c}} = -f_{\mathrm{c}} ,
             \end{equation}
-        and therefore
+            and therefore
             \begin{equation}
                 \eta^{rr}(r_{\mathrm{c}}) = f_{\mathrm{c}} - f_{\mathrm{c}} = 0 .
                 \label{eq:sonic-is-horizon}
             \end{equation}
-        Hence $r_{\mathrm{a}}=r_{\mathrm{c}}$: the surface at which the accretion stream becomes sonic \emph{is} the acoustic event horizon. The shell $1<r<r_{\mathrm{a}}$ is supersonic ($\eta^{rr}<0$) and terminates on the gravitational horizon $r=1$.
+            Hence $r_{\mathrm{a}}=r_{\mathrm{c}}$: the surface at which the accretion stream becomes sonic \emph{is} the acoustic event horizon. The shell $1<r<r_{\mathrm{a}}$ is supersonic ($\eta^{rr}<0$) and terminates on the gravitational horizon $r=1$.
 
-        The Bernoulli integral~\eqref{eq:michel-bernoulli}, evaluated at the sonic point, links $a_{\infty}$ to the horizon radius $r_{\mathrm{a}}$; representative values are collected in Table~\ref{tab:sonic-point}. For cold asymptotic gas ($a_{\infty}\ll 1$) the acoustic horizon lies far from the black hole, in the Newtonian domain ($r_{\mathrm{a}}\sim a^{-2}_{\infty}\gg 1$), while relativistic effects concentrate in the deeply supersonic zone $1<r\ll r_{\mathrm{a}}$. These radii satisfy the standard Michel critical-point condition and reproduce the Michel/Shapiro--Teukolsky sonic radii for the same $(\gamma,a_{\infty})$~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}, while the identification $r_{\mathrm{a}}=r_{\mathrm{c}}$ follows from the acoustic metric of Moncrief and Bili{\'c}~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, BilicN_RelativisticAcousticGeometry_1999}. These works, together with the subsequent QNM analysis of Chaverra, Morales and Sarbach~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015}, focus on the wave equation; they are complemented here with a geometric-optics phenomenology of the same background -- the force decomposition, acoustic Shapiro diagnostics, photon-sphere shift and tabulated surface gravities of Secs.~\ref{sec:rays}--\ref{sec:surface-gravity}. The quantitative ray analysis of the next section focuses on the representative case $a_{\infty}=0.1$ with $\gamma=4/3$ and $5/3$.
+            The Bernoulli integral~\eqref{eq:michel-bernoulli}, evaluated at the sonic point, links $a_{\infty}$ to the horizon radius $r_{\mathrm{a}}$; representative values are collected in Table~\ref{tab:sonic-point}. For cold asymptotic gas ($a_{\infty}\ll 1$) the acoustic horizon lies far from the black hole, in the Newtonian domain ($r_{\mathrm{a}}\sim a^{-2}_{\infty}\gg 1$), while relativistic effects concentrate in the deeply supersonic zone $1<r\ll r_{\mathrm{a}}$. These radii satisfy the standard Michel critical-point condition and reproduce the Michel/Shapiro--Teukolsky sonic radii for the same $(\gamma,a_{\infty})$~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}, while the identification $r_{\mathrm{a}}=r_{\mathrm{c}}$ follows from the acoustic metric of Moncrief and Bili{\'c}~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, BilicN_RelativisticAcousticGeometry_1999}. These works, together with the subsequent QNM analysis of Chaverra, Morales and Sarbach~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015}, focus on the wave equation; they are complemented here with a geometric-optics phenomenology of the same background -- the force decomposition, acoustic Shapiro diagnostics, photon-sphere shift and tabulated surface gravities of Secs.~\ref{sec:rays}--\ref{sec:surface-gravity}. The quantitative ray analysis of the next section focuses on the representative case $a_{\infty}=0.1$ with $\gamma=4/3$ and $5/3$.
 
-        All numerical results below rely on the background profiles $\upsilon(r)$, $a(r)$, $n(r)$, obtained from the two Michel integrals -- the baryon flux $r^{2}n\upsilon=\mathrm{const}$ and the Bernoulli relation~\eqref{eq:michel-bernoulli} -- by integrating inward from a large radius, where the subsonic branch is unambiguous ($\upsilon\to 0$, $a\to a_{\infty}$). This removes any branch ambiguity at the sonic point, where the two roots merge. The acoustic photon sphere $r_{\mathrm{aph}}$ is located as the maximum of the capture barrier $U(r)=a^{2}\eta^{rr}/r^{2}$, and the surface gravity is computed from~\eqref{eq:surface-gravity-explicit}, cross-checked against the direct slope $\tfrac{1}{2}\,\mathrm{d}v_{+}/\mathrm{d}r|_{r_{\mathrm{a}}}$: the two agree to better than one percent. As further controls, the scheme reproduces the vacuum limits $v_{\pm}=\pm f$, $\kappa=\tfrac{1}{2}$ and $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\tfrac{3}{2}\varrho^{2}$, and its $a_{\infty}=0.1$ entries from Table~\ref{tab:ainf-scan} match the dedicated tables at that value.
+            All numerical results below rely on the background profiles $\upsilon(r)$, $a(r)$, $n(r)$, obtained from the two Michel integrals -- the baryon flux $r^{2}n\upsilon=\mathrm{const}$ and the Bernoulli relation~\eqref{eq:michel-bernoulli} -- by integrating inward from a large radius, where the subsonic branch is unambiguous ($\upsilon\to 0$, $a\to a_{\infty}$). This removes any branch ambiguity at the sonic point, where the two roots merge. The acoustic photon sphere $r_{\mathrm{aph}}$ is located as the maximum of the capture barrier $U(r)=a^{2}\eta^{rr}/r^{2}$, and the surface gravity is computed from~\eqref{eq:surface-gravity-explicit}, cross-checked against the direct slope $\tfrac{1}{2}\,\mathrm{d}v_{+}/\mathrm{d}r|_{r_{\mathrm{a}}}$: the two agree to better than one percent. As further controls, the scheme reproduces the vacuum limits $v_{\pm}=\pm f$, $\kappa=\tfrac{1}{2}$ and $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\tfrac{3}{2}\varrho^{2}$, and its $a_{\infty}=0.1$ entries from Table~\ref{tab:ainf-scan} match the dedicated tables at that value.
 
-    \section{Sound-ray dynamics}
-    \label{sec:rays}
-    In the high-frequency limit, acoustic disturbances propagate along the null geodesics of $\mathcal{G}_{\mu\nu}$, the acoustic counterpart of light rays in vacuum~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}. Ray bending, time delay, and acoustic photon spheres have been studied in several analogue settings -- lower-dimensional and slowly rotating acoustic holes~\cite{ToshmatovB_AhmedovB_StuchlikZ_PhononMotionAround21DimensionalAcousticBlackHole_2023, BalaliAE_MarraniA_LenseThirringAcousticBlackHolesShadowsAndLight_2025}, condensate analogues~\cite{VieiraHS_DestounisK_KokkotasKD_AnalogSchwarzschildBlackHolesOfBoseEinsteinCondensatesInACavityQuasinormalModesAndQuasiboundStates_2023}, and curved-background toy metrics~\cite{PalK_PalK_SarkarT_AnalogueMetricInABlackBounceBackground_2022} -- but not for relativistic Michel accretion with an explicit decomposition of the deflecting force. That geometric acoustics is developed here: conserved energy and angular momentum, the generalized Binet equation with its Einstein/refractive/wind decomposition, the acoustic Shapiro delay, and the shift of the acoustic photon sphere.
+    \section{Sound-ray dynamics}\label{sec:rays}
+    
+        In the high-frequency limit, acoustic disturbances propagate along the null geodesics of $\mathcal{G}_{\mu\nu}$, the acoustic counterpart of light rays in vacuum~\cite{VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998, BarceloC_LiberatiS_VisserM_AnalogueGravity_2011}. Ray bending, time delay, and acoustic photon spheres have been studied in several analogue settings -- lower-dimensional and slowly rotating acoustic holes~\cite{ToshmatovB_AhmedovB_StuchlikZ_PhononMotionAround21DimensionalAcousticBlackHole_2023, BalaliAE_MarraniA_LenseThirringAcousticBlackHolesShadowsAndLight_2025}, condensate analogues~\cite{VieiraHS_DestounisK_KokkotasKD_AnalogSchwarzschildBlackHolesOfBoseEinsteinCondensatesInACavityQuasinormalModesAndQuasiboundStates_2023}, and curved-background toy metrics~\cite{PalK_PalK_SarkarT_AnalogueMetricInABlackBounceBackground_2022} -- but not for relativistic Michel accretion with an explicit decomposition of the deflecting force. That geometric acoustics is developed here: conserved energy and angular momentum, the generalized Binet equation with its Einstein/refractive/wind decomposition, the acoustic Shapiro delay, and the shift of the acoustic photon sphere.
 
         \subsection{Null geodesics and conserved quantities}
-        Because the Michel background is stationary and spherically symmetric, the two Killing vectors $\partial_{t}$ and $\partial_{\phi}$ endow every sound ray with a conserved energy and angular momentum, reducing its propagation to an effective radial problem. The rays themselves are null geodesics of the acoustic metric,
+            
+            Because the Michel background is stationary and spherically symmetric, the two Killing vectors $\partial_{t}$ and $\partial_{\phi}$ endow every sound ray with a conserved energy and angular momentum, reducing its propagation to an effective radial problem. The rays themselves are null geodesics of the acoustic metric,
             \begin{equation}
-                \frac{\mathrm{d}^{2}x^{\mu}}{\mathrm{d}\lambda^{2}}
-                +
-                \Gamma^{\mu}_{\alpha\beta}
-                \frac{\mathrm{d}x^{\alpha}}{\mathrm{d}\lambda}
-                \frac{\mathrm{d}x^{\beta}}{\mathrm{d}\lambda}
-                = 0 ,
+                \frac{\mathrm{d}^{2}x^{\mu}}{\mathrm{d}\lambda^{2}} + \Gamma^{\mu}_{\alpha\beta} \frac{\mathrm{d}x^{\alpha}}{\mathrm{d}\lambda} \frac{\mathrm{d}x^{\beta}}{\mathrm{d}\lambda} = 0 ,
                 \label{eq:geodesic-equation}
             \end{equation}
-        with wave vector $k^{\mu}=\mathrm{d}x^{\mu}/\mathrm{d}\lambda$. Stationarity of $\mathcal{G}_{\mu\nu}$ supplies a Killing conserved energy
+            with wave vector $k^{\mu}=\mathrm{d}x^{\mu}/\mathrm{d}\lambda$. Stationarity of $\mathcal{G}_{\mu\nu}$ supplies a Killing conserved energy
             \begin{equation}
                 k_{t} = \mathcal{G}_{t\mu}k^{\mu} = -E = \mathrm{const} ,
                 \label{eq:energy-conservation}
             \end{equation}
-        the minus sign following from the signature~\eqref{eq:four-velocity-norm} and the requirement that the physical energy be positive. Because $\mathcal{G}_{rt}\neq 0$,
+            the minus sign following from the signature~\eqref{eq:four-velocity-norm} and the requirement that the physical energy be positive. Because $\mathcal{G}_{rt}\neq 0$,
             \begin{equation}
-                \frac{\mathrm{d}t}{\mathrm{d}\lambda}
-                =
-                -\frac{1}{\mathcal{G}_{tt}}
-                \Biggl(
-                E + \mathcal{G}_{rt}\,\frac{\mathrm{d}r}{\mathrm{d}\lambda}
-                \Biggr) ,
+                \frac{\mathrm{d}t}{\mathrm{d}\lambda} = -\frac{1}{\mathcal{G}_{tt}} \Biggl( E + \mathcal{G}_{rt}\,\frac{\mathrm{d}r}{\mathrm{d}\lambda} \Biggr) ,
                 \label{eq:time-coordinate-derivative}
             \end{equation}
-        so the coordinate time along a ray is locked to its radial motion: the moving fluid makes $\mathcal{G}_{rt}\neq 0$, and the ingoing flow drags the ray forward in $t$ -- an acoustic analogue of frame dragging.
+            so the coordinate time along a ray is locked to its radial motion: the moving fluid makes $\mathcal{G}_{rt}\neq 0$, and the ingoing flow drags the ray forward in $t$ -- an acoustic analogue of frame dragging.
 
-        The second Killing vector, $\partial_{\phi}$, likewise conserves the angular momentum. Restricting without loss of generality to the equatorial plane $\theta=\pi/2$ (which is preserved by the $\theta$-component of~\eqref{eq:geodesic-equation}), one finds
+            The second Killing vector, $\partial_{\phi}$, likewise conserves the angular momentum. Restricting without loss of generality to the equatorial plane $\theta=\pi/2$ (which is preserved by the $\theta$-component of~\eqref{eq:geodesic-equation}), one finds
             \begin{equation}
                 k_{\phi} = \mathcal{G}_{\phi\phi}\,\frac{\mathrm{d}\phi}{\mathrm{d}\lambda} = L = \mathrm{const} .
                 \label{eq:angular-momentum-conservation}
             \end{equation}
-        Their ratio $b=L/E$ is the impact parameter, which labels each ray just as in vacuum lensing.
+            Their ratio $b=L/E$ is the impact parameter, which labels each ray just as in vacuum lensing.
 
-        With $E$ and $L$ fixed, the null condition~\eqref{eq:acoustic-null-condition} collapses to a single equation for the radial motion,
+            With $E$ and $L$ fixed, the null condition~\eqref{eq:acoustic-null-condition} collapses to a single equation for the radial motion,
             \begin{equation}
-                \mathcal{G}_{tt}\Biggl(\frac{\mathrm{d}t}{\mathrm{d}\lambda}\Biggr)^{2}
-                +
-                2\mathcal{G}_{tr}\,\frac{\mathrm{d}t}{\mathrm{d}\lambda}\,\frac{\mathrm{d}r}{\mathrm{d}\lambda}
-                +
-                \mathcal{G}_{rr}\Biggl(\frac{\mathrm{d}r}{\mathrm{d}\lambda}\Biggr)^{2}
-                +
-                \frac{L^{2}}{\mathcal{G}_{\phi\phi}}
-                = 0 .
+                \mathcal{G}_{tt}\Biggl(\frac{\mathrm{d}t}{\mathrm{d}\lambda}\Biggr)^{2} + 2\mathcal{G}_{tr}\,\frac{\mathrm{d}t}{\mathrm{d}\lambda}\,\frac{\mathrm{d}r}{\mathrm{d}\lambda} + \mathcal{G}_{rr}\Biggl(\frac{\mathrm{d}r}{\mathrm{d}\lambda}\Biggr)^{2} + \frac{L^{2}}{\mathcal{G}_{\phi\phi}} = 0 .
                 \label{eq:null-interval-expanded}
             \end{equation}
-        This is the master equation for the trajectories analysed below. For radial rays ($L=0$) it reduces to a quadratic for the coordinate speed $v=\mathrm{d}r/\mathrm{d}t$,
+            This is the master equation for the trajectories analysed below. For radial rays ($L=0$) it reduces to a quadratic for the coordinate speed $v=\mathrm{d}r/\mathrm{d}t$,
             \begin{equation}
                 \mathcal{G}_{rr}v^{2} + 2\mathcal{G}_{rt}v + \mathcal{G}_{tt} = 0 .
                 \label{eq:coordinate-velocity-quadratic}
             \end{equation}
-        Using~\eqref{eq:eta-covariant-matrix} and the 4-velocity normalization, the conformal factor cancels and the roots collapse to
+            Using~\eqref{eq:eta-covariant-matrix} and the 4-velocity normalization, the conformal factor cancels and the roots collapse to
             \begin{equation}
-                v_{\pm}
-                =
-                \frac{-\beta\vartheta\upsilon \pm a}{f - \beta\upsilon^{2}}\, f^{2} .
+                v_{\pm} = \frac{-\beta\vartheta\upsilon \pm a}{f - \beta\upsilon^{2}}\, f^{2} .
                 \label{eq:coordinate-velocity}
             \end{equation}
-        The branch $v_{+}$ is the outgoing ray (fighting the accretion wind); $v_{-}$ is the ingoing ray. In the vacuum limit $a\to 1$, $\beta\to 0$ one recovers $v_{\pm}=\pm f$. The acoustic horizon is precisely the freeze-out surface $v_{+}=0$, equivalent to~\eqref{eq:acoustic-horizon-def}. The non-radial rays that build up the lensing pattern and the acoustic photon sphere are governed by the Binet equation derived next.
+            The branch $v_{+}$ is the outgoing ray (fighting the accretion wind); $v_{-}$ is the ingoing ray. In the vacuum limit $a\to 1$, $\beta\to 0$ one recovers $v_{\pm}=\pm f$. The acoustic horizon is precisely the freeze-out surface $v_{+}=0$, equivalent to~\eqref{eq:acoustic-horizon-def}. The non-radial rays that build up the lensing pattern and the acoustic photon sphere are governed by the Binet equation derived next.
 
         \subsection{Generalized Binet equation}
-        The general, non-radial rays are most naturally described as orbits in the angle $\phi$. Setting $\varrho=1/r$ and eliminating the affine parameter between the null condition and the conserved $b=L/E$ yields the first Binet integral
+        
+            The general, non-radial rays are most naturally described as orbits in the angle $\phi$. Setting $\varrho=1/r$ and eliminating the affine parameter between the null condition and the conserved $b=L/E$ yields the first Binet integral
             \begin{equation}
-                \Biggl(\frac{\mathrm{d}\varrho}{\mathrm{d}\phi}\Biggr)^{2}
-                =
-                \frac{1}{b^{2}a^{2}} - \varrho^{2}\eta^{rr} .
+                \Biggl(\frac{\mathrm{d}\varrho}{\mathrm{d}\phi}\Biggr)^{2} = \frac{1}{b^{2}a^{2}} - \varrho^{2}\eta^{rr} .
                 \label{eq:binet-first-acoustic}
             \end{equation}
-        The conformal factor again drops out; differentiating with respect to $\phi$ produces the second-order Binet equation
+            The conformal factor again drops out; differentiating with respect to $\phi$ produces the second-order Binet equation
             \begin{equation}
-                \frac{\mathrm{d}^{2}\varrho}{\mathrm{d}\phi^{2}} + \varrho
-                =
-                \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{3}{2}\varrho^{2}}_{F_{\mathrm{E}}}
-                +
-                \underbrace{\frac{1}{2b^{2}}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\Bigl(\frac{1}{a^{2}}\Bigr)}_{F_{\mathrm{R}}}
-                -
-                \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{1}{2}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\bigl(\alpha\upsilon^{2}\varrho^{2}\bigr)}_{F_{\mathrm{W}}} .
+                \frac{\mathrm{d}^{2}\varrho}{\mathrm{d}\phi^{2}} + \varrho = \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{3}{2}\varrho^{2}}_{F_{\mathrm{E}}} + \underbrace{\frac{1}{2b^{2}}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\Bigl(\frac{1}{a^{2}}\Bigr)}_{F_{\mathrm{R}}} - \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{1}{2}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\bigl(\alpha\upsilon^{2}\varrho^{2}\bigr)}_{F_{\mathrm{W}}} .
                 \label{eq:binet-second-acoustic}
             \end{equation}
-        In vacuum ($a\to 1$) this reduces to the standard Schwarzschild relation $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\frac{3}{2}\varrho^{2}$. In general the right-hand side splits into three competing forces:
-        \begin{itemize}
-            \item $F_{\mathrm{E}}$ -- the Einstein (vacuum curvature) deflection;
-            \item $F_{\mathrm{R}}$ -- acoustic refraction from gradients of $a(r)$; for a flow that heats toward the centre this contribution focuses rays inward;
-            \item $F_{\mathrm{W}}$ -- the acoustic-wind force from radial accretion; for subsonic flow $\alpha<0$, so this term often opposes gravitational focusing and shifts the capture radius relative to vacuum.
-        \end{itemize}
-        This decomposition is the analytic core of the ray analysis, making explicit which effect bends a given ray. Numerical integration of~\eqref{eq:binet-second-acoustic} for Michel flow at $a_{\infty}=0.1$ (Figs.~\ref{fig:phonon-orbits}--\ref{fig:phonon-forces}) shows rays with $b<b_{\mathrm{c}}$ spiralling onto the acoustic horizon, while rays with $b>b_{\mathrm{c}}$ scatter past the acoustic photon sphere $r_{\mathrm{aph}}$. The critical impact parameter $b_{\mathrm{c}}$ is fixed by the maximum of the capture barrier
+            In vacuum ($a\to 1$) this reduces to the standard Schwarzschild relation $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\frac{3}{2}\varrho^{2}$. In general the right-hand side splits into three competing forces:
+            \begin{itemize}
+                \item $F_{\mathrm{E}}$ -- the Einstein (vacuum curvature) deflection;
+                \item $F_{\mathrm{R}}$ -- acoustic refraction from gradients of $a(r)$; for a flow that heats toward the centre this contribution focuses rays inward;
+                \item $F_{\mathrm{W}}$ -- the acoustic-wind force from radial accretion; for subsonic flow $\alpha<0$, so this term often opposes gravitational focusing and shifts the capture radius relative to vacuum.
+            \end{itemize}
+            This decomposition is the analytic core of the ray analysis, making explicit which effect bends a given ray. Numerical integration of~\eqref{eq:binet-second-acoustic} for Michel flow at $a_{\infty}=0.1$ (Figs.~\ref{fig:phonon-orbits}--\ref{fig:phonon-forces}) shows rays with $b<b_{\mathrm{c}}$ spiralling onto the acoustic horizon, while rays with $b>b_{\mathrm{c}}$ scatter past the acoustic photon sphere $r_{\mathrm{aph}}$. The critical impact parameter $b_{\mathrm{c}}$ is fixed by the maximum of the capture barrier
             \begin{equation}
                 U(r) = a^{2}\eta^{rr}/r^{2} ,
                 \label{eq:capture-barrier}
             \end{equation}
-        via the turning condition $1/b^{2}=U(r)$. Along the critical ray the three forces compete: the wind term $-F_{\mathrm{W}}$ dominates near the horizon, refraction $F_{\mathrm{R}}$ is repulsive throughout, and $F_{\mathrm{E}}$ falls off as $r^{-2}$. Their sum $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$ is positive at $r_{\mathrm{a}}$ and changes sign at $r_{0}>r_{\mathrm{aph}}$ (Table~\ref{tab:phonon-forces}). For $\gamma=5/3$ one finds $r_{\mathrm{a}}\approx 4.38$, $r_{\mathrm{aph}}\approx 6.10$ and $b_{\mathrm{c}}\approx 50$; for the colder $\gamma=4/3$ flow the scales inflate to $r_{\mathrm{a}}\approx 14.1$, $r_{\mathrm{aph}}\approx 20.0$ and $b_{\mathrm{c}}\approx 240$.
+            via the turning condition $1/b^{2}=U(r)$. Along the critical ray the three forces compete: the wind term $-F_{\mathrm{W}}$ dominates near the horizon, refraction $F_{\mathrm{R}}$ is repulsive throughout, and $F_{\mathrm{E}}$ falls off as $r^{-2}$. Their sum $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$ is positive at $r_{\mathrm{a}}$ and changes sign at $r_{0}>r_{\mathrm{aph}}$ (Table~\ref{tab:phonon-forces}). For $\gamma=5/3$ one finds $r_{\mathrm{a}}\approx 4.38$, $r_{\mathrm{aph}}\approx 6.10$ and $b_{\mathrm{c}}\approx 50$; for the colder $\gamma=4/3$ flow the scales inflate to $r_{\mathrm{a}}\approx 14.1$, $r_{\mathrm{aph}}\approx 20.0$ and $b_{\mathrm{c}}\approx 240$.
 
         \subsection{Acoustic Shapiro delay}
-        Beyond deflection, a sound ray also carries a timing signature -- the acoustic analogue of the Shapiro delay. The coordinate travel time of a radial ray between $r_{1}$ and $r_{2}$ is
+        
+            Beyond deflection, a sound ray also carries a timing signature -- the acoustic analogue of the Shapiro delay. The coordinate travel time of a radial ray between $r_{1}$ and $r_{2}$ is
             \begin{equation}
-                t_{\pm}
-                =
-                \int^{r_{2}}_{r_{1}}\frac{\mathrm{d}r}{v_{\pm}(r)}
-                =
-                \int^{r_{2}}_{r_{1}}
-                \frac{f-\beta\upsilon^{2}}{f^{2}\bigl(-\beta\vartheta\upsilon\pm a\bigr)}\,\mathrm{d}r .
+                t_{\pm} = \int^{r_{2}}_{r_{1}}\frac{\mathrm{d}r}{v_{\pm}(r)} = \int^{r_{2}}_{r_{1}} \frac{f-\beta\upsilon^{2}}{f^{2}\bigl(-\beta\vartheta\upsilon\pm a\bigr)}\,\mathrm{d}r .
                 \label{eq:shapiro-time}
             \end{equation}
-        In vacuum this reduces to the classical Shapiro integral $t_{\pm}=\pm\int f^{-1}\,\mathrm{d}r$~\cite{ShapiroII_FourthTestOfGeneralRelativity_1964}. In the acoustic geometry two further contributions appear: a hydrodynamic (wind) delay from $\mathcal{G}_{rt}\neq 0$, which breaks $t_{+}=t_{-}$, and a refractive delay from the radial profiles $a(r)$ and $\beta(r)$.
+            In vacuum this reduces to the classical Shapiro integral $t_{\pm}=\pm\int f^{-1}\,\mathrm{d}r$~\cite{ShapiroII_FourthTestOfGeneralRelativity_1964}. In the acoustic geometry two further contributions appear: a hydrodynamic (wind) delay from $\mathcal{G}_{rt}\neq 0$, which breaks $t_{+}=t_{-}$, and a refractive delay from the radial profiles $a(r)$ and $\beta(r)$.
 
-        The integral~\eqref{eq:shapiro-time} alone is dominated by the long homogeneous outer zone; a sharper, local probe is the slowdown factor
+            The integral~\eqref{eq:shapiro-time} alone is dominated by the long homogeneous outer zone; a sharper, local probe is the slowdown factor
             \begin{equation}
                 n_{\pm}(r) = \frac{f(r)}{|v_{\pm}(r)|} ,
                 \label{eq:local-slowdown}
             \end{equation}
-        which measures how much slower a sound ray is than a vacuum photon at the same radius (for which $|v|=f$). Figure~\ref{fig:shapiro} and Table~\ref{tab:shapiro} show $n_{\pm}$ for Michel flow at $a_{\infty}=0.1$. Near the horizon the branches diverge: the outgoing ray freezes ($v_{+}\to 0$, $n_{+}\sim 10^{3}$), while the ingoing ray is swept inward at finite $n_{-}$. At large radius both branches converge to the geometric-optics plateau $1/a_{\infty}=10$.
+            which measures how much slower a sound ray is than a vacuum photon at the same radius (for which $|v|=f$). Figure~\ref{fig:shapiro} and Table~\ref{tab:shapiro} show $n_{\pm}$ for Michel flow at $a_{\infty}=0.1$. Near the horizon the branches diverge: the outgoing ray freezes ($v_{+}\to 0$, $n_{+}\sim 10^{3}$), while the ingoing ray is swept inward at finite $n_{-}$. At large radius both branches converge to the geometric-optics plateau $1/a_{\infty}=10$.
 
-        For an outgoing signal emitted at $r_{1}$ and received at $r_{\mathrm{out}}=200$, the excess delay relative to flat light travel,
+            For an outgoing signal emitted at $r_{1}$ and received at $r_{\mathrm{out}}=200$, the excess delay relative to flat light travel,
             \begin{equation}
-                \Delta t_{+}(r_{1})
-                =
-                \int^{r_{\mathrm{out}}}_{r_{1}}\frac{\mathrm{d}r}{v_{+}(r)} - \bigl(r_{\mathrm{out}}-r_{1}\bigr) ,
+                \Delta t_{+}(r_{1}) = \int^{r_{\mathrm{out}}}_{r_{1}}\frac{\mathrm{d}r}{v_{+}(r)} - \bigl(r_{\mathrm{out}}-r_{1}\bigr) ,
                 \label{eq:shapiro-excess}
             \end{equation}
-        exceeds its vacuum counterpart by factors $R=\Delta t^{\mathrm{ac}}_{+}/\Delta t^{\mathrm{vac}}_{+}\sim 10^{2}$--$10^{3}$, while the ratio of total flight times $\mathcal{T}=t^{\mathrm{ac}}_{+}/t^{\mathrm{vac}}_{+}$ stays close to $1/a_{\infty}$. The geometric-optics piece $\mathcal{T}\approx 10$ is essentially independent of $\gamma$; the hydrodynamic freeze-out, visible in $n_{+}/n_{-}$ and in $R$, is stronger for $\gamma=4/3$, whose sonic point lies farther out. Both the deflection of the previous subsection and the timing found here feed the lensing pattern and the acoustic photon sphere, addressed in the following subsection.
+            exceeds its vacuum counterpart by factors $R=\Delta t^{\mathrm{ac}}_{+}/\Delta t^{\mathrm{vac}}_{+}\sim 10^{2}$--$10^{3}$, while the ratio of total flight times $\mathcal{T}=t^{\mathrm{ac}}_{+}/t^{\mathrm{vac}}_{+}$ stays close to $1/a_{\infty}$. The geometric-optics piece $\mathcal{T}\approx 10$ is essentially independent of $\gamma$; the hydrodynamic freeze-out, visible in $n_{+}/n_{-}$ and in $R$, is stronger for $\gamma=4/3$, whose sonic point lies farther out. Both the deflection of the previous subsection and the timing found here feed the lensing pattern and the acoustic photon sphere, addressed in the following subsection.
 
         \subsection{Acoustic lensing and the photon sphere}
-        The scattered rays organize around a single unstable circular orbit -- the acoustic photon sphere -- which fixes the edge of the acoustic shadow. In vacuum Schwarzschild spacetime this orbit sits at $r_{\mathrm{ph}}=3/2$; in the acoustic geometry the circular-orbit conditions $\mathrm{d}\varrho/\mathrm{d}\phi=\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}=0$ applied to~\eqref{eq:binet-first-acoustic}--\eqref{eq:binet-second-acoustic} move it to $r_{\mathrm{aph}}$. Linearizing about the vacuum point $\varrho_{\mathrm{ph}}=2/3$ splits the shift into a refractive and a wind contribution,
+        
+            The scattered rays organize around a single unstable circular orbit -- the acoustic photon sphere -- which fixes the edge of the acoustic shadow. In vacuum Schwarzschild spacetime this orbit sits at $r_{\mathrm{ph}}=3/2$; in the acoustic geometry the circular-orbit conditions $\mathrm{d}\varrho/\mathrm{d}\phi=\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}=0$ applied to~\eqref{eq:binet-first-acoustic}--\eqref{eq:binet-second-acoustic} move it to $r_{\mathrm{aph}}$. Linearizing about the vacuum point $\varrho_{\mathrm{ph}}=2/3$ splits the shift into a refractive and a wind contribution,
             \begin{equation}
-                \delta\varrho
-                =
-                \underbrace{\vphantom{\Biggl(
-                \beta_{\mathrm{ph}}\upsilon^{2}_{\mathrm{ph}}
-                +
-                \frac{1}{3}\,\frac{\mathrm{d}(\beta\upsilon^{2})}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}}
-                \Biggr)}\frac{2}{27}\,\frac{\mathrm{d}\beta}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}}}_{\delta F_{\mathrm{R}}}
-                +
-                \underbrace{\frac{2}{3}\Biggl(
-                \beta_{\mathrm{ph}}\upsilon^{2}_{\mathrm{ph}}
-                +
-                \frac{1}{3}\,\frac{\mathrm{d}(\beta\upsilon^{2})}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}}
-                \Biggr)}_{-\delta F_{\mathrm{W}}} ,
+                \delta\varrho = \underbrace{\vphantom{\Biggl( \beta_{\mathrm{ph}}\upsilon^{2}_{\mathrm{ph}} + \frac{1}{3}\,\frac{\mathrm{d}(\beta\upsilon^{2})}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}} \Biggr)}\frac{2}{27}\,\frac{\mathrm{d}\beta}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}}}_{\delta F_{\mathrm{R}}} + \underbrace{\frac{2}{3}\Biggl( \beta_{\mathrm{ph}}\upsilon^{2}_{\mathrm{ph}} + \frac{1}{3}\,\frac{\mathrm{d}(\beta\upsilon^{2})}{\mathrm{d}\varrho}\Big|_{\mathrm{ph}} \Biggr)}_{-\delta F_{\mathrm{W}}} ,
                 \label{eq:acoustic-photon-sphere-delta}
             \end{equation}
-        and therefore
+            and therefore
             \begin{equation}
-                r_{\mathrm{aph}}
-                \approx
-                \frac{3}{2}\Biggl(1 - \frac{3}{2}\,\delta\varrho\Biggr) .
+                r_{\mathrm{aph}} \approx \frac{3}{2}\Biggl(1 - \frac{3}{2}\,\delta\varrho\Biggr) .
                 \label{eq:raph-from-delta}
             \end{equation}
-        The two contributions pull in opposite directions: refraction ($\mathrm{d}\beta/\mathrm{d}\varrho|_{\mathrm{ph}}>0$ for a flow that heats inward) tends to shrink the acoustic shadow, while the subsonic wind ($\beta_{\mathrm{ph}}<0$) pushes $r_{\mathrm{aph}}$ outward. For Michel flow at $a_{\infty}=0.1$ the wind wins, giving a substantial outward shift: $r_{\mathrm{aph}}\approx 6.10$ for $\gamma=5/3$ and $r_{\mathrm{aph}}\approx 20.0$ for $\gamma=4/3$, against the vacuum value $1.5$. The shadow is therefore set by $r_{\mathrm{aph}}$ -- equivalently by the barrier maximum of~\eqref{eq:capture-barrier} -- rather than by the horizon itself, and carries a direct imprint of the thermodynamic state of the accretion stream. Remarkably, although both $r_{\mathrm{a}}$ and $r_{\mathrm{aph}}$ vary strongly with $a_{\infty}$, their ratio stays nearly constant across Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan} (right), $r_{\mathrm{aph}}/r_{\mathrm{a}}\approx 1.39$ for $\gamma=5/3$ and $\approx 1.42$ for $\gamma=4/3$: the acoustic photon sphere tracks the horizon at a fixed multiple set mainly by the equation of state. That same horizon also radiates -- its surface gravity and the associated analogue Hawking temperature are the subject of the next section.
+            The two contributions pull in opposite directions: refraction ($\mathrm{d}\beta/\mathrm{d}\varrho|_{\mathrm{ph}}>0$ for a flow that heats inward) tends to shrink the acoustic shadow, while the subsonic wind ($\beta_{\mathrm{ph}}<0$) pushes $r_{\mathrm{aph}}$ outward. For Michel flow at $a_{\infty}=0.1$ the wind wins, giving a substantial outward shift: $r_{\mathrm{aph}}\approx 6.10$ for $\gamma=5/3$ and $r_{\mathrm{aph}}\approx 20.0$ for $\gamma=4/3$, against the vacuum value $1.5$. The shadow is therefore set by $r_{\mathrm{aph}}$ -- equivalently by the barrier maximum of~\eqref{eq:capture-barrier} -- rather than by the horizon itself, and carries a direct imprint of the thermodynamic state of the accretion stream. Remarkably, although both $r_{\mathrm{a}}$ and $r_{\mathrm{aph}}$ vary strongly with $a_{\infty}$, their ratio stays nearly constant across Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan} (right), $r_{\mathrm{aph}}/r_{\mathrm{a}}\approx 1.39$ for $\gamma=5/3$ and $\approx 1.42$ for $\gamma=4/3$: the acoustic photon sphere tracks the horizon at a fixed multiple set mainly by the equation of state. That same horizon also radiates -- its surface gravity and the associated analogue Hawking temperature are the subject of the next section.
 
-    \section{Surface gravity and analogue Hawking temperature}
-    \label{sec:surface-gravity}
-    The acoustic horizon $r=r_{\mathrm{a}}$, defined by $\eta^{rr}(r_{\mathrm{a}})=0$, is the necessary kinematic ingredient for an analogue of Hawking radiation, provided the background remains stationary and adiabatic. In the quantum field theory on the effective spacetime, the horizon leads to spontaneous creation of phonon pairs: one mode escapes to spatial infinity as a thermal flux, while its partner (of negative Killing norm) crosses the horizon and is absorbed.
+    \section{Surface gravity and analogue Hawking temperature}\label{sec:surface-gravity}
+    
+        The acoustic horizon $r=r_{\mathrm{a}}$, defined by $\eta^{rr}(r_{\mathrm{a}})=0$, is the necessary kinematic ingredient for an analogue of Hawking radiation, provided the background remains stationary and adiabatic. In the quantum field theory on the effective spacetime, the horizon leads to spontaneous creation of phonon pairs: one mode escapes to spatial infinity as a thermal flux, while its partner (of negative Killing norm) crosses the horizon and is absorbed.
 
-    The rate of exponential peeling of outgoing null rays near the horizon is measured by the surface gravity $\kappa$. Starting from the outgoing coordinate speed~\eqref{eq:coordinate-velocity},
+        The rate of exponential peeling of outgoing null rays near the horizon is measured by the surface gravity $\kappa$. Starting from the outgoing coordinate speed~\eqref{eq:coordinate-velocity},
         \begin{equation}
-            v_{+}(r)
-            =
-            \frac{a - \beta\vartheta\upsilon}{f - \beta\upsilon^{2}}\, f^{2} ,
+            v_{+}(r) = \frac{a - \beta\vartheta\upsilon}{f - \beta\upsilon^{2}}\, f^{2} ,
             \label{eq:v-plus}
         \end{equation}
-    which is conformally invariant and vanishes at $r_{\mathrm{a}}$, one introduces the acoustic tortoise coordinate $\mathrm{d}r_{*}=\mathrm{d}r/v_{+}(r)$. Near the horizon, $v_{+}(r)\approx (\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}(r-r_{\mathrm{a}})$, so
+        which is conformally invariant and vanishes at $r_{\mathrm{a}}$, one introduces the acoustic tortoise coordinate $\mathrm{d}r_{*}=\mathrm{d}r/v_{+}(r)$. Near the horizon, $v_{+}(r)\approx (\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}(r-r_{\mathrm{a}})$, so
         \begin{equation}
-            r_{*}
-            \approx
-            \frac{1}{(\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}}\,\ln(r-r_{\mathrm{a}}) .
+            r_{*} \approx \frac{1}{(\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}}\,\ln(r-r_{\mathrm{a}}) .
             \label{eq:tortoise-near-horizon}
         \end{equation}
-    Matching this to the canonical form $r_{*}\sim(2\kappa)^{-1}\ln(r-r_{\mathrm{a}})$ that underlies the thermal Kruskal spectrum yields the invariant definition
+        Matching this to the canonical form $r_{*}\sim(2\kappa)^{-1}\ln(r-r_{\mathrm{a}})$ that underlies the thermal Kruskal spectrum yields the invariant definition
         \begin{equation}
-            \kappa
-            \equiv
-            \frac{1}{2}\,\frac{\mathrm{d}v_{+}}{\mathrm{d}r}\Big|_{r=r_{\mathrm{a}}} .
+            \kappa \equiv \frac{1}{2}\,\frac{\mathrm{d}v_{+}}{\mathrm{d}r}\Big|_{r=r_{\mathrm{a}}} .
             \label{eq:surface-gravity-def}
         \end{equation}
-    Because the numerator of~\eqref{eq:v-plus} vanishes on the horizon, differentiation retains only the derivative of that numerator and produces the closed expression (used for the tabulated values, and cross-checked against the direct slope of $v_{+}$)
+        Because the numerator of~\eqref{eq:v-plus} vanishes on the horizon, differentiation retains only the derivative of that numerator and produces the closed expression (used for the tabulated values, and cross-checked against the direct slope of $v_{+}$)
         \begin{equation}
-            \kappa
-            =
-            \frac{f^{2}(r_{\mathrm{a}})}
-            {2\bigl[f(r_{\mathrm{a}})-\beta(r_{\mathrm{a}})\upsilon^{2}(r_{\mathrm{a}})\bigr]}
-            \,\frac{\mathrm{d}}{\mathrm{d}r}\bigl(a-\beta\vartheta\upsilon\bigr)\Big|_{r=r_{\mathrm{a}}} .
+            \kappa = \frac{f^{2}(r_{\mathrm{a}})} {2\bigl[f(r_{\mathrm{a}})-\beta(r_{\mathrm{a}})\upsilon^{2}(r_{\mathrm{a}})\bigr]} \,\frac{\mathrm{d}}{\mathrm{d}r}\bigl(a-\beta\vartheta\upsilon\bigr)\Big|_{r=r_{\mathrm{a}}} .
             \label{eq:surface-gravity-explicit}
         \end{equation}
-    Surface gravity is therefore controlled not by the values of the flow parameters themselves, but by the \emph{rate} at which the stream crosses the sonic point: the steeper the numerator of the freeze-out condition, the hotter the horizon. In the vacuum limit $a\to 1$, $\beta\to 0$, $r_{\mathrm{a}}\to 1$ one recovers $\kappa=\frac{1}{2}(\mathrm{d}f/\mathrm{d}r)|_{r=1}=\frac{1}{2}$, which in dimensionful units is precisely the Schwarzschild value $\kappa_{\mathrm{Sch}}=c^{2}/(2r_{\mathrm{g}})$.
+        Surface gravity is therefore controlled not by the values of the flow parameters themselves, but by the \emph{rate} at which the stream crosses the sonic point: the steeper the numerator of the freeze-out condition, the hotter the horizon. In the vacuum limit $a\to 1$, $\beta\to 0$, $r_{\mathrm{a}}\to 1$ one recovers $\kappa=\frac{1}{2}(\mathrm{d}f/\mathrm{d}r)|_{r=1}=\frac{1}{2}$, which in dimensionful units is precisely the Schwarzschild value $\kappa_{\mathrm{Sch}}=c^{2}/(2r_{\mathrm{g}})$.
 
-    The exponential redshift of outgoing modes converts the asymptotic vacuum into a thermal phonon bath at
+        The exponential redshift of outgoing modes converts the asymptotic vacuum into a thermal phonon bath at
         \begin{equation}
             T_{\mathrm{H}} = \frac{\kappa}{2\pi} ,
             \label{eq:hawking-temperature}
         \end{equation}
-    or, restoring dimensions ($r$ and $t$ measured in units of $r_{\mathrm{g}}$ and $r_{\mathrm{g}}/c$),
+        or, restoring dimensions ($r$ and $t$ measured in units of $r_{\mathrm{g}}$ and $r_{\mathrm{g}}/c$),
         \begin{equation}
-            k_{\mathrm{B}}T_{\mathrm{H}}
-            =
-            \frac{\hbar c}{2\pi r_{\mathrm{g}}}\,\kappa .
+            k_{\mathrm{B}}T_{\mathrm{H}} = \frac{\hbar c}{2\pi r_{\mathrm{g}}}\,\kappa .
             \label{eq:hawking-temperature-dim}
         \end{equation}
-    For $\kappa=1/2$ this reproduces the classical Hawking temperature $k_{\mathrm{B}}T_{\mathrm{H}}=\hbar c^{3}/(8\pi GM)$. In the acoustic case $T_{\mathrm{H}}$ carries information about the accretion thermodynamics: it is set by the gradients of $a(r)$ and by the flow profile $(\vartheta,\upsilon)$ at the sonic point. The spectrum remains thermal in the adiabatic approximation, when background quantities vary slowly on the thermal phonon wavelength $\lambda_{\mathrm{T}}\sim\kappa^{-1}$; sharp gradients produce departures from the Planckian form.
+        For $\kappa=1/2$ this reproduces the classical Hawking temperature $k_{\mathrm{B}}T_{\mathrm{H}}=\hbar c^{3}/(8\pi GM)$. In the acoustic case $T_{\mathrm{H}}$ carries information about the accretion thermodynamics: it is set by the gradients of $a(r)$ and by the flow profile $(\vartheta,\upsilon)$ at the sonic point. The spectrum remains thermal in the adiabatic approximation, when background quantities vary slowly on the thermal phonon wavelength $\lambda_{\mathrm{T}}\sim\kappa^{-1}$; sharp gradients produce departures from the Planckian form.
 
-    Relative to the vacuum Schwarzschild surface gravity $\kappa_{\mathrm{Sch}}=1/2$,
+        Relative to the vacuum Schwarzschild surface gravity $\kappa_{\mathrm{Sch}}=1/2$,
         \begin{equation}
-            \frac{T^{\mathrm{ac}}_{\mathrm{H}}}{T^{\mathrm{vac}}_{\mathrm{H}}}
-            =
-            2\kappa(a,\vartheta,\upsilon) .
+            \frac{T^{\mathrm{ac}}_{\mathrm{H}}}{T^{\mathrm{vac}}_{\mathrm{H}}} = 2\kappa(a,\vartheta,\upsilon) .
             \label{eq:temperature-ratio}
         \end{equation}
-    A large positive gradient in~\eqref{eq:surface-gravity-explicit} (rapid drop of the sound speed, or strong acceleration of the flow) enhances the radiation relative to vacuum; smooth profiles can suppress it. Unlike the gravitational horizon, whose temperature is fixed by the black-hole mass alone, the acoustic horizon has a ``soft'' thermodynamics controlled by the equation of state and by the asymptotic boundary data. Table~\ref{tab:surface-gravity} lists $\kappa$ evaluated from~\eqref{eq:surface-gravity-explicit} for Michel flow at $a_{\infty}=0.1$: the analogue horizon is much colder than its vacuum counterpart, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ for $\gamma=5/3$ and $\approx 7.0\cdot 10^{-3}$ for $\gamma=4/3$. The kinematic definition~\eqref{eq:surface-gravity-def} is standard in analogue gravity~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}, and coincides with the conformally invariant surface gravity of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} specialized to radial flow. Expressing $\kappa$ -- and hence $T_{\mathrm{H}}$ -- directly through the accretion variables at the sonic point follows the approach developed for relativistic accretion discs and for spherical and isothermal flows onto Schwarzschild black holes~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}; here it is carried out for the adiabatic polytropic Michel flow across the $(\gamma,a_{\infty})$ grid. These tabulated values (Tables~\ref{tab:surface-gravity}--\ref{tab:ainf-scan}) quantify the very scale that governs the acoustic ringdown of this background: Chaverra \emph{et al.}~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015} found that for a widely separated sonic horizon ($r_{\mathrm{a}}\gg 1$) the quasi-normal frequencies of the Michel flow scale approximately with $\kappa$, so the entries of Table~\ref{tab:ainf-scan} set the natural frequency unit for that regime. This link can be made quantitative. Comparing their tabulated fundamental frequencies $s=\sigma+i\omega$ with the surface gravity computed here (their normalization is twice ours, $\kappa_{\mathrm{Ch}}=2\kappa$, and our $\kappa$ reproduces their tabulated values to better than $0.5\%$ over $r_{\mathrm{a}}=3$--$30$) gives the convention-independent ratios $\mathrm{Re}\,s\approx-0.77\,\kappa$ and $\mathrm{Im}\,s\approx(0.42+1.21\,\ell)\,\kappa$ for $\ell\ge 1$, nearly constant for $r_{\mathrm{a}}\gtrsim 10$. The tabulated $\kappa$ therefore fixes both the decay rate and the oscillation frequency of the Michel ringdown; for example, at $a_{\infty}=0.1$ ($\kappa=3.5\cdot10^{-3}$, $r_{\mathrm{a}}\approx14$) the dipolar ($\ell=1$) acoustic mode sits at $s\,r_{\mathrm{g}}\approx(-2.7+5.7\,i)\cdot10^{-3}$. The suppression reflects the gentle transonic crossing at the widely displaced sonic point ($r_{\mathrm{a}}\approx 4.4$ and $14.1$, respectively): the softer radiation-dominated flow ($\gamma=4/3$) accelerates more slowly through a sonic point that lies farther out, giving the coldest horizon. This is not a feature of the single case $a_{\infty}=0.1$: varying $a_{\infty}$ from $0.05$ to $0.20$ (Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan}, left) shows $\kappa$ rising monotonically by more than an order of magnitude as the asymptotic gas grows hotter and the sonic point migrates inward toward the strong-field region, so the analogue Hawking temperature is a continuous function of the asymptotic boundary data rather than an isolated value.
+        A large positive gradient in~\eqref{eq:surface-gravity-explicit} (rapid drop of the sound speed, or strong acceleration of the flow) enhances the radiation relative to vacuum; smooth profiles can suppress it. Unlike the gravitational horizon, whose temperature is fixed by the black-hole mass alone, the acoustic horizon has a ``soft'' thermodynamics controlled by the equation of state and by the asymptotic boundary data. Table~\ref{tab:surface-gravity} lists $\kappa$ evaluated from~\eqref{eq:surface-gravity-explicit} for Michel flow at $a_{\infty}=0.1$: the analogue horizon is much colder than its vacuum counterpart, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ for $\gamma=5/3$ and $\approx 7.0\cdot 10^{-3}$ for $\gamma=4/3$. The kinematic definition~\eqref{eq:surface-gravity-def} is standard in analogue gravity~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}, and coincides with the conformally invariant surface gravity of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} specialized to radial flow. Expressing $\kappa$ -- and hence $T_{\mathrm{H}}$ -- directly through the accretion variables at the sonic point follows the approach developed for relativistic accretion discs and for spherical and isothermal flows onto Schwarzschild black holes~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}; here it is carried out for the adiabatic polytropic Michel flow across the $(\gamma,a_{\infty})$ grid. These tabulated values (Tables~\ref{tab:surface-gravity}--\ref{tab:ainf-scan}) quantify the very scale that governs the acoustic ringdown of this background: Chaverra \emph{et al.}~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015} found that for a widely separated sonic horizon ($r_{\mathrm{a}}\gg 1$) the quasi-normal frequencies of the Michel flow scale approximately with $\kappa$, so the entries of Table~\ref{tab:ainf-scan} set the natural frequency unit for that regime. This link can be made quantitative. Comparing their tabulated fundamental frequencies $s=\sigma+i\omega$ with the surface gravity computed here (their normalization is twice ours, $\kappa_{\mathrm{Ch}}=2\kappa$, and our $\kappa$ reproduces their tabulated values to better than $0.5\%$ over $r_{\mathrm{a}}=3$--$30$) gives the convention-independent ratios $\mathrm{Re}\,s\approx-0.77\,\kappa$ and $\mathrm{Im}\,s\approx(0.42+1.21\,\ell)\,\kappa$ for $\ell\ge 1$, nearly constant for $r_{\mathrm{a}}\gtrsim 10$. The tabulated $\kappa$ therefore fixes both the decay rate and the oscillation frequency of the Michel ringdown; for example, at $a_{\infty}=0.1$ ($\kappa=3.5\cdot10^{-3}$, $r_{\mathrm{a}}\approx14$) the dipolar ($\ell=1$) acoustic mode sits at $s\,r_{\mathrm{g}}\approx(-2.7+5.7\,i)\cdot10^{-3}$. The suppression reflects the gentle transonic crossing at the widely displaced sonic point ($r_{\mathrm{a}}\approx 4.4$ and $14.1$, respectively): the softer radiation-dominated flow ($\gamma=4/3$) accelerates more slowly through a sonic point that lies farther out, giving the coldest horizon. This is not a feature of the single case $a_{\infty}=0.1$: varying $a_{\infty}$ from $0.05$ to $0.20$ (Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan}, left) shows $\kappa$ rising monotonically by more than an order of magnitude as the asymptotic gas grows hotter and the sonic point migrates inward toward the strong-field region, so the analogue Hawking temperature is a continuous function of the asymptotic boundary data rather than an isolated value.
 
-    A formal area in the effective geometry may also be assigned to the horizon. The angular part of $\mathcal{G}_{\mu\nu}$ induced on the sphere $r=r_{\mathrm{a}}$ gives
+        A formal area in the effective geometry may also be assigned to the horizon. The angular part of $\mathcal{G}_{\mu\nu}$ induced on the sphere $r=r_{\mathrm{a}}$ gives
         \begin{equation}
-            \mathcal{A}_{\mathrm{a}}
-            =
-            \oint\sqrt{\mathcal{G}_{\theta\theta}\mathcal{G}_{\phi\phi}}\,\mathrm{d}\theta\,\mathrm{d}\phi
-            =
-            \frac{4\pi r^{2}_{\mathrm{a}}}{\Omega^{2}(r_{\mathrm{a}})} ,
+            \mathcal{A}_{\mathrm{a}} = \oint\sqrt{\mathcal{G}_{\theta\theta}\mathcal{G}_{\phi\phi}}\,\mathrm{d}\theta\,\mathrm{d}\phi = \frac{4\pi r^{2}_{\mathrm{a}}}{\Omega^{2}(r_{\mathrm{a}})} ,
             \label{eq:acoustic-horizon-area}
         \end{equation}
-    which is the natural conformal generalization of the classical horizon-area formula~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. A Bekenstein--Hawking ``entropy'' $S_{\mathrm{a}}\propto\mathcal{A}_{\mathrm{a}}$ can be written by analogy, but the analogy must be sharply limited. The temperature~\eqref{eq:hawking-temperature} is physically robust: it follows from the kinematics of the wave equation~\eqref{eq:wave-equation} on the effective metric and requires no dynamical equations for $\mathcal{G}_{\mu\nu}$ itself. By contrast, $\mathcal{A}_{\mathrm{a}}$ and any Clausius relation $\delta Q=T_{\mathrm{H}}\delta S_{\mathrm{a}}$ lack fundamental status here, because $\mathcal{G}_{\mu\nu}$ does not obey the Einstein equations and $\mathcal{A}_{\mathrm{a}}$ need not be monotonic. The acoustic horizon therefore reproduces Hawking \emph{radiation} as a kinematic effect, but not the full thermodynamics of black holes.
+        which is the natural conformal generalization of the classical horizon-area formula~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. A Bekenstein--Hawking ``entropy'' $S_{\mathrm{a}}\propto\mathcal{A}_{\mathrm{a}}$ can be written by analogy, but the analogy must be sharply limited. The temperature~\eqref{eq:hawking-temperature} is physically robust: it follows from the kinematics of the wave equation~\eqref{eq:wave-equation} on the effective metric and requires no dynamical equations for $\mathcal{G}_{\mu\nu}$ itself. By contrast, $\mathcal{A}_{\mathrm{a}}$ and any Clausius relation $\delta Q=T_{\mathrm{H}}\delta S_{\mathrm{a}}$ lack fundamental status here, because $\mathcal{G}_{\mu\nu}$ does not obey the Einstein equations and $\mathcal{A}_{\mathrm{a}}$ need not be monotonic. The acoustic horizon therefore reproduces Hawking \emph{radiation} as a kinematic effect, but not the full thermodynamics of black holes.
 
     \section{Conclusions}
-    The relativistic acoustic geometry of perfect-fluid Michel accretion onto a Schwarzschild black hole has been constructed, and high-frequency sound has been analysed as null geodesics of the effective metric $\mathcal{G}_{\mu\nu}$. Starting from the linearized continuity--Euler--energy system, the wave equation for the velocity potential identifies $\mathcal{G}^{\mu\nu}=\Omega^{2}(g^{\mu\nu}+\alpha u^{\mu}u^{\nu})$ with $\alpha=1-a^{-2}$. On the Michel background the acoustic event horizon coincides exactly with the sonic critical point, $r_{\mathrm{a}}=r_{\mathrm{c}}$, while the stationary-limit surface remains distinct and bounds a genuine acoustic ergoregion. The sonic radii themselves recover the standard Michel/Shapiro--Teukolsky values; the geometric-optics phenomenology developed here -- force decomposition, Shapiro diagnostics, photon-sphere shift and tabulated surface gravities -- complements the existing wave-equation and QNM analyses of the same background.
+        The relativistic acoustic geometry of perfect-fluid Michel accretion onto a Schwarzschild black hole has been constructed, and high-frequency sound has been analysed as null geodesics of the effective metric $\mathcal{G}_{\mu\nu}$. Starting from the linearized continuity--Euler--energy system, the wave equation for the velocity potential identifies $\mathcal{G}^{\mu\nu}=\Omega^{2}(g^{\mu\nu}+\alpha u^{\mu}u^{\nu})$ with $\alpha=1-a^{-2}$. On the Michel background the acoustic event horizon coincides exactly with the sonic critical point, $r_{\mathrm{a}}=r_{\mathrm{c}}$, while the stationary-limit surface remains distinct and bounds a genuine acoustic ergoregion. The sonic radii themselves recover the standard Michel/Shapiro--Teukolsky values; the geometric-optics phenomenology developed here -- force decomposition, Shapiro diagnostics, photon-sphere shift and tabulated surface gravities -- complements the existing wave-equation and QNM analyses of the same background.
 
-    The geometric optics of sound rays is controlled by a generalized Binet equation that decomposes deflection into Einstein, refractive and acoustic-wind forces. Numerical integration for $a_{\infty}=0.1$ shows that the wind dominates near the horizon, refraction is repulsive throughout, and the capture barrier maximum fixes an acoustic photon sphere that is strongly displaced outward relative to the vacuum value $r_{\mathrm{ph}}=3/2$: $r_{\mathrm{aph}}\approx 6.10$ for $\gamma=5/3$ and $r_{\mathrm{aph}}\approx 20.0$ for $\gamma=4/3$. Across $a_{\infty}=0.05$--$0.20$ both radii vary strongly, yet their ratio remains nearly invariant, $r_{\mathrm{aph}}/r_{\mathrm{a}}\approx 1.39$ ($\gamma=5/3$) and $\approx 1.42$ ($\gamma=4/3$), so the acoustic shadow tracks the horizon at a multiple set mainly by the equation of state. The acoustic Shapiro delay, diagnosed by the local slowdown $n_{\pm}=f/|v_{\pm}|$, exhibits freeze-out of outgoing rays at the horizon and convergence of both branches to the plateau $1/a_{\infty}$ at large radii; excess delays exceed the vacuum Shapiro delay by factors of order $10^{2}$--$10^{3}$.
+        The geometric optics of sound rays is controlled by a generalized Binet equation that decomposes deflection into Einstein, refractive and acoustic-wind forces. Numerical integration for $a_{\infty}=0.1$ shows that the wind dominates near the horizon, refraction is repulsive throughout, and the capture barrier maximum fixes an acoustic photon sphere that is strongly displaced outward relative to the vacuum value $r_{\mathrm{ph}}=3/2$: $r_{\mathrm{aph}}\approx 6.10$ for $\gamma=5/3$ and $r_{\mathrm{aph}}\approx 20.0$ for $\gamma=4/3$. Across $a_{\infty}=0.05$--$0.20$ both radii vary strongly, yet their ratio remains nearly invariant, $r_{\mathrm{aph}}/r_{\mathrm{a}}\approx 1.39$ ($\gamma=5/3$) and $\approx 1.42$ ($\gamma=4/3$), so the acoustic shadow tracks the horizon at a multiple set mainly by the equation of state. The acoustic Shapiro delay, diagnosed by the local slowdown $n_{\pm}=f/|v_{\pm}|$, exhibits freeze-out of outgoing rays at the horizon and convergence of both branches to the plateau $1/a_{\infty}$ at large radii; excess delays exceed the vacuum Shapiro delay by factors of order $10^{2}$--$10^{3}$.
 
-    Surface gravity at the sonic horizon is expressed through hydrodynamic gradients of $a$, $\vartheta$ and $\upsilon$, so that the analogue Hawking temperature probes the rate at which the flow crosses the sonic point. At $a_{\infty}=0.1$ the horizon is much colder than vacuum, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ ($\gamma=5/3$) and $\approx 7.0\cdot 10^{-3}$ ($\gamma=4/3$); the surface gravity rises monotonically by more than an order of magnitude as $a_{\infty}$ increases and the sonic point migrates inward. The temperature itself is a robust kinematic consequence of the wave equation; a formal horizon area can be written, but it does not endow the acoustic geometry with a full Bekenstein--Hawking thermodynamics.
+        Surface gravity at the sonic horizon is expressed through hydrodynamic gradients of $a$, $\vartheta$ and $\upsilon$, so that the analogue Hawking temperature probes the rate at which the flow crosses the sonic point. At $a_{\infty}=0.1$ the horizon is much colder than vacuum, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ ($\gamma=5/3$) and $\approx 7.0\cdot 10^{-3}$ ($\gamma=4/3$); the surface gravity rises monotonically by more than an order of magnitude as $a_{\infty}$ increases and the sonic point migrates inward. The temperature itself is a robust kinematic consequence of the wave equation; a formal horizon area can be written, but it does not endow the acoustic geometry with a full Bekenstein--Hawking thermodynamics.
 
-    Taken together, these results show that the thermodynamic and flow parameters of the accretion stream enter acoustic lensing, time delay and the analogue Hawking scale in a quantitatively controlled way. A natural extension, left for future work, would be a spatial-stability analysis of acoustic, vortical and entropy modes -- finite-frequency perturbations that, unlike the high-frequency rays studied here, do not propagate on the acoustic null cone and require the full wave equation with a non-trivial conformal factor.
+        Taken together, these results show that the thermodynamic and flow parameters of the accretion stream enter acoustic lensing, time delay and the analogue Hawking scale in a quantitatively controlled way. A natural extension, left for future work, would be a spatial-stability analysis of acoustic, vortical and entropy modes -- finite-frequency perturbations that, unlike the high-frequency rays studied here, do not propagate on the acoustic null cone and require the full wave equation with a non-trivial conformal factor.
 
     \section*{Acknowledgments}
-    This research has made use of NASA's Astrophysics Data System. The author is an independent researcher and carried out this work without institutional funding.
+        This research has made use of NASA's Astrophysics Data System. The author is an independent researcher and carried out this work without institutional funding.
 
 \clearpage
 %% ----- Рисунки -----
