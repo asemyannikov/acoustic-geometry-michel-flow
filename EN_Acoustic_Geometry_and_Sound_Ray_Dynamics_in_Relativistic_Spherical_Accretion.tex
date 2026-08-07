@@ -42,7 +42,7 @@
 
     \section{Relativistic fluid and acoustic perturbations}\label{sec:fluid}
 
-        Throughout the work, the metric signature $\mathfrak{s}=(-,+,+,+)$ is adopted. Spacetime coordinates are measured in units of the gravitational radius $r_{\mathrm{g}}=2GM/c^{2}$, the 4-velocity and the sound speed are dimensionless, and the thermodynamic variables are normalized to their asymptotic rest-frame scales in accordance with the standard Michel-flow convention~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. The subscripts ``$\infty$'', ``$c$'', ``$a$'', ``$aph$'', and ``$asl$'' denote the asymptotic value at infinity, the critical point, the acoustic horizon, the acoustic photon sphere, and the stationary-limit surface, respectively.
+        Throughout the work, the metric signature $\mathfrak{s}=(-,+,+,+)$ is adopted. Spacetime coordinates are measured in units of the gravitational radius $r_{\mathrm{g}}=2GM/c^{2}$, the 4-velocity and the sound speed are dimensionless, and the thermodynamic variables are normalized to their asymptotic rest-frame scales in accordance with the standard Michel-flow convention~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980}. The subscripts ``$\infty$'', ``c'', ``a'', ``aph'', and ``asl'' denote the asymptotic value at infinity, the critical point, the acoustic horizon, the acoustic photon sphere, and the stationary-limit surface, respectively.
 
         The fluid 4-velocity satisfies the normalization condition
         \begin{equation}
@@ -326,6 +326,26 @@
 
             The Bernoulli integral~\eqref{eq:michel-bernoulli}, evaluated at the sonic point, links $a_{\infty}$ to the horizon radius $r_{\mathrm{a}}$; representative values are collected in Table~\ref{tab:sonic-point}. For cold asymptotic gas ($a_{\infty}\ll 1$) the acoustic horizon lies far from the black hole, in the Newtonian domain ($r_{\mathrm{a}}\sim a^{-2}_{\infty}\gg 1$), while relativistic effects concentrate in the deeply supersonic zone $1<r\ll r_{\mathrm{a}}$. These radii satisfy the standard Michel critical-point condition and reproduce the Michel/Shapiro--Teukolsky sonic radii for the same $(\gamma,a_{\infty})$~\cite{MichelFC_AccretionOfMatterByCondensedObjects_1972, ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}, while the identification $r_{\mathrm{a}}=r_{\mathrm{c}}$ follows from the acoustic metric of Moncrief and Bili{\'c}~\cite{MoncriefV_StabilityOfStationarySphericalAccretionOntoASchwarzschildBlackHole_1980, BilicN_RelativisticAcousticGeometry_1999}. These works, together with the subsequent QNM analysis of Chaverra, Morales and Sarbach~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015}, focus on the wave equation; they are complemented here with a geometric-optics phenomenology of the same background -- the force decomposition, acoustic Shapiro diagnostics, photon-sphere shift and tabulated surface gravities of Secs.~\ref{sec:rays}--\ref{sec:surface-gravity}. The quantitative ray analysis of the next section focuses on the representative case $a_{\infty}=0.1$ with $\gamma=4/3$ and $5/3$.
 
+            \begin{table}[htb]
+                \centering
+                \caption{Michel sonic point (which coincides with the acoustic horizon), $r_{\mathrm{a}}=r_{\mathrm{c}}$, and the local sound speed $a_{\mathrm{c}}$ there, for selected polytropic indices $\gamma$ and asymptotic sound speeds $a_{\infty}$.}
+                \label{tab:sonic-point}
+                {\small
+                \begin{tabular}{cccc}
+                    \toprule
+                    $\gamma$ & $a_{\infty}$ & $r_{\mathrm{a}}=r_{\mathrm{c}}$ & $a_{\mathrm{c}}$ \\
+                    \midrule
+                    $4/3$ & $0.01$ & $1252$ & $0.014$ \\
+                    $4/3$ & $0.03$ & $141$  & $0.042$ \\
+                    $4/3$ & $0.10$ & $14.1$ & $0.137$ \\
+                    $5/3$ & $0.01$ & $38.1$ & $0.082$ \\
+                    $5/3$ & $0.03$ & $13.1$ & $0.142$ \\
+                    $5/3$ & $0.10$ & $4.38$ & $0.262$ \\
+                    \bottomrule
+                \end{tabular}
+                }
+            \end{table}
+
             All numerical results below rely on the background profiles $\upsilon(r)$, $a(r)$, $n(r)$, obtained from the two Michel integrals -- the baryon flux $r^{2}n\upsilon=\mathrm{const}$ and the Bernoulli relation~\eqref{eq:michel-bernoulli} -- by integrating inward from a large radius, where the subsonic branch is unambiguous ($\upsilon\to 0$, $a\to a_{\infty}$). This removes any branch ambiguity at the sonic point, where the two roots merge. The acoustic photon sphere $r_{\mathrm{aph}}$ is located as the maximum of the capture barrier $U(r)=a^{2}\eta^{rr}/r^{2}$, and the surface gravity is computed from~\eqref{eq:surface-gravity-explicit}, cross-checked against the direct slope $\tfrac{1}{2}\,\mathrm{d}v_{+}/\mathrm{d}r|_{r_{\mathrm{a}}}$: the two agree to better than one percent. As further controls, the scheme reproduces the vacuum limits $v_{\pm}=\pm f$, $\kappa=\tfrac{1}{2}$ and $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\tfrac{3}{2}\varrho^{2}$, and its $a_{\infty}=0.1$ entries from Table~\ref{tab:ainf-scan} match the dedicated tables at that value.
 
     \section{Sound-ray dynamics}\label{sec:rays}
@@ -384,7 +404,7 @@
             \end{equation}
             The conformal factor again drops out; differentiating with respect to $\phi$ produces the second-order Binet equation
             \begin{equation}
-                \frac{\mathrm{d}^{2}\varrho}{\mathrm{d}\phi^{2}} + \varrho = \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{3}{2}\varrho^{2}}_{F_{\mathrm{E}}} + \underbrace{\frac{1}{2b^{2}}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\Bigl(\frac{1}{a^{2}}\Bigr)}_{F_{\mathrm{R}}} - \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{1}{2}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\bigl(\alpha\upsilon^{2}\varrho^{2}\bigr)}_{F_{\mathrm{W}}} .
+                \frac{\mathrm{d}^{2}\varrho}{\mathrm{d}\phi^{2}} + \varrho = \underbrace{\vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{3}{2}\varrho^{2}}_{F_{\mathrm{E}}} \underbrace{+ \frac{1}{2b^{2}}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\Bigl(\frac{1}{a^{2}}\Bigr)}_{F_{\mathrm{R}}} \underbrace{- \vphantom{\frac{\mathrm{d}}{\mathrm{d}\varrho}\Bigl(\frac{1}{a^{2}}\Bigr)}\frac{1}{2}\,\frac{\mathrm{d}}{\mathrm{d}\varrho}\!\bigl(\alpha\upsilon^{2}\varrho^{2}\bigr)}_{F_{\mathrm{W}}} .
                 \label{eq:binet-second-acoustic}
             \end{equation}
             In vacuum ($a\to 1$) this reduces to the standard Schwarzschild relation $\mathrm{d}^{2}\varrho/\mathrm{d}\phi^{2}+\varrho=\frac{3}{2}\varrho^{2}$. In general the right-hand side splits into three competing forces:
@@ -393,12 +413,48 @@
                 \item $F_{\mathrm{R}}$ -- acoustic refraction from gradients of $a(r)$; for a flow that heats toward the centre this contribution focuses rays inward;
                 \item $F_{\mathrm{W}}$ -- the acoustic-wind force from radial accretion; for subsonic flow $\alpha<0$, so this term often opposes gravitational focusing and shifts the capture radius relative to vacuum.
             \end{itemize}
-            This decomposition is the analytic core of the ray analysis, making explicit which effect bends a given ray. Numerical integration of~\eqref{eq:binet-second-acoustic} for Michel flow at $a_{\infty}=0.1$ (Figs.~\ref{fig:phonon-orbits}--\ref{fig:phonon-forces}) shows rays with $b<b_{\mathrm{c}}$ spiralling onto the acoustic horizon, while rays with $b>b_{\mathrm{c}}$ scatter past the acoustic photon sphere $r_{\mathrm{aph}}$. The critical impact parameter $b_{\mathrm{c}}$ is fixed by the maximum of the capture barrier
+            This decomposition is the analytic core of the ray analysis, making explicit which effect bends a given ray. Numerical integration of~\eqref{eq:binet-second-acoustic} for Michel flow at $a_{\infty}=0.1$ shows rays with $b<b_{\mathrm{c}}$ spiralling onto the acoustic horizon, while rays with $b>b_{\mathrm{c}}$ scatter past the acoustic photon sphere $r_{\mathrm{aph}}$. The critical impact parameter $b_{\mathrm{c}}$ is fixed by the maximum of the capture barrier
             \begin{equation}
                 U(r) = a^{2}\eta^{rr}/r^{2} ,
                 \label{eq:capture-barrier}
             \end{equation}
             via the turning condition $1/b^{2}=U(r)$. Along the critical ray the three forces compete: the wind term $-F_{\mathrm{W}}$ dominates near the horizon, refraction $F_{\mathrm{R}}$ is repulsive throughout, and $F_{\mathrm{E}}$ falls off as $r^{-2}$. Their sum $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$ is positive at $r_{\mathrm{a}}$ and changes sign at $r_{0}>r_{\mathrm{aph}}$ (Table~\ref{tab:phonon-forces}). For $\gamma=5/3$ one finds $r_{\mathrm{a}}\approx 4.38$, $r_{\mathrm{aph}}\approx 6.10$ and $b_{\mathrm{c}}\approx 50$; for the colder $\gamma=4/3$ flow the scales inflate to $r_{\mathrm{a}}\approx 14.1$, $r_{\mathrm{aph}}\approx 20.0$ and $b_{\mathrm{c}}\approx 240$.
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics[width=\linewidth]{phonon_orbits_both.pdf}
+                \caption{Sound-ray trajectories in Michel flow at $a_{\infty}=0.1$, for a monatomic gas ($\gamma=5/3$, left) and a radiation-dominated plasma ($\gamma=4/3$, right); note the different spatial scales. Captured rays ($b<b_{\mathrm{c}}$, warm colours from red to yellow) spiral onto the acoustic horizon $r_{\mathrm{a}}$ (crimson dashed circle), while scattered rays ($b>b_{\mathrm{c}}$, cold colours from blue to cyan) are deflected around the acoustic photon sphere $r_{\mathrm{aph}}$ (orange dash-dotted circle); the black disc marks the gravitational horizon $r=1$. Because the colder $\gamma=4/3$ flow turns sonic farther out, it inflates every acoustic scale by a factor of a few ($r_{\mathrm{a}}\approx 14.1$, $r_{\mathrm{aph}}\approx 20.0$, $b_{\mathrm{c}}\approx 240$, against $r_{\mathrm{a}}\approx 4.38$, $r_{\mathrm{aph}}\approx 6.10$, $b_{\mathrm{c}}\approx 50$ for $\gamma=5/3$), so the two panels are geometrically similar but rescaled by the equation of state. Characteristic radii and the critical impact parameter are collected in Table~\ref{tab:phonon-forces}.}
+                \label{fig:phonon-orbits}
+            \end{figure}
+            \begin{figure}[htb]
+                \centering
+                \includegraphics[width=0.78\linewidth]{phonon_forces.pdf}
+                \caption{Force decomposition~\eqref{eq:binet-second-acoustic} along the critical ray $b=b_{\mathrm{c}}$ ($a_{\infty}=0.1$) for $\gamma=4/3$ (top) and $\gamma=5/3$ (bottom): $F_{\mathrm{E}}$ (cyan circles), $F_{\mathrm{R}}$ (red squares), $-F_{\mathrm{W}}$ (teal diamonds) and their sum $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$ (solid black); the horizontal dashed line marks $\Sigma=0$. Vertical dashed lines mark the acoustic horizon $r_{\mathrm{a}}$ (red) and the acoustic photon sphere $r_{\mathrm{aph}}$ (blue). Pointwise values of the three forces and of $\Sigma$ are listed in Table~\ref{tab:phonon-forces}.}
+                \label{fig:phonon-forces}
+            \end{figure}
+            \begin{table}[htb]
+                \centering
+                \caption{Forces $F_{\mathrm{E}}$, $F_{\mathrm{R}}$, $F_{\mathrm{W}}$ from~\eqref{eq:binet-second-acoustic} and their sum $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$, evaluated along the critical ray $b=b_{\mathrm{c}}$ at the acoustic horizon, the acoustic photon sphere and the zero-crossing $r_{0}$ (where $\Sigma=0$); the last column gives $1/b_{\mathrm{c}}^{2}$. $a_{\infty}=0.1$.}
+                \label{tab:phonon-forces}
+                {\small
+                \setlength{\tabcolsep}{4.5pt}
+                \begin{tabular}{llcccccc}
+                    \toprule
+                    $\gamma$ & point & $r$ & $F_{\mathrm{E}}$ & $F_{\mathrm{R}}$ & $F_{\mathrm{W}}$ & $\Sigma$ & $1/b^{2}_{\mathrm{c}}$ \\
+                    \midrule
+                    \multirow{3}{*}{$5/3$}
+                    & $r_{\mathrm{a}}$   & $4.38$  & $+7.81\cdot 10^{-2}$ & $-8.95\cdot 10^{-3}$ & $-2.55\cdot 10^{-1}$ & $+3.24\cdot 10^{-1}$ & \multirow{3}{*}{$4.01\cdot 10^{-4}$} \\
+                    & $r_{\mathrm{aph}}$ & $6.10$  & $+4.04\cdot 10^{-2}$ & $-1.54\cdot 10^{-2}$ & $-1.39\cdot 10^{-1}$ & $+1.64\cdot 10^{-1}$ & \\
+                    & $r_{0}$          & $12.16$ & $+1.01\cdot 10^{-2}$ & $-4.49\cdot 10^{-2}$ & $-3.47\cdot 10^{-2}$ & $0$ & \\
+                    \midrule
+                    \multirow{3}{*}{$4/3$}
+                    & $r_{\mathrm{a}}$   & $14.11$ & $+7.53\cdot 10^{-3}$ & $-2.23\cdot 10^{-3}$ & $-1.15\cdot 10^{-1}$ & $+1.20\cdot 10^{-1}$ & \multirow{3}{*}{$1.73\cdot 10^{-5}$} \\
+                    & $r_{\mathrm{aph}}$ & $19.98$ & $+3.76\cdot 10^{-3}$ & $-3.26\cdot 10^{-3}$ & $-4.96\cdot 10^{-2}$ & $+5.01\cdot 10^{-2}$ & \\
+                    & $r_{0}$          & $43.41$ & $+7.96\cdot 10^{-4}$ & $-6.45\cdot 10^{-3}$ & $-5.65\cdot 10^{-3}$ & $0$ & \\
+                    \bottomrule
+                \end{tabular}
+                }
+            \end{table}
 
         \subsection{Acoustic Shapiro delay}
         
@@ -415,6 +471,36 @@
                 \label{eq:local-slowdown}
             \end{equation}
             which measures how much slower a sound ray is than a vacuum photon at the same radius (for which $|v|=f$). Figure~\ref{fig:shapiro} and Table~\ref{tab:shapiro} show $n_{\pm}$ for Michel flow at $a_{\infty}=0.1$. Near the horizon the branches diverge: the outgoing ray freezes ($v_{+}\to 0$, $n_{+}\sim 10^{3}$), while the ingoing ray is swept inward at finite $n_{-}$. At large radius both branches converge to the geometric-optics plateau $1/a_{\infty}=10$.
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics[width=0.73\linewidth]{shapiro_compare.pdf}
+                \caption{Local slowdown $n_{\pm}=f/|v_{\pm}|$ for outgoing and ingoing rays ($a_{\infty}=0.1$) at $\gamma=4/3$ (top) and $\gamma=5/3$ (bottom): $n_{+}$ is the crimson curve with filled circles, $n_{-}$ the black curve with crosses; the horizontal dashed line marks the geometric-optics plateau $1/a_{\infty}=10$. Near the horizon ($r-r_{\mathrm{a}}=10^{-3}r_{\mathrm{a}}$) the outgoing branch freezes ($n_{+}\to\infty$) while the ingoing branch stays finite, and at large radius both converge to $10$. The insets zoom into the outer zone on a linear scale, and the numerical values at the labelled radii are listed in Table~\ref{tab:shapiro}.}
+                \label{fig:shapiro}
+            \end{figure}
+            \begin{table}[htb]
+                \centering
+                \caption{Integral Shapiro diagnostics for a signal emitted at $r_{1}$ and received at $r_{\mathrm{out}}=200$: local slowdowns $n_{\pm}$ at $r_{1}$, excess delay $\Delta t^{\mathrm{ac}}_{+}$, ratio to vacuum $R=\Delta t^{\mathrm{ac}}_{+}/\Delta t^{\mathrm{vac}}_{+}$, and total-time ratio $\mathcal{T}$. $a_{\infty}=0.1$.}
+                \label{tab:shapiro}
+                {\small
+                \setlength{\tabcolsep}{4.5pt}
+                \begin{tabular}{lccccccc}
+                    \toprule
+                    $\gamma$ & $r_{1}/r_{\mathrm{a}}$ & $r_{1}$ & $n_{+}$ & $n_{-}$ & $\Delta t^{\mathrm{ac}}_{+}$ & $R$ & $\mathcal{T}$ \\
+                    \midrule
+                    \multirow{3}{*}{$4/3$}
+                    & $1{+}10^{-3}$ & $14.1$ & $9.39\cdot 10^{3}$ & $3.73$ & $2813$ & $1035$ & $15.9$ \\
+                    & $1.5$         & $21.2$ & $27.2$             & $4.60$ & $1875$ & $819$  & $11.3$ \\
+                    & $4.0$         & $56.4$ & $11.7$             & $7.12$ & $1357$ & $1062$ & $10.4$ \\
+                    \midrule
+                    \multirow{3}{*}{$5/3$}
+                    & $1{+}10^{-3}$ & $4.39$ & $6.39\cdot 10^{3}$ & $2.04$ & $1902$ & $467$ & $10.5$ \\
+                    & $1.5$         & $6.57$ & $20.3$             & $2.55$ & $1663$ & $465$ & $9.42$ \\
+                    & $4.0$         & $17.5$ & $9.97$             & $4.34$ & $1526$ & $613$ & $9.24$ \\
+                    \bottomrule
+                \end{tabular}
+                }
+            \end{table}
 
             For an outgoing signal emitted at $r_{1}$ and received at $r_{\mathrm{out}}=200$, the excess delay relative to flat light travel,
             \begin{equation}
@@ -436,6 +522,37 @@
                 \label{eq:raph-from-delta}
             \end{equation}
             The two contributions pull in opposite directions: refraction ($\mathrm{d}\beta/\mathrm{d}\varrho|_{\mathrm{ph}}>0$ for a flow that heats inward) tends to shrink the acoustic shadow, while the subsonic wind ($\beta_{\mathrm{ph}}<0$) pushes $r_{\mathrm{aph}}$ outward. For Michel flow at $a_{\infty}=0.1$ the wind wins, giving a substantial outward shift: $r_{\mathrm{aph}}\approx 6.10$ for $\gamma=5/3$ and $r_{\mathrm{aph}}\approx 20.0$ for $\gamma=4/3$, against the vacuum value $1.5$. The shadow is therefore set by $r_{\mathrm{aph}}$ -- equivalently by the barrier maximum of~\eqref{eq:capture-barrier} -- rather than by the horizon itself, and carries a direct imprint of the thermodynamic state of the accretion stream. Remarkably, although both $r_{\mathrm{a}}$ and $r_{\mathrm{aph}}$ vary strongly with $a_{\infty}$, their ratio stays nearly constant across Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan} (right), $r_{\mathrm{aph}}/r_{\mathrm{a}}\approx 1.39$ for $\gamma=5/3$ and $\approx 1.42$ for $\gamma=4/3$: the acoustic photon sphere tracks the horizon at a fixed multiple set mainly by the equation of state. That same horizon also radiates -- its surface gravity and the associated analogue Hawking temperature are the subject of the next section.
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics[width=0.88\linewidth]{ainf_scan.pdf}
+                \caption{Dependence of the acoustic-horizon thermodynamics and lensing geometry on the asymptotic sound speed $a_{\infty}$, for $\gamma=5/3$ (monatomic gas: red, filled circles) and $\gamma=4/3$ (radiation-dominated plasma: black, crosses). (left)~The surface gravity $\kappa$ rises monotonically by more than an order of magnitude as $a_{\infty}$ grows and the sonic point migrates inward toward the strong-field region; the right axis gives the analogue Hawking temperature relative to vacuum, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$. (right)~The photon-sphere ratio $r_{\mathrm{aph}}/r_{\mathrm{a}}$ stays nearly constant over the same range (dotted horizontal lines mark the means, $\approx 1.39$ for $\gamma=5/3$ and $\approx 1.42$ for $\gamma=4/3$), so the acoustic photon sphere tracks the horizon at a fixed multiple set mainly by the equation of state. Tabulated values at $a_{\infty}=0.05,0.10,0.15,0.20$ are listed in Table~\ref{tab:ainf-scan}.}
+                \label{fig:ainf-scan}
+            \end{figure}
+            \begin{table}[htb]
+                \centering
+                \caption{Dependence on the asymptotic sound speed $a_{\infty}$: acoustic horizon $r_{\mathrm{a}}$, acoustic photon sphere $r_{\mathrm{aph}}$, their ratio, surface gravity $\kappa$ from~\eqref{eq:surface-gravity-explicit}, and the temperature ratio $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$. As $a_{\infty}$ grows the sonic point moves inward and the horizon warms by more than an order of magnitude, while $r_{\mathrm{aph}}/r_{\mathrm{a}}$ stays nearly constant (set mainly by $\gamma$).}
+                \label{tab:ainf-scan}
+                {\small
+                \begin{tabular}{ccccccc}
+                    \toprule
+                    $\gamma$ & $a_{\infty}$ & $r_{\mathrm{a}}$ & $r_{\mathrm{aph}}$ & $r_{\mathrm{aph}}/r_{\mathrm{a}}$ & $\kappa$ & $2\kappa$ \\
+                    \midrule
+                    \multirow{4}{*}{$5/3$}
+                    & $0.05$ & $8.13$ & $11.29$ & $1.39$ & $4.10\cdot 10^{-3}$ & $8.20\cdot 10^{-3}$ \\
+                    & $0.10$ & $4.38$ & $6.10$  & $1.39$ & $1.38\cdot 10^{-2}$ & $2.76\cdot 10^{-2}$ \\
+                    & $0.15$ & $3.14$ & $4.37$  & $1.39$ & $2.69\cdot 10^{-2}$ & $5.39\cdot 10^{-2}$ \\
+                    & $0.20$ & $2.51$ & $3.52$  & $1.40$ & $4.19\cdot 10^{-2}$ & $8.39\cdot 10^{-2}$ \\
+                    \midrule
+                    \multirow{4}{*}{$4/3$}
+                    & $0.05$ & $51.67$ & $73.13$ & $1.42$ & $4.82\cdot 10^{-4}$ & $9.64\cdot 10^{-4}$ \\
+                    & $0.10$ & $14.11$ & $19.97$ & $1.42$ & $3.51\cdot 10^{-3}$ & $7.02\cdot 10^{-3}$ \\
+                    & $0.15$ & $7.10$  & $10.06$ & $1.42$ & $1.03\cdot 10^{-2}$ & $2.06\cdot 10^{-2}$ \\
+                    & $0.20$ & $4.60$  & $6.51$  & $1.42$ & $2.06\cdot 10^{-2}$ & $4.13\cdot 10^{-2}$ \\
+                    \bottomrule
+                \end{tabular}
+                }
+            \end{table}
 
     \section{Surface gravity and analogue Hawking temperature}\label{sec:surface-gravity}
     
@@ -482,9 +599,27 @@
                 \frac{T^{\mathrm{ac}}_{\mathrm{H}}}{T^{\mathrm{vac}}_{\mathrm{H}}} = 2\kappa(a,\vartheta,\upsilon) .
                 \label{eq:temperature-ratio}
             \end{equation}
-            A large positive gradient in~\eqref{eq:surface-gravity-explicit} (rapid drop of the sound speed, or strong acceleration of the flow) enhances the radiation relative to vacuum; smooth profiles can suppress it. Unlike the gravitational horizon, whose temperature is fixed by the black-hole mass alone, the acoustic horizon has a ``soft'' thermodynamics controlled by the equation of state and by the asymptotic boundary data. The kinematic definition~\eqref{eq:surface-gravity-def} is standard in analogue gravity~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}, and coincides with the conformally invariant surface gravity of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} specialized to radial flow. Expressing $\kappa$ -- and hence $T_{\mathrm{H}}$ -- directly through the accretion variables at the sonic point follows the approach developed for relativistic accretion discs and for spherical and isothermal flows onto Schwarzschild black holes~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}; here it is carried out for the adiabatic polytropic Michel flow across the $(\gamma,a_{\infty})$ grid.
+            A large positive gradient in~\eqref{eq:surface-gravity-explicit} (rapid drop of the sound speed, or strong acceleration of the flow) enhances the radiation relative to vacuum; smooth profiles can suppress it. Unlike the gravitational horizon, whose temperature is fixed by the black-hole mass alone, the acoustic horizon has a ``soft'' thermodynamics controlled by the equation of state and by the asymptotic boundary data. Table~\ref{tab:surface-gravity} lists $\kappa$ evaluated from~\eqref{eq:surface-gravity-explicit} for Michel flow at $a_{\infty}=0.1$: the analogue horizon is much colder than its vacuum counterpart, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ for $\gamma=5/3$ and $\approx 7.0\cdot 10^{-3}$ for $\gamma=4/3$. The kinematic definition~\eqref{eq:surface-gravity-def} is standard in analogue gravity~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}, and coincides with the conformally invariant surface gravity of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} specialized to radial flow. Expressing $\kappa$ -- and hence $T_{\mathrm{H}}$ -- directly through the accretion variables at the sonic point follows the approach developed for relativistic accretion discs and for spherical and isothermal flows onto Schwarzschild black holes~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}; here it is carried out for the adiabatic polytropic Michel flow across the $(\gamma,a_{\infty})$ grid.
 
-            Table~\ref{tab:surface-gravity} lists $\kappa$ evaluated from~\eqref{eq:surface-gravity-explicit} for Michel flow at $a_{\infty}=0.1$: the analogue horizon is much colder than its vacuum counterpart, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ for $\gamma=5/3$ and $\approx 7.0\cdot 10^{-3}$ for $\gamma=4/3$. The suppression reflects the gentle transonic crossing at the widely displaced sonic point ($r_{\mathrm{a}}\approx 4.4$ and $14.1$, respectively): the softer radiation-dominated flow ($\gamma=4/3$) accelerates more slowly through a sonic point that lies farther out, giving the coldest horizon. This is not a feature of the single case $a_{\infty}=0.1$: varying $a_{\infty}$ from $0.05$ to $0.20$ (Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan}, left) shows $\kappa$ rising monotonically by more than an order of magnitude as the asymptotic gas grows hotter and the sonic point migrates inward toward the strong-field region, so the analogue Hawking temperature is a continuous function of the asymptotic boundary data rather than an isolated value.
+            \begin{table}[htb]
+                \centering
+                \caption{Surface gravity of the acoustic horizon from~\eqref{eq:surface-gravity-explicit} and the analogue Hawking temperature relative to the vacuum Schwarzschild value $\kappa_{\mathrm{Sch}}=1/2$. $a_{\infty}=0.1$; $T_{\mathrm{H}}=\kappa/2\pi$. The last row is the vacuum benchmark $a\to 1$, $r_{\mathrm{a}}\to 1$.}
+                \label{tab:surface-gravity}
+                {\small
+                \begin{tabular}{ccccc}
+                    \toprule
+                    $\gamma$ & $r_{\mathrm{a}}=r_{\mathrm{c}}$ & $\kappa$ & $T_{\mathrm{H}}=\kappa/2\pi$ & $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$ \\
+                    \midrule
+                    $5/3$    & $4.38$  & $1.38\cdot 10^{-2}$ & $2.20\cdot 10^{-3}$ & $2.76\cdot 10^{-2}$ \\
+                    $4/3$    & $14.11$ & $3.51\cdot 10^{-3}$ & $5.58\cdot 10^{-4}$ & $7.02\cdot 10^{-3}$ \\
+                    \midrule
+                    vacuum     & $1$     & $1/2$               & $1/4\pi$            & $1$ \\
+                    \bottomrule
+                \end{tabular}
+                }
+            \end{table}
+
+            The suppression reflects the gentle transonic crossing at the widely displaced sonic point ($r_{\mathrm{a}}\approx 4.4$ and $14.1$, respectively): the softer radiation-dominated flow ($\gamma=4/3$) accelerates more slowly through a sonic point that lies farther out, giving the coldest horizon. This is not a feature of the single case $a_{\infty}=0.1$: varying $a_{\infty}$ from $0.05$ to $0.20$ (Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan}, left) shows $\kappa$ rising monotonically by more than an order of magnitude as the asymptotic gas grows hotter and the sonic point migrates inward toward the strong-field region, so the analogue Hawking temperature is a continuous function of the asymptotic boundary data rather than an isolated value.
 
             These tabulated values (Tables~\ref{tab:surface-gravity}--\ref{tab:ainf-scan}) quantify the very scale that governs the acoustic ringdown of this background. Chaverra \emph{et al.}~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015} found that for a widely separated sonic horizon ($r_{\mathrm{a}}\gg 1$) the quasi-normal frequencies of the Michel flow scale approximately with $\kappa$, so the entries of Table~\ref{tab:ainf-scan} set the natural frequency unit for that regime. This link can be made quantitative. Comparing the tabulated fundamental frequencies $s=\sigma+i\omega$ with the surface gravity computed here (their normalization is twice the one adopted here, $\kappa_{\mathrm{Ch}}=2\kappa$, and the present $\kappa$ reproduces the tabulated values to better than $0.5\%$ over $r_{\mathrm{a}}=3$--$30$) yields the convention-independent ratios $\mathrm{Re}\,s\approx-0.77\,\kappa$ and $\mathrm{Im}\,s\approx(0.42+1.21\,\ell)\,\kappa$ for $\ell\ge 1$, nearly constant for $r_{\mathrm{a}}\gtrsim 10$. The tabulated $\kappa$ therefore fixes both the decay rate and the oscillation frequency of the Michel ringdown; for example, at $a_{\infty}=0.1$ ($\kappa=3.5\cdot10^{-3}$, $r_{\mathrm{a}}\approx14$) the dipolar ($\ell=1$) acoustic mode sits at $s\,r_{\mathrm{g}}\approx(-2.7+5.7\,i)\cdot10^{-3}$.
 
@@ -496,7 +631,7 @@
                 \label{eq:acoustic-horizon-area}
             \end{equation}
             which is the natural conformal generalization of the classical horizon-area formula~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. A Bekenstein--Hawking ``entropy'' $S_{\mathrm{a}}\propto\mathcal{A}_{\mathrm{a}}$ can be written by analogy, but the analogy must be sharply limited. The temperature~\eqref{eq:hawking-temperature} is physically robust: it follows from the kinematics of the wave equation~\eqref{eq:wave-equation} on the effective metric and requires no dynamical equations for $\mathcal{G}_{\mu\nu}$ itself. By contrast, $\mathcal{A}_{\mathrm{a}}$ and any Clausius relation $\delta Q=T_{\mathrm{H}}\delta S_{\mathrm{a}}$ lack fundamental status here, because $\mathcal{G}_{\mu\nu}$ does not obey the Einstein equations and $\mathcal{A}_{\mathrm{a}}$ need not be monotonic. The acoustic horizon therefore reproduces Hawking \emph{radiation} as a kinematic effect, but not the full thermodynamics of black holes.
-    
+
     \section{Conclusions}
         The relativistic acoustic geometry of perfect-fluid Michel accretion onto a Schwarzschild black hole has been constructed, and high-frequency sound has been analysed as null geodesics of the effective metric $\mathcal{G}_{\mu\nu}$. Starting from the linearized continuity--Euler--energy system, the wave equation for the velocity potential identifies $\mathcal{G}^{\mu\nu}=\Omega^{2}(g^{\mu\nu}+\alpha u^{\mu}u^{\nu})$ with $\alpha=1-a^{-2}$. On the Michel background the acoustic event horizon coincides exactly with the sonic critical point, $r_{\mathrm{a}}=r_{\mathrm{c}}$, while the stationary-limit surface remains distinct and bounds a genuine acoustic ergoregion. The sonic radii themselves recover the standard Michel/Shapiro--Teukolsky values; the geometric-optics phenomenology developed here -- force decomposition, Shapiro diagnostics, photon-sphere shift and tabulated surface gravities -- complements the existing wave-equation and QNM analyses of the same background.
 
@@ -508,138 +643,6 @@
 
     \section*{Acknowledgments}
         This research has made use of NASA's Astrophysics Data System. The author is an independent researcher and carried out this work without institutional funding.
-
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=\linewidth]{phonon_orbits_both.pdf}
-    \caption{Sound-ray trajectories in Michel flow at $a_{\infty}=0.1$, for a monatomic gas ($\gamma=5/3$, left) and a radiation-dominated plasma ($\gamma=4/3$, right); note the different spatial scales. Captured rays ($b<b_{\mathrm{c}}$, warm colours from red to yellow) spiral onto the acoustic horizon $r_{\mathrm{a}}$ (crimson dashed circle), while scattered rays ($b>b_{\mathrm{c}}$, cold colours from blue to cyan) are deflected around the acoustic photon sphere $r_{\mathrm{aph}}$ (orange dash-dotted circle); the black disc marks the gravitational horizon $r=1$. Because the colder $\gamma=4/3$ flow turns sonic farther out, it inflates every acoustic scale by a factor of a few ($r_{\mathrm{a}}\approx 14.1$, $r_{\mathrm{aph}}\approx 20.0$, $b_{\mathrm{c}}\approx 240$, against $r_{\mathrm{a}}\approx 4.38$, $r_{\mathrm{aph}}\approx 6.10$, $b_{\mathrm{c}}\approx 50$ for $\gamma=5/3$), so the two panels are geometrically similar but rescaled by the equation of state. Characteristic radii and the critical impact parameter are collected in Table~\ref{tab:phonon-forces}.}
-    \label{fig:phonon-orbits}
-\end{figure}
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.78\linewidth]{phonon_forces.pdf}
-    \caption{Force decomposition~\eqref{eq:binet-second-acoustic} along the critical ray $b=b_{\mathrm{c}}$ ($a_{\infty}=0.1$) for $\gamma=4/3$ (top) and $\gamma=5/3$ (bottom): $F_{\mathrm{E}}$ (cyan circles), $F_{\mathrm{R}}$ (red squares), $-F_{\mathrm{W}}$ (teal diamonds) and their sum $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$ (solid black); the horizontal dashed line marks $\Sigma=0$. Vertical dashed lines mark the acoustic horizon $r_{\mathrm{a}}$ (red) and the acoustic photon sphere $r_{\mathrm{aph}}$ (blue). Pointwise values of the three forces and of $\Sigma$ are listed in Table~\ref{tab:phonon-forces}.}
-    \label{fig:phonon-forces}
-\end{figure}
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.73\linewidth]{shapiro_compare.pdf}
-    \caption{Local slowdown $n_{\pm}=f/|v_{\pm}|$ for outgoing and ingoing rays ($a_{\infty}=0.1$) at $\gamma=4/3$ (top) and $\gamma=5/3$ (bottom): $n_{+}$ is the crimson curve with filled circles, $n_{-}$ the black curve with crosses; the horizontal dashed line marks the geometric-optics plateau $1/a_{\infty}=10$. Near the horizon ($r-r_{\mathrm{a}}=10^{-3}r_{\mathrm{a}}$) the outgoing branch freezes ($n_{+}\to\infty$) while the ingoing branch stays finite, and at large radius both converge to $10$. The insets zoom into the outer zone on a linear scale, and the numerical values at the labelled radii are listed in Table~\ref{tab:shapiro}.}
-    \label{fig:shapiro}
-\end{figure}
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=0.88\linewidth]{ainf_scan.pdf}
-    \caption{Dependence of the acoustic-horizon thermodynamics and lensing geometry on the asymptotic sound speed $a_{\infty}$, for $\gamma=5/3$ (monatomic gas: red, filled circles) and $\gamma=4/3$ (radiation-dominated plasma: black, crosses). (left)~The surface gravity $\kappa$ rises monotonically by more than an order of magnitude as $a_{\infty}$ grows and the sonic point migrates inward toward the strong-field region; the right axis gives the analogue Hawking temperature relative to vacuum, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$. (right)~The photon-sphere ratio $r_{\mathrm{aph}}/r_{\mathrm{a}}$ stays nearly constant over the same range (dotted horizontal lines mark the means, $\approx 1.39$ for $\gamma=5/3$ and $\approx 1.42$ for $\gamma=4/3$), so the acoustic photon sphere tracks the horizon at a fixed multiple set mainly by the equation of state. Tabulated values at $a_{\infty}=0.05,0.10,0.15,0.20$ are listed in Table~\ref{tab:ainf-scan}.}
-    \label{fig:ainf-scan}
-\end{figure}
-
-\begin{table}[p]
-    \centering
-    \caption{Michel sonic point (which coincides with the acoustic horizon), $r_{\mathrm{a}}=r_{\mathrm{c}}$, and the local sound speed $a_{\mathrm{c}}$ there, for selected polytropic indices $\gamma$ and asymptotic sound speeds $a_{\infty}$.}
-    \label{tab:sonic-point}
-    {\small
-    \begin{tabular}{cccc}
-        \toprule
-        $\gamma$ & $a_{\infty}$ & $r_{\mathrm{a}}=r_{\mathrm{c}}$ & $a_{\mathrm{c}}$ \\
-        \midrule
-        $4/3$ & $0.01$ & $1252$ & $0.014$ \\
-        $4/3$ & $0.03$ & $141$  & $0.042$ \\
-        $4/3$ & $0.10$ & $14.1$ & $0.137$ \\
-        $5/3$ & $0.01$ & $38.1$ & $0.082$ \\
-        $5/3$ & $0.03$ & $13.1$ & $0.142$ \\
-        $5/3$ & $0.10$ & $4.38$ & $0.262$ \\
-        \bottomrule
-    \end{tabular}
-    }
-\end{table}
-\begin{table}[p]
-    \centering
-    \caption{Forces $F_{\mathrm{E}}$, $F_{\mathrm{R}}$, $F_{\mathrm{W}}$ from~\eqref{eq:binet-second-acoustic} and their sum $\Sigma=F_{\mathrm{E}}+F_{\mathrm{R}}-F_{\mathrm{W}}$, evaluated along the critical ray $b=b_{\mathrm{c}}$ at the acoustic horizon, the acoustic photon sphere and the zero-crossing $r_{0}$ (where $\Sigma=0$); the last column gives $1/b_{\mathrm{c}}^{2}$. $a_{\infty}=0.1$.}
-    \label{tab:phonon-forces}
-    {\small
-    \setlength{\tabcolsep}{4.5pt}
-    \begin{tabular}{llcccccc}
-        \toprule
-        $\gamma$ & point & $r$ & $F_{\mathrm{E}}$ & $F_{\mathrm{R}}$ & $F_{\mathrm{W}}$ & $\Sigma$ & $1/b^{2}_{\mathrm{c}}$ \\
-        \midrule
-        \multirow{3}{*}{$5/3$}
-        & $r_{\mathrm{a}}$   & $4.38$  & $+7.81\cdot 10^{-2}$ & $-8.95\cdot 10^{-3}$ & $-2.55\cdot 10^{-1}$ & $+3.24\cdot 10^{-1}$ & \multirow{3}{*}{$4.01\cdot 10^{-4}$} \\
-        & $r_{\mathrm{aph}}$ & $6.10$  & $+4.04\cdot 10^{-2}$ & $-1.54\cdot 10^{-2}$ & $-1.39\cdot 10^{-1}$ & $+1.64\cdot 10^{-1}$ & \\
-        & $r_{0}$          & $12.16$ & $+1.01\cdot 10^{-2}$ & $-4.49\cdot 10^{-2}$ & $-3.47\cdot 10^{-2}$ & $0$ & \\
-        \midrule
-        \multirow{3}{*}{$4/3$}
-        & $r_{\mathrm{a}}$   & $14.11$ & $+7.53\cdot 10^{-3}$ & $-2.23\cdot 10^{-3}$ & $-1.15\cdot 10^{-1}$ & $+1.20\cdot 10^{-1}$ & \multirow{3}{*}{$1.73\cdot 10^{-5}$} \\
-        & $r_{\mathrm{aph}}$ & $19.98$ & $+3.76\cdot 10^{-3}$ & $-3.26\cdot 10^{-3}$ & $-4.96\cdot 10^{-2}$ & $+5.01\cdot 10^{-2}$ & \\
-        & $r_{0}$          & $43.41$ & $+7.96\cdot 10^{-4}$ & $-6.45\cdot 10^{-3}$ & $-5.65\cdot 10^{-3}$ & $0$ & \\
-        \bottomrule
-    \end{tabular}
-    }
-\end{table}
-\begin{table}[p]
-    \centering
-    \caption{Integral Shapiro diagnostics for a signal emitted at $r_{1}$ and received at $r_{\mathrm{out}}=200$: local slowdowns $n_{\pm}$ at $r_{1}$, excess delay $\Delta t^{\mathrm{ac}}_{+}$, ratio to vacuum $R=\Delta t^{\mathrm{ac}}_{+}/\Delta t^{\mathrm{vac}}_{+}$, and total-time ratio $\mathcal{T}$. $a_{\infty}=0.1$.}
-    \label{tab:shapiro}
-    {\small
-    \setlength{\tabcolsep}{4.5pt}
-    \begin{tabular}{lccccccc}
-        \toprule
-        $\gamma$ & $r_{1}/r_{\mathrm{a}}$ & $r_{1}$ & $n_{+}$ & $n_{-}$ & $\Delta t^{\mathrm{ac}}_{+}$ & $R$ & $\mathcal{T}$ \\
-        \midrule
-        \multirow{3}{*}{$4/3$}
-        & $1{+}10^{-3}$ & $14.1$ & $9.39\cdot 10^{3}$ & $3.73$ & $2813$ & $1035$ & $15.9$ \\
-        & $1.5$         & $21.2$ & $27.2$             & $4.60$ & $1875$ & $819$  & $11.3$ \\
-        & $4.0$         & $56.4$ & $11.7$             & $7.12$ & $1357$ & $1062$ & $10.4$ \\
-        \midrule
-        \multirow{3}{*}{$5/3$}
-        & $1{+}10^{-3}$ & $4.39$ & $6.39\cdot 10^{3}$ & $2.04$ & $1902$ & $467$ & $10.5$ \\
-        & $1.5$         & $6.57$ & $20.3$             & $2.55$ & $1663$ & $465$ & $9.42$ \\
-        & $4.0$         & $17.5$ & $9.97$             & $4.34$ & $1526$ & $613$ & $9.24$ \\
-        \bottomrule
-    \end{tabular}
-    }
-\end{table}
-\begin{table}[p]
-    \centering
-    \caption{Surface gravity of the acoustic horizon from~\eqref{eq:surface-gravity-explicit} and the analogue Hawking temperature relative to the vacuum Schwarzschild value $\kappa_{\mathrm{Sch}}=1/2$. $a_{\infty}=0.1$; $T_{\mathrm{H}}=\kappa/2\pi$. The last row is the vacuum benchmark $a\to 1$, $r_{\mathrm{a}}\to 1$.}
-    \label{tab:surface-gravity}
-    {\small
-    \begin{tabular}{ccccc}
-        \toprule
-        $\gamma$ & $r_{\mathrm{a}}=r_{\mathrm{c}}$ & $\kappa$ & $T_{\mathrm{H}}=\kappa/2\pi$ & $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$ \\
-        \midrule
-        $5/3$    & $4.38$  & $1.38\cdot 10^{-2}$ & $2.20\cdot 10^{-3}$ & $2.76\cdot 10^{-2}$ \\
-        $4/3$    & $14.11$ & $3.51\cdot 10^{-3}$ & $5.58\cdot 10^{-4}$ & $7.02\cdot 10^{-3}$ \\
-        \midrule
-        vacuum     & $1$     & $1/2$               & $1/4\pi$            & $1$ \\
-        \bottomrule
-    \end{tabular}
-    }
-\end{table}
-\begin{table}[p]
-    \centering
-    \caption{Dependence on the asymptotic sound speed $a_{\infty}$: acoustic horizon $r_{\mathrm{a}}$, acoustic photon sphere $r_{\mathrm{aph}}$, their ratio, surface gravity $\kappa$ from~\eqref{eq:surface-gravity-explicit}, and the temperature ratio $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}$. As $a_{\infty}$ grows the sonic point moves inward and the horizon warms by more than an order of magnitude, while $r_{\mathrm{aph}}/r_{\mathrm{a}}$ stays nearly constant (set mainly by $\gamma$).}
-    \label{tab:ainf-scan}
-    {\small
-    \begin{tabular}{ccccccc}
-        \toprule
-        $\gamma$ & $a_{\infty}$ & $r_{\mathrm{a}}$ & $r_{\mathrm{aph}}$ & $r_{\mathrm{aph}}/r_{\mathrm{a}}$ & $\kappa$ & $2\kappa$ \\
-        \midrule
-        \multirow{4}{*}{$5/3$}
-        & $0.05$ & $8.13$ & $11.29$ & $1.39$ & $4.10\cdot 10^{-3}$ & $8.20\cdot 10^{-3}$ \\
-        & $0.10$ & $4.38$ & $6.10$  & $1.39$ & $1.38\cdot 10^{-2}$ & $2.76\cdot 10^{-2}$ \\
-        & $0.15$ & $3.14$ & $4.37$  & $1.39$ & $2.69\cdot 10^{-2}$ & $5.39\cdot 10^{-2}$ \\
-        & $0.20$ & $2.51$ & $3.52$  & $1.40$ & $4.19\cdot 10^{-2}$ & $8.39\cdot 10^{-2}$ \\
-        \midrule
-        \multirow{4}{*}{$4/3$}
-        & $0.05$ & $51.67$ & $73.13$ & $1.42$ & $4.82\cdot 10^{-4}$ & $9.64\cdot 10^{-4}$ \\
-        & $0.10$ & $14.11$ & $19.97$ & $1.42$ & $3.51\cdot 10^{-3}$ & $7.02\cdot 10^{-3}$ \\
-        & $0.15$ & $7.10$  & $10.06$ & $1.42$ & $1.03\cdot 10^{-2}$ & $2.06\cdot 10^{-2}$ \\
-        & $0.20$ & $4.60$  & $6.51$  & $1.42$ & $2.06\cdot 10^{-2}$ & $4.13\cdot 10^{-2}$ \\
-        \bottomrule
-    \end{tabular}
-    }
-\end{table}
 
 \bibliographystyle{elsarticle-num}
 \bibliography{article}
