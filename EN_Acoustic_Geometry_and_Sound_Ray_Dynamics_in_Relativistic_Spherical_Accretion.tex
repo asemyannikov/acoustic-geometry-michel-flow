@@ -439,56 +439,64 @@
 
     \section{Surface gravity and analogue Hawking temperature}\label{sec:surface-gravity}
     
-        The acoustic horizon $r=r_{\mathrm{a}}$, defined by $\eta^{rr}(r_{\mathrm{a}})=0$, is the necessary kinematic ingredient for an analogue of Hawking radiation, provided the background remains stationary and adiabatic. In the quantum field theory on the effective spacetime, the horizon leads to spontaneous creation of phonon pairs: one mode escapes to spatial infinity as a thermal flux, while its partner (of negative Killing norm) crosses the horizon and is absorbed.
+        \subsection{Kinematic definition and connection to quasinormal modes}
 
-        The rate of exponential peeling of outgoing null rays near the horizon is measured by the surface gravity $\kappa$. Starting from the outgoing coordinate speed~\eqref{eq:coordinate-velocity},
-        \begin{equation}
-            v_{+}(r) = \frac{a - \beta\vartheta\upsilon}{f - \beta\upsilon^{2}}\, f^{2} ,
-            \label{eq:v-plus}
-        \end{equation}
-        which is conformally invariant and vanishes at $r_{\mathrm{a}}$, one introduces the acoustic tortoise coordinate $\mathrm{d}r_{*}=\mathrm{d}r/v_{+}(r)$. Near the horizon, $v_{+}(r)\approx (\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}(r-r_{\mathrm{a}})$, so
-        \begin{equation}
-            r_{*} \approx \frac{1}{(\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}}\,\ln(r-r_{\mathrm{a}}) .
-            \label{eq:tortoise-near-horizon}
-        \end{equation}
-        Matching this to the canonical form $r_{*}\sim(2\kappa)^{-1}\ln(r-r_{\mathrm{a}})$ that underlies the thermal Kruskal spectrum yields the invariant definition
-        \begin{equation}
-            \kappa \equiv \frac{1}{2}\,\frac{\mathrm{d}v_{+}}{\mathrm{d}r}\Big|_{r=r_{\mathrm{a}}} .
-            \label{eq:surface-gravity-def}
-        \end{equation}
-        Because the numerator of~\eqref{eq:v-plus} vanishes on the horizon, differentiation retains only the derivative of that numerator and produces the closed expression (used for the tabulated values, and cross-checked against the direct slope of $v_{+}$)
-        \begin{equation}
-            \kappa = \frac{f^{2}(r_{\mathrm{a}})} {2\bigl[f(r_{\mathrm{a}})-\beta(r_{\mathrm{a}})\upsilon^{2}(r_{\mathrm{a}})\bigr]} \,\frac{\mathrm{d}}{\mathrm{d}r}\bigl(a-\beta\vartheta\upsilon\bigr)\Big|_{r=r_{\mathrm{a}}} .
-            \label{eq:surface-gravity-explicit}
-        \end{equation}
-        Surface gravity is therefore controlled not by the values of the flow parameters themselves, but by the \emph{rate} at which the stream crosses the sonic point: the steeper the numerator of the freeze-out condition, the hotter the horizon. In the vacuum limit $a\to 1$, $\beta\to 0$, $r_{\mathrm{a}}\to 1$ one recovers $\kappa=\frac{1}{2}(\mathrm{d}f/\mathrm{d}r)|_{r=1}=\frac{1}{2}$, which in dimensionful units is precisely the Schwarzschild value $\kappa_{\mathrm{Sch}}=c^{2}/(2r_{\mathrm{g}})$.
+            The acoustic horizon $r=r_{\mathrm{a}}$, defined by $\eta^{rr}(r_{\mathrm{a}})=0$, is the necessary kinematic ingredient for an analogue of Hawking radiation, provided the background remains stationary and adiabatic. In the quantum field theory on the effective spacetime, the horizon leads to spontaneous creation of phonon pairs: one mode escapes to spatial infinity as a thermal flux, while its partner (of negative Killing norm) crosses the horizon and is absorbed.
 
-        The exponential redshift of outgoing modes converts the asymptotic vacuum into a thermal phonon bath at
-        \begin{equation}
-            T_{\mathrm{H}} = \frac{\kappa}{2\pi} ,
-            \label{eq:hawking-temperature}
-        \end{equation}
-        or, restoring dimensions ($r$ and $t$ measured in units of $r_{\mathrm{g}}$ and $r_{\mathrm{g}}/c$),
-        \begin{equation}
-            k_{\mathrm{B}}T_{\mathrm{H}} = \frac{\hbar c}{2\pi r_{\mathrm{g}}}\,\kappa .
-            \label{eq:hawking-temperature-dim}
-        \end{equation}
-        For $\kappa=1/2$ this reproduces the classical Hawking temperature $k_{\mathrm{B}}T_{\mathrm{H}}=\hbar c^{3}/(8\pi GM)$. In the acoustic case $T_{\mathrm{H}}$ carries information about the accretion thermodynamics: it is set by the gradients of $a(r)$ and by the flow profile $(\vartheta,\upsilon)$ at the sonic point. The spectrum remains thermal in the adiabatic approximation, when background quantities vary slowly on the thermal phonon wavelength $\lambda_{\mathrm{T}}\sim\kappa^{-1}$; sharp gradients produce departures from the Planckian form.
+            The rate of exponential peeling of outgoing null rays near the horizon is measured by the surface gravity $\kappa$. Starting from the outgoing coordinate speed~\eqref{eq:coordinate-velocity},
+            \begin{equation}
+                v_{+}(r) = \frac{a - \beta\vartheta\upsilon}{f - \beta\upsilon^{2}}\, f^{2} ,
+                \label{eq:v-plus}
+            \end{equation}
+            which is conformally invariant and vanishes at $r_{\mathrm{a}}$, one introduces the acoustic tortoise coordinate $\mathrm{d}r_{*}=\mathrm{d}r/v_{+}(r)$. Near the horizon, $v_{+}(r)\approx (\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}(r-r_{\mathrm{a}})$, so
+            \begin{equation}
+                r_{*} \approx \frac{1}{(\mathrm{d}v_{+}/\mathrm{d}r)|_{r_{\mathrm{a}}}}\,\ln(r-r_{\mathrm{a}}) .
+                \label{eq:tortoise-near-horizon}
+            \end{equation}
+            Matching this to the canonical form $r_{*}\sim(2\kappa)^{-1}\ln(r-r_{\mathrm{a}})$ that underlies the thermal Kruskal spectrum yields the invariant definition
+            \begin{equation}
+                \kappa \equiv \frac{1}{2}\,\frac{\mathrm{d}v_{+}}{\mathrm{d}r}\Big|_{r=r_{\mathrm{a}}} .
+                \label{eq:surface-gravity-def}
+            \end{equation}
+            Because the numerator of~\eqref{eq:v-plus} vanishes on the horizon, differentiation retains only the derivative of that numerator and produces the closed expression (used for the tabulated values, and cross-checked against the direct slope of $v_{+}$)
+            \begin{equation}
+                \kappa = \frac{f^{2}(r_{\mathrm{a}})} {2\bigl[f(r_{\mathrm{a}})-\beta(r_{\mathrm{a}})\upsilon^{2}(r_{\mathrm{a}})\bigr]} \,\frac{\mathrm{d}}{\mathrm{d}r}\bigl(a-\beta\vartheta\upsilon\bigr)\Big|_{r=r_{\mathrm{a}}} .
+                \label{eq:surface-gravity-explicit}
+            \end{equation}
+            Surface gravity is therefore controlled not by the values of the flow parameters themselves, but by the \emph{rate} at which the stream crosses the sonic point: the steeper the numerator of the freeze-out condition, the hotter the horizon. In the vacuum limit $a\to 1$, $\beta\to 0$, $r_{\mathrm{a}}\to 1$ one recovers $\kappa=\frac{1}{2}(\mathrm{d}f/\mathrm{d}r)|_{r=1}=\frac{1}{2}$, which in dimensionful units is precisely the Schwarzschild value $\kappa_{\mathrm{Sch}}=c^{2}/(2r_{\mathrm{g}})$.
 
-        Relative to the vacuum Schwarzschild surface gravity $\kappa_{\mathrm{Sch}}=1/2$,
-        \begin{equation}
-            \frac{T^{\mathrm{ac}}_{\mathrm{H}}}{T^{\mathrm{vac}}_{\mathrm{H}}} = 2\kappa(a,\vartheta,\upsilon) .
-            \label{eq:temperature-ratio}
-        \end{equation}
-        A large positive gradient in~\eqref{eq:surface-gravity-explicit} (rapid drop of the sound speed, or strong acceleration of the flow) enhances the radiation relative to vacuum; smooth profiles can suppress it. Unlike the gravitational horizon, whose temperature is fixed by the black-hole mass alone, the acoustic horizon has a ``soft'' thermodynamics controlled by the equation of state and by the asymptotic boundary data. Table~\ref{tab:surface-gravity} lists $\kappa$ evaluated from~\eqref{eq:surface-gravity-explicit} for Michel flow at $a_{\infty}=0.1$: the analogue horizon is much colder than its vacuum counterpart, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ for $\gamma=5/3$ and $\approx 7.0\cdot 10^{-3}$ for $\gamma=4/3$. The kinematic definition~\eqref{eq:surface-gravity-def} is standard in analogue gravity~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}, and coincides with the conformally invariant surface gravity of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} specialized to radial flow. Expressing $\kappa$ -- and hence $T_{\mathrm{H}}$ -- directly through the accretion variables at the sonic point follows the approach developed for relativistic accretion discs and for spherical and isothermal flows onto Schwarzschild black holes~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}; here it is carried out for the adiabatic polytropic Michel flow across the $(\gamma,a_{\infty})$ grid. These tabulated values (Tables~\ref{tab:surface-gravity}--\ref{tab:ainf-scan}) quantify the very scale that governs the acoustic ringdown of this background: Chaverra \emph{et al.}~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015} found that for a widely separated sonic horizon ($r_{\mathrm{a}}\gg 1$) the quasi-normal frequencies of the Michel flow scale approximately with $\kappa$, so the entries of Table~\ref{tab:ainf-scan} set the natural frequency unit for that regime. This link can be made quantitative. Comparing the tabulated fundamental frequencies $s=\sigma+i\omega$ with the surface gravity computed here (their normalization is twice the one adopted here, $\kappa_{\mathrm{Ch}}=2\kappa$, and the present $\kappa$ reproduces the tabulated values to better than $0.5\%$ over $r_{\mathrm{a}}=3$--$30$) yields the convention-independent ratios $\mathrm{Re}\,s\approx-0.77\,\kappa$ and $\mathrm{Im}\,s\approx(0.42+1.21\,\ell)\,\kappa$ for $\ell\ge 1$, nearly constant for $r_{\mathrm{a}}\gtrsim 10$. The tabulated $\kappa$ therefore fixes both the decay rate and the oscillation frequency of the Michel ringdown; for example, at $a_{\infty}=0.1$ ($\kappa=3.5\cdot10^{-3}$, $r_{\mathrm{a}}\approx14$) the dipolar ($\ell=1$) acoustic mode sits at $s\,r_{\mathrm{g}}\approx(-2.7+5.7\,i)\cdot10^{-3}$. The suppression reflects the gentle transonic crossing at the widely displaced sonic point ($r_{\mathrm{a}}\approx 4.4$ and $14.1$, respectively): the softer radiation-dominated flow ($\gamma=4/3$) accelerates more slowly through a sonic point that lies farther out, giving the coldest horizon. This is not a feature of the single case $a_{\infty}=0.1$: varying $a_{\infty}$ from $0.05$ to $0.20$ (Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan}, left) shows $\kappa$ rising monotonically by more than an order of magnitude as the asymptotic gas grows hotter and the sonic point migrates inward toward the strong-field region, so the analogue Hawking temperature is a continuous function of the asymptotic boundary data rather than an isolated value.
+            The exponential redshift of outgoing modes converts the asymptotic vacuum into a thermal phonon bath at
+            \begin{equation}
+                T_{\mathrm{H}} = \frac{\kappa}{2\pi} ,
+                \label{eq:hawking-temperature}
+            \end{equation}
+            or, restoring dimensions ($r$ and $t$ measured in units of $r_{\mathrm{g}}$ and $r_{\mathrm{g}}/c$),
+            \begin{equation}
+                k_{\mathrm{B}}T_{\mathrm{H}} = \frac{\hbar c}{2\pi r_{\mathrm{g}}}\,\kappa .
+                \label{eq:hawking-temperature-dim}
+            \end{equation}
+            For $\kappa=1/2$ this reproduces the classical Hawking temperature $k_{\mathrm{B}}T_{\mathrm{H}}=\hbar c^{3}/(8\pi GM)$. In the acoustic case $T_{\mathrm{H}}$ carries information about the accretion thermodynamics: it is set by the gradients of $a(r)$ and by the flow profile $(\vartheta,\upsilon)$ at the sonic point. The spectrum remains thermal in the adiabatic approximation, when background quantities vary slowly on the thermal phonon wavelength $\lambda_{\mathrm{T}}\sim\kappa^{-1}$; sharp gradients produce departures from the Planckian form.
 
-        A formal area in the effective geometry may also be assigned to the horizon. The angular part of $\mathcal{G}_{\mu\nu}$ induced on the sphere $r=r_{\mathrm{a}}$ gives
-        \begin{equation}
-            \mathcal{A}_{\mathrm{a}} = \oint\sqrt{\mathcal{G}_{\theta\theta}\mathcal{G}_{\phi\phi}}\,\mathrm{d}\theta\,\mathrm{d}\phi = \frac{4\pi r^{2}_{\mathrm{a}}}{\Omega^{2}(r_{\mathrm{a}})} ,
-            \label{eq:acoustic-horizon-area}
-        \end{equation}
-        which is the natural conformal generalization of the classical horizon-area formula~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. A Bekenstein--Hawking ``entropy'' $S_{\mathrm{a}}\propto\mathcal{A}_{\mathrm{a}}$ can be written by analogy, but the analogy must be sharply limited. The temperature~\eqref{eq:hawking-temperature} is physically robust: it follows from the kinematics of the wave equation~\eqref{eq:wave-equation} on the effective metric and requires no dynamical equations for $\mathcal{G}_{\mu\nu}$ itself. By contrast, $\mathcal{A}_{\mathrm{a}}$ and any Clausius relation $\delta Q=T_{\mathrm{H}}\delta S_{\mathrm{a}}$ lack fundamental status here, because $\mathcal{G}_{\mu\nu}$ does not obey the Einstein equations and $\mathcal{A}_{\mathrm{a}}$ need not be monotonic. The acoustic horizon therefore reproduces Hawking \emph{radiation} as a kinematic effect, but not the full thermodynamics of black holes.
+            Relative to the vacuum Schwarzschild surface gravity $\kappa_{\mathrm{Sch}}=1/2$,
+            \begin{equation}
+                \frac{T^{\mathrm{ac}}_{\mathrm{H}}}{T^{\mathrm{vac}}_{\mathrm{H}}} = 2\kappa(a,\vartheta,\upsilon) .
+                \label{eq:temperature-ratio}
+            \end{equation}
+            A large positive gradient in~\eqref{eq:surface-gravity-explicit} (rapid drop of the sound speed, or strong acceleration of the flow) enhances the radiation relative to vacuum; smooth profiles can suppress it. Unlike the gravitational horizon, whose temperature is fixed by the black-hole mass alone, the acoustic horizon has a ``soft'' thermodynamics controlled by the equation of state and by the asymptotic boundary data. The kinematic definition~\eqref{eq:surface-gravity-def} is standard in analogue gravity~\cite{UnruhWG_ExperimentalBlackHoleEvaporation_1981, VisserM_AcousticBlackHolesHorizonsErgospheresAndHawkingRadiation_1998}, and coincides with the conformally invariant surface gravity of Bili{\'c}~\cite{BilicN_RelativisticAcousticGeometry_1999} specialized to radial flow. Expressing $\kappa$ -- and hence $T_{\mathrm{H}}$ -- directly through the accretion variables at the sonic point follows the approach developed for relativistic accretion discs and for spherical and isothermal flows onto Schwarzschild black holes~\cite{DasTK_BilicN_DasguptaS_BlackHoleAccretionDiscAsAnAnalogueGravityModel_2007, TarafdarP_DasTK_GeometricConfigurationOfMatterForAxiallySymmetricBackgroundFlowsInTheSchwarzschildMetric_2013, ShaikhMA_FirdousiI_DasTK_RelativisticSonicGeometryForIsothermalAccretionInTheSchwarzschildMetric_2017}; here it is carried out for the adiabatic polytropic Michel flow across the $(\gamma,a_{\infty})$ grid.
 
+            Table~\ref{tab:surface-gravity} lists $\kappa$ evaluated from~\eqref{eq:surface-gravity-explicit} for Michel flow at $a_{\infty}=0.1$: the analogue horizon is much colder than its vacuum counterpart, $2\kappa=T^{\mathrm{ac}}_{\mathrm{H}}/T^{\mathrm{vac}}_{\mathrm{H}}\approx 2.8\cdot 10^{-2}$ for $\gamma=5/3$ and $\approx 7.0\cdot 10^{-3}$ for $\gamma=4/3$. The suppression reflects the gentle transonic crossing at the widely displaced sonic point ($r_{\mathrm{a}}\approx 4.4$ and $14.1$, respectively): the softer radiation-dominated flow ($\gamma=4/3$) accelerates more slowly through a sonic point that lies farther out, giving the coldest horizon. This is not a feature of the single case $a_{\infty}=0.1$: varying $a_{\infty}$ from $0.05$ to $0.20$ (Table~\ref{tab:ainf-scan} and Fig.~\ref{fig:ainf-scan}, left) shows $\kappa$ rising monotonically by more than an order of magnitude as the asymptotic gas grows hotter and the sonic point migrates inward toward the strong-field region, so the analogue Hawking temperature is a continuous function of the asymptotic boundary data rather than an isolated value.
+
+            These tabulated values (Tables~\ref{tab:surface-gravity}--\ref{tab:ainf-scan}) quantify the very scale that governs the acoustic ringdown of this background. Chaverra \emph{et al.}~\cite{ChaverraE_MoralesMD_SarbachO_QuasinormalAcousticOscillationsInTheMichelFlow_2015} found that for a widely separated sonic horizon ($r_{\mathrm{a}}\gg 1$) the quasi-normal frequencies of the Michel flow scale approximately with $\kappa$, so the entries of Table~\ref{tab:ainf-scan} set the natural frequency unit for that regime. This link can be made quantitative. Comparing the tabulated fundamental frequencies $s=\sigma+i\omega$ with the surface gravity computed here (their normalization is twice the one adopted here, $\kappa_{\mathrm{Ch}}=2\kappa$, and the present $\kappa$ reproduces the tabulated values to better than $0.5\%$ over $r_{\mathrm{a}}=3$--$30$) yields the convention-independent ratios $\mathrm{Re}\,s\approx-0.77\,\kappa$ and $\mathrm{Im}\,s\approx(0.42+1.21\,\ell)\,\kappa$ for $\ell\ge 1$, nearly constant for $r_{\mathrm{a}}\gtrsim 10$. The tabulated $\kappa$ therefore fixes both the decay rate and the oscillation frequency of the Michel ringdown; for example, at $a_{\infty}=0.1$ ($\kappa=3.5\cdot10^{-3}$, $r_{\mathrm{a}}\approx14$) the dipolar ($\ell=1$) acoustic mode sits at $s\,r_{\mathrm{g}}\approx(-2.7+5.7\,i)\cdot10^{-3}$.
+
+        \subsection{Formal horizon area and thermodynamic limits}
+
+            A formal area in the effective geometry may also be assigned to the horizon. The angular part of $\mathcal{G}_{\mu\nu}$ induced on the sphere $r=r_{\mathrm{a}}$ gives
+            \begin{equation}
+                \mathcal{A}_{\mathrm{a}} = \oint\sqrt{\mathcal{G}_{\theta\theta}\mathcal{G}_{\phi\phi}}\,\mathrm{d}\theta\,\mathrm{d}\phi = \frac{4\pi r^{2}_{\mathrm{a}}}{\Omega^{2}(r_{\mathrm{a}})} ,
+                \label{eq:acoustic-horizon-area}
+            \end{equation}
+            which is the natural conformal generalization of the classical horizon-area formula~\cite{ShapiroSL_TeukolskySA_BlackHolesWhiteDwarfsAndNeutronStarsThePhysicsOfCompactObjects_2004}. A Bekenstein--Hawking ``entropy'' $S_{\mathrm{a}}\propto\mathcal{A}_{\mathrm{a}}$ can be written by analogy, but the analogy must be sharply limited. The temperature~\eqref{eq:hawking-temperature} is physically robust: it follows from the kinematics of the wave equation~\eqref{eq:wave-equation} on the effective metric and requires no dynamical equations for $\mathcal{G}_{\mu\nu}$ itself. By contrast, $\mathcal{A}_{\mathrm{a}}$ and any Clausius relation $\delta Q=T_{\mathrm{H}}\delta S_{\mathrm{a}}$ lack fundamental status here, because $\mathcal{G}_{\mu\nu}$ does not obey the Einstein equations and $\mathcal{A}_{\mathrm{a}}$ need not be monotonic. The acoustic horizon therefore reproduces Hawking \emph{radiation} as a kinematic effect, but not the full thermodynamics of black holes.
+    
     \section{Conclusions}
         The relativistic acoustic geometry of perfect-fluid Michel accretion onto a Schwarzschild black hole has been constructed, and high-frequency sound has been analysed as null geodesics of the effective metric $\mathcal{G}_{\mu\nu}$. Starting from the linearized continuity--Euler--energy system, the wave equation for the velocity potential identifies $\mathcal{G}^{\mu\nu}=\Omega^{2}(g^{\mu\nu}+\alpha u^{\mu}u^{\nu})$ with $\alpha=1-a^{-2}$. On the Michel background the acoustic event horizon coincides exactly with the sonic critical point, $r_{\mathrm{a}}=r_{\mathrm{c}}$, while the stationary-limit surface remains distinct and bounds a genuine acoustic ergoregion. The sonic radii themselves recover the standard Michel/Shapiro--Teukolsky values; the geometric-optics phenomenology developed here -- force decomposition, Shapiro diagnostics, photon-sphere shift and tabulated surface gravities -- complements the existing wave-equation and QNM analyses of the same background.
 
